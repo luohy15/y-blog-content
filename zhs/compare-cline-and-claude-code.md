@@ -14,7 +14,7 @@
 
 从 Cline（第三方）到 Claude Code（官方）的演进遵循了经典的技术采用模式，即社区创新推动官方开发，最终产生了更精炼、高效且官方支持的解决方案。
 
-## 1. JSON 内容与请求结构对比
+## 1. 请求结构对比
 
 ### Cline 请求示例
 {{< json-display >}} https://cdn.luohy15.com/cline-request-example.json {{< /json-display >}}

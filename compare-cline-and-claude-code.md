@@ -14,7 +14,7 @@ The comparison reveals two distinct philosophies:
 
 The evolution from Cline (3rd party) to Claude Code (official) follows the classic technology adoption pattern where community innovation drives official development, resulting in a more refined, efficient, and officially supported solution.
 
-## 1. JSON Content & Request Structure Comparison
+## 1. Request Structure Comparison
 
 ### Cline Request Example
 {{< json-display >}} https://cdn.luohy15.com/cline-request-example.json {{< /json-display >}}

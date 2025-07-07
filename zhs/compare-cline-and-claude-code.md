@@ -17,10 +17,10 @@
 ## 1. JSON 内容与请求结构对比
 
 ### Cline 请求示例
-{{< json-display >}}https://cdn.luohy15.com/cline-request-example.json{{< /json-display >}}
+{{< json-display >}} https://cdn.luohy15.com/cline-request-example.json {{< /json-display >}}
 
 ### Claude Code 请求示例  
-{{< json-display >}}https://cdn.luohy15.com/claude-code-request-example.json{{< /json-display >}}
+{{< json-display >}} https://cdn.luohy15.com/claude-code-request-example.json {{< /json-display >}}
 
 **关键差异**：Cline 将工具直接嵌入系统提示中，而 Claude Code 将工具实现为独立的函数调用——这是现代 AI 系统更推荐的方法。
 

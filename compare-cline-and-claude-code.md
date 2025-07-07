@@ -17,10 +17,10 @@ The evolution from Cline (3rd party) to Claude Code (official) follows the class
 ## 1. JSON Content & Request Structure Comparison
 
 ### Cline Request Example
-{{< json-display >}}https://cdn.luohy15.com/cline-request-example.json{{< /json-display >}}
+{{< json-display >}} https://cdn.luohy15.com/cline-request-example.json {{< /json-display >}}
 
 ### Claude Code Request Example  
-{{< json-display >}}https://cdn.luohy15.com/claude-code-request-example.json{{< /json-display >}}
+{{< json-display >}} https://cdn.luohy15.com/claude-code-request-example.json {{< /json-display >}}
 
 **Key Difference**: Cline embeds tools directly in the system prompt, while Claude Code implements tools as separate function calls - the more recommended approach for modern AI systems.
 

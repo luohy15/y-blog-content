@@ -39,5 +39,6 @@ jobs:
             --exclude ".obsidian/*" \
             --exclude "logseq/*" \
             --exclude ".gitignore" \
+            --exclude ".claude/*" \
             --delete
           

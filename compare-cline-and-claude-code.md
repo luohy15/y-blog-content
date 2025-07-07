@@ -2,7 +2,7 @@
 
 A detailed comparison between Cline (3rd party) and Claude Code (official Anthropic CLI) at the request level, analyzing their architectures, capabilities, and design philosophies.
 
-> Note: This article was primarily generated using Cline (an AI coding assistant) + OpenRouter with Claude Sonnet 4.
+> **Important Note**: This article was primarily generated using Cline (an AI coding assistant) + OpenRouter with Claude Sonnet 4. As AI-generated content, the technical comparisons and details have not been thoroughly verified and may contain inaccuracies. Please verify specific claims and features independently before making decisions based on this comparison.
 
 ## Conclusion
 
@@ -64,10 +64,27 @@ The evolution from Cline (3rd party) to Claude Code (official) follows the class
 
 | Aspect | Cline | Claude Code |
 |--------|--------|-------------|
-| **Execution Model** | Sequential with mandatory user approval | More autonomous with optional oversight |
-| **Tool Usage** | One tool per message, wait for confirmation | Multiple tools per message, parallel execution |
-| **Error Handling** | Immediate user feedback required | Built-in error recovery |
-| **Workflow** | Interactive, step-by-step | Batch operations with final review |
+| **Execution Model** | Sequential with user approval (auto-approval available) | Autonomous with selective approval for risky operations |
+| **Auto-Approval** | Optional auto-approval mode for trusted operations | Automatic execution for safe operations, approval required for risky commands |
+| **Tool Usage** | One tool per message, wait for confirmation (unless auto-approved) | Multiple tools per message, selective approval prompts |
+| **Error Handling** | Immediate user feedback required | Built-in error recovery with user intervention when needed |
+| **Workflow** | Interactive, step-by-step with optional automation | Batch operations with targeted approval points |
+
+### Approval System Comparison
+
+#### Cline: User-Controlled Approval
+- **Default**: Requires explicit approval for every tool use
+- **Auto-Approval**: Optional mode to automatically approve low-risk operations
+- **Risk Assessment**: Built-in categorization of operations by risk level
+- **User Control**: Full control over approval settings and overrides
+- **Granularity**: Per-tool approval with detailed operation descriptions
+
+#### Claude Code: Selective Risk-Based Approval
+- **Default**: Autonomous execution for most operations
+- **Risk-Based**: Automatic approval prompts for potentially harmful commands
+- **Command Categories**: File modifications, system operations, network access may require approval
+- **Efficiency Focus**: Minimizes interruptions while maintaining safety
+- **Batch Approval**: Can group related risky operations for single approval
 
 ### Operating Modes
 
@@ -77,10 +94,12 @@ The evolution from Cline (3rd party) to Claude Code (official) follows the class
 - **Transition**: User-controlled mode switching
 - **Benefits**: Clear separation of planning vs execution
 
-#### Claude Code: Single Mode
-- **Unified Mode**: Planning and execution integrated
+#### Claude Code: Plan Mode System
+- **Plan Mode**: Strategic planning and task breakdown
+- **Default Mode**: Tool execution and implementation
+- **Transition**: `exit_plan_mode` tool for mode switching
 - **Task Tool**: Separate agent launches for complex operations
-- **Benefits**: Streamlined workflow, less mode management
+- **Benefits**: Flexible planning with efficient execution workflows
 
 ## 5. Task Management Philosophy
 
@@ -148,8 +167,8 @@ The evolution from Cline (3rd party) to Claude Code (official) follows the class
 
 | Aspect | Cline | Claude Code |
 |--------|--------|-------------|
-| **IDE Integration** | Deep VSCode integration | CLI-based, editor agnostic |
-| **Environment Awareness** | Real-time VSCode state monitoring | Filesystem-based awareness |
+| **IDE Integration** | Deep VSCode integration as extension | VSCode integration + CLI-based, editor agnostic |
+| **Environment Awareness** | Real-time VSCode state monitoring | Filesystem-based awareness + VSCode context |
 | **Process Management** | Active terminal tracking | Persistent shell sessions |
 
 ## 9. Security & Safety Models

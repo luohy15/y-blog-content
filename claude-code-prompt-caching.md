@@ -2,16 +2,15 @@
 
 ## Background
 
-Claude Code is Anthropic's official CLI tool that allows developers to interact with Claude AI models directly from the terminal. While powerful, it can be expensive when processing large codebases repeatedly due to token costs. This is where prompt caching becomes valuable - not for performance improvements, but for significant cost reduction.
+Claude Code is Anthropic's official CLI tool that allows developers to interact with Claude AI models directly from the terminal. However, there are scenarios where developers might want to use Claude Code with OpenRouter instead of Anthropic's official API - whether for cost optimization, accessing different model providers, leveraging regional availability, or taking advantage of specific routing features.
 
-[claude-code-router](https://github.com/musistudio/claude-code-router) by musistudio provides a bridge between Claude Code and OpenRouter, allowing users to leverage alternative models and routing capabilities. Building on this foundation, I added prompt caching support to reduce token costs when working with large contexts.
+[claude-code-router](https://github.com/musistudio/claude-code-router) by musistudio provides a bridge between Claude Code and OpenRouter, allowing users to leverage alternative models and routing capabilities. While this opens up new possibilities, it can still be expensive when processing large codebases repeatedly due to token costs. Building on this foundation, I added prompt caching support to reduce token costs when working with large contexts.
 
 ## What is Prompt Caching?
 
 Prompt caching allows models to cache portions of the input prompt that remain consistent across requests. Instead of re-processing the same context (like file contents or system prompts) every time, the model can reuse the cached computation, resulting in:
 
 - **Significant cost savings** - Cached tokens typically cost much less than fresh tokens
-- **Reduced billing** - Only new/changed portions of the prompt are charged at full rate
 
 ## Implementation
 
@@ -21,7 +20,6 @@ Here's how the implementation works:
 
 1. **Identify cacheable content** - System prompts, file contents, and other static context
 2. **Add cache_control markers** - Mark appropriate content blocks for caching
-3. **Handle cache misses** - Gracefully fall back when cache is unavailable
 
 ```javascript
 // Example of adding cache_control to message content
@@ -46,8 +44,7 @@ Here's how the implementation works:
 With prompt caching enabled through the router:
 
 - **Cost reduction** - Large codebase contexts can be cached, reducing repeat token costs
-- **Seamless workflow** - Works transparently with existing Claude Code workflows  
-- **Flexibility** - Can be toggled on/off as needed
+- **Seamless workflow** - Works transparently with existing Claude Code workflows
 
 ## Usage
 

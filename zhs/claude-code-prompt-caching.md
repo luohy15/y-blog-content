@@ -2,16 +2,15 @@
 
 ## 背景
 
-Claude Code 是 Anthropic 的官方 CLI 工具，允许开发者直接从终端与 Claude AI 模型交互。虽然功能强大，但在重复处理大型代码库时，由于 token 成本，它可能会很昂贵。这就是提示缓存发挥作用的地方——不是为了性能改进，而是为了显著降低成本。
+Claude Code 是 Anthropic 的官方 CLI 工具，允许开发者直接从终端与 Claude AI 模型交互。然而，在某些场景下，开发者可能希望通过 OpenRouter 而非 Anthropic 官方 API 来使用 Claude Code——无论是为了成本优化、访问不同的模型提供商、利用区域可用性，还是使用特定的路由功能。
 
-musistudio 开发的 [claude-code-router](https://github.com/musistudio/claude-code-router) 在 Claude Code 和 OpenRouter 之间提供了桥梁，允许用户利用替代模型和路由功能。在此基础上，我添加了提示缓存支持，以减少处理大型上下文时的 token 成本。
+musistudio 开发的 [claude-code-router](https://github.com/musistudio/claude-code-router) 在 Claude Code 和 OpenRouter 之间提供了桥梁，允许用户利用替代模型和路由功能。虽然这开辟了新的可能性，但在重复处理大型代码库时，由于 token 成本，它仍然可能很昂贵。在此基础上，我添加了提示缓存支持，以减少处理大型上下文时的 token 成本。
 
 ## 什么是提示缓存？
 
 提示缓存允许模型缓存在请求之间保持一致的输入提示部分。不必每次都重新处理相同的上下文（如文件内容或系统提示），模型可以重用缓存的计算，从而带来：
 
 - **显著的成本节省** - 缓存的 token 通常比新鲜 token 成本低得多
-- **减少计费** - 只有提示的新/更改部分按全价收费
 
 ## 实现
 
@@ -21,7 +20,6 @@ musistudio 开发的 [claude-code-router](https://github.com/musistudio/claude-c
 
 1. **识别可缓存内容** - 系统提示、文件内容和其他静态上下文
 2. **添加 cache_control 标记** - 为适当的内容块标记缓存
-3. **处理缓存未命中** - 当缓存不可用时优雅地回退
 
 ```javascript
 // 向消息内容添加 cache_control 的示例
@@ -46,8 +44,7 @@ musistudio 开发的 [claude-code-router](https://github.com/musistudio/claude-c
 通过路由器启用提示缓存后：
 
 - **成本降低** - 大型代码库上下文可以被缓存，减少重复 token 成本
-- **无缝集成** - 与现有 Claude Code 工作流程透明配合  
-- **灵活性** - 可以根据需要开启/关闭
+- **无缝集成** - 与现有 Claude Code 工作流程透明配合
 
 ## 使用方法
 

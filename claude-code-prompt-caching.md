@@ -1,5 +1,7 @@
 # Adding Prompt Caching Support to Claude Code with OpenRouter
 
+> **Note**: As of Claude Code version 1.0.15+, prompt caching is now natively supported. This post documents the work done to add prompt caching via OpenRouter before native support was available and serves primarily as a development log.
+
 ## Background
 
 Claude Code is Anthropic's official CLI tool that allows developers to interact with Claude AI models directly from the terminal. However, there are scenarios where developers might want to use Claude Code with OpenRouter instead of Anthropic's official API - whether for cost optimization, accessing different model providers, leveraging regional availability, or taking advantage of specific routing features.
@@ -56,6 +58,6 @@ To use Claude Code with prompt caching via OpenRouter:
 
 ## Conclusion
 
-Adding prompt caching support to Claude Code through the router provides a practical way to reduce costs when working with large codebases. While the performance impact is minimal, the cost savings can be substantial for developers who frequently iterate on the same projects.
+Adding prompt caching support to Claude Code through the router provided a practical way to reduce costs when working with large codebases before native support was available. While the performance impact was minimal, the cost savings could be substantial for developers who frequently iterated on the same projects.
 
-This enhancement demonstrates how community tools can extend official applications in valuable ways, making powerful AI development tools more accessible and cost-effective.
+This work demonstrated how community tools could extend official applications in valuable ways. With native prompt caching support now available in Claude Code 1.0.15+, users can directly benefit from these optimizations without requiring additional routing tools.

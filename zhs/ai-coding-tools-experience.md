@@ -15,8 +15,8 @@
 
 - 24年11月 开始接触到 OpenRouter，在榜一看到 Cline 和 Claude 3.5 Sonnet（Cline 一直都是 OpenRouter 应用榜一），开始尝试使用，逐渐成为深度用户
 - 24年12月 也尝试使用了 Cursor，开了会员，但是当时在一个 FastAPI 项目中 Cursor 竟然给我生成 Flask 的代码，我感觉很蠢直接卸载了；后续还尝试装过一次，也没有使用起来，主要有两个原因
-	- 1. 更喜欢 Cline 这种可以手动管理上下文的工具
-	- 2. VS Code 使用习惯了（我甚至一直用 VS Code 写 Java 项目）
+	- 更喜欢 Cline 这种可以手动管理上下文的工具
+	- VS Code 使用习惯了（我甚至一直用 VS Code 写 Java 项目）
 - 25年1月 直连 OpenRouter 开始报错（区域限制），所以 [找到了 Cloudflare AI Gateway](https://luohy15.com/zhs/cline-openrouter-fix/)  来代理，可以继续稳定使用了，尝试给 Cline 项目提交过支持自定义 OpenRouter Base Url 的代码，没有被合并，所以我一直都在用自定义的版本（另一个方面来看，这避免了这个方案大范围使用，使得这个方案没有被封禁保持可用）
 - 25年1月 开始使用 Cline 构建 y-cli 的代码
 - 25年2月 Claude Sonnet 从 3.5 升级到 3.7

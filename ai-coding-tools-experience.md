@@ -16,8 +16,8 @@ From the GitHub heatmap, you can clearly see the boost that coding tools have gi
 
 - Nov 2024 Started getting familiar with OpenRouter, saw Cline and Claude 3.5 Sonnet at the top of the leaderboard (Cline has always been the top application on OpenRouter), began trying to use them and gradually became a power user
 - Dec 2024 Also tried using Cursor, got a membership, but at that time Cursor actually generated Flask code for me in a FastAPI project, which I found quite stupid so I uninstalled it immediately; later tried installing it once more but didn't really use it, mainly for two reasons:
-	- 1. I prefer tools like Cline that allow manual context management
-	- 2. I'm used to VS Code (I even use VS Code for Java projects)
+	- I prefer tools like Cline that allow manual context management
+	- I'm used to VS Code (I even use VS Code for Java projects)
 - Jan 2025 Direct connection to OpenRouter started erroring (regional restrictions), so I [found Cloudflare AI Gateway](https://luohy15.com/cline-openrouter-fix/) as a proxy, which allowed me to continue using it stably. I tried submitting code to the Cline project to support custom OpenRouter Base URLs, but it wasn't merged, so I've been using a custom version (from another perspective, this prevented the solution from being widely used, keeping it available without being banned)
 - Jan 2025 Started using Cline to build y-cli code
 - Feb 2025 Claude Sonnet Upgraded from 3.5 to 3.7

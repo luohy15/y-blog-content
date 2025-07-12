@@ -30,9 +30,9 @@ The evolution from Cline (3rd party) to Claude Code (official) follows the class
 |--------|--------|-------------|
 | **Developer** | 3rd party community | Official Anthropic |
 | **Development Pattern** | Classic tech evolution: 3rd party fills gap → gets good enough → original author builds official version | Native implementation with full API access |
-| **Integration** | External VSCode extension | Official CLI tool |
-| **API Access** | Limited to public APIs | Full platform integration |
-| **Long-term Support** | Community-dependent | Official product roadmap |
+| **Integration** | External VSCode extension | Official CLI tool + VSCode extension with diff viewer, auto-context sharing |
+| **Support Model** | Community-driven features, community-dependent maintenance | Official product with native IDE integration, official roadmap |
+| **Chat API Format** | Multiple provider support (OpenAI, Anthropic, etc.) to meet community needs | Anthropic format only as company project (can use OpenRouter via [y-router](https://github.com/luohy15/y-router)) |
 
 ## 3. Tool Architecture & Capabilities
 
@@ -167,8 +167,8 @@ The evolution from Cline (3rd party) to Claude Code (official) follows the class
 
 | Aspect | Cline | Claude Code |
 |--------|--------|-------------|
-| **IDE Integration** | Deep VSCode integration as extension | VSCode integration + CLI-based, editor agnostic |
-| **Environment Awareness** | Real-time VSCode state monitoring | Filesystem-based awareness + VSCode context |
+| **IDE Integration** | Deep VSCode extension integration | Official VSCode integration with diff viewer, auto-context sharing, diagnostics + CLI-based, editor agnostic |
+| **Environment Awareness** | Real-time VSCode state monitoring | Auto-sharing of current selection/tab, diagnostic errors, filesystem awareness |
 | **Process Management** | Active terminal tracking | Persistent shell sessions |
 
 ## 9. Security & Safety Models

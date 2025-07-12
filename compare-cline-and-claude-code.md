@@ -64,11 +64,11 @@ The evolution from Cline (3rd party) to Claude Code (official) follows the class
 
 | Aspect | Cline | Claude Code |
 |--------|--------|-------------|
-| **Execution Model** | Sequential with user approval (auto-approval available) | Autonomous with selective approval for risky operations |
-| **Auto-Approval** | Optional auto-approval mode for trusted operations | Automatic execution for safe operations, approval required for risky commands |
-| **Tool Usage** | One tool per message, wait for confirmation (unless auto-approved) | Multiple tools per message, selective approval prompts |
+| **Execution Model** | Sequential with user approval (auto-approval available) | Permission mode-based execution with configurable safety levels |
+| **Permission Control** | Optional auto-approval mode for trusted operations | Four permission modes: default, acceptEdits, plan, bypassPermissions |
+| **Tool Usage** | One tool per message, wait for confirmation (unless auto-approved) | Multiple tools per message, mode-dependent approval behavior |
 | **Error Handling** | Immediate user feedback required | Built-in error recovery with user intervention when needed |
-| **Workflow** | Interactive, step-by-step with optional automation | Batch operations with targeted approval points |
+| **Workflow** | Interactive, step-by-step with optional automation | Configurable workflow based on selected permission mode |
 
 ### Approval System Comparison
 
@@ -79,8 +79,8 @@ The evolution from Cline (3rd party) to Claude Code (official) follows the class
 - **User Control**: Full control over approval settings and overrides
 - **Granularity**: Per-tool approval with detailed operation descriptions
 
-#### Claude Code: Selective Risk-Based Approval
-- **Default**: Autonomous execution for most operations
+#### Claude Code: Permission Modes & Risk-Based Approval
+- **Permission Modes**: Four modes - `default` (prompts on first tool use), `acceptEdits` (auto-accepts file edits), `plan` (read-only analysis), `bypassPermissions` (skips all prompts) ([see official docs](https://docs.anthropic.com/en/docs/claude-code/iam#permission-modes))
 - **Risk-Based**: Automatic approval prompts for potentially harmful commands
 - **Command Categories**: File modifications, system operations, network access may require approval
 - **Efficiency Focus**: Minimizes interruptions while maintaining safety

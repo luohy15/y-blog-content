@@ -1,6 +1,6 @@
 # Building y-router: A Bridge Between Claude Code and OpenRouter
 
-As a long-time Cline user, I was naturally curious when Claude Code suddenly gained popularity. However, I couldn't get started due to access limitations until I discovered the claude-code-router project, which finally let me experience it—and it was indeed impressive.
+As a long-time Cline user, I was naturally curious when Claude Code suddenly gained popularity. However, I couldn't get started due to access limitations until I discovered the [claude-code-router](https://egoist.dev/claude-code-free) project, which finally let me experience it—and it was indeed impressive.
 
 The only issue was that claude-code-router required running locally, but I had previous experience migrating MCP servers from local to Cloudflare, so I quickly decided to move this router to the cloud as well.
 

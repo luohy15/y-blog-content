@@ -8,7 +8,7 @@ I graduated from Tsinghua University in 2019, majoring in Computer Science and T
 
 I was a former engineer at Lingxin Intelligence (acquired by Zhipu AI), Alibaba Cloud, and BizSeer Technology.
 
-I am now joining a fintech company, focusing on cloud infrastructure for realtime financial data and LLM-based data processing.
+I'm now an engineer at [Alpha Vantage](https://www.alphavantage.co/), focusing on cloud infrastructure for realtime financial data and LLM-based data processing.
 
 ## Find me at
 

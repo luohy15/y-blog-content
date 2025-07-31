@@ -16,6 +16,8 @@
 
 为了方便使用，我加了个简单的[说明页面](https://cc.yovy.app/)。
 
+项目代码也放到了 [GitHub](https://github.com/luohy15/y-router) 上。
+
 ## 技术原理
 
 y-router 本质上就是一个 API 翻译层，工作原理很简单：接受 Anthropic 格式的请求，转换成 OpenAI 格式发给 OpenRouter，然后把结果再转换回 Anthropic 格式返回。支持流式和非流式两种响应模式。

@@ -14,7 +14,9 @@ Before diving in, I did two things to familiarize myself with the project:
 
 With that foundation, the actual development was straightforward. I shared the relevant claude-code-router code with Claude Code and had it help me rewrite it for Cloudflare Workers. Honestly, the process went much smoother than expected—everything was working within a single evening.
 
-To make it easy for others to use, I added a simple [documentation page](https://cc.yovy.app/) and deployed it.
+To make it easy for others to use, I added a simple [documentation page](https://cc.yovy.app/).
+
+The project code is also available on [GitHub](https://github.com/luohy15/y-router).
 
 ## Technical Overview
 

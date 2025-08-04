@@ -24,6 +24,7 @@
 - 25年5月 因为在 y-gui 的 README 中提到了 DeepWiki, Devin 送了我 $500 的 open source grant credit，尝试使用了几次，不习惯每个 session 都 commit 的模式（更习惯根据自己想法决定什么时候 commit），就没有继续使用
 - 25年6月 Claude Sonnet 从 3.7 升级到 4
 - 25年7月 [开始使用 Claude Code](https://luohy15.com/zhs/compare-cline-and-claude-code/)，用不到一晚上就跑通了 [y-router](https://luohy15.com/zhs/building-y-router/) 的逻辑，最近开销已经超过 Cline
+- 25年8月 因为7月份使用超过了 $200，决定开始使用 Claude Max Plan 配合 AWS 中继服务。我在使用这个项目：[claude-relay-service](https://github.com/Wei-Shaw/claude-relay-service)
 
 ## 主要用来做什么
 

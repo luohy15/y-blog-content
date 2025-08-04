@@ -25,6 +25,7 @@ From the GitHub heatmap, you can clearly see the boost that coding tools have gi
 - May 2025 Because I mentioned DeepWiki in y-gui's README, Devin gave me $500 open source grant credit. I tried using it a few times but wasn't used to the mode of committing every session (I prefer deciding when to commit based on my own thoughts), so I didn't continue using it
 - Jun 2025 Claude Sonnet Upgraded from 3.7 to 4
 - Jul 2025 [Started using Claude Code](https://luohy15.com/compare-cline-and-claude-code/), got [y-router](https://luohy15.com/building-y-router/) logic working in less than one evening, recent expenses have already exceeded Cline
+- Aug 2025 Because I used more than $200 in July, I decided to start using Claude Max Plan with relay service in AWS. I'm using this project: [claude-relay-service](https://github.com/Wei-Shaw/claude-relay-service)
 
 ## What I Mainly Use It For
 

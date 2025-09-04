@@ -10,7 +10,7 @@ tags: [knowledge/technical/workspace, macos]
 
 - **Enpass** - Password manager
 - **Google Chrome** - Web browser
-- **Claude Code** - AI coding assistant, see [AI coding tools experience](ai-coding-tools-experience) 
+- **Claude Code** - AI coding assistant, see [AI coding tools experience](https://luohy15.com/ai-coding-tools-experience/) 
 - **VS Code** - Code editor
 - **Obsidian** - Another editor, keep using it because of the Remotely Save plugin
 - **Ghostty** - Terminal emulator

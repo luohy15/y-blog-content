@@ -1,4 +1,10 @@
-# 构建 y-router：连接 Claude Code 和 OpenRouter 的桥梁
+---
+created: 2025-07-12
+updated: 2025-07-12
+tags: [work/personal/y, claude-code, open-router]
+---
+
+# 构建 y-router：连接 Claude Code 和 OpenRouter
 
 作为一个长期的 Cline 用户，最近看到 Claude Code 突然火了起来，自然想要尝试一下。但是受到访问限制，一直没能用上，直到发现了 [claude-code-router](https://egoist.dev/claude-code-free) 这个项目才终于体验了一把，确实感觉很不错。
 

@@ -1,3 +1,9 @@
+---
+created: 2025-07-12
+updated: 2025-07-12
+tags: [work/personal/y, claude-code, open-router]
+---
+
 # Building y-router: A Bridge Between Claude Code and OpenRouter
 
 As a long-time Cline user, I was naturally curious when Claude Code suddenly gained popularity. However, I couldn't get started due to access limitations until I discovered the [claude-code-router](https://egoist.dev/claude-code-free) project, which finally let me experience it—and it was indeed impressive.

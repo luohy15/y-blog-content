@@ -1,3 +1,9 @@
+---
+created: 2024-11-01
+updated: 2025-09-04
+tags: [knowledge/technical/ai-coding, cline, claude-code, cursor]
+---
+
 # My AI Coding Tools Experience Record
 
 ## My Background
@@ -14,18 +20,18 @@ Besides development, I've also been involved in some DevOps/CI/CD projects and h
 
 From the GitHub heatmap, you can clearly see the boost that coding tools have given me - I've become more passionate about writing code (because feedback is much faster).
 
-- Nov 2024 Started getting familiar with OpenRouter, saw Cline and Claude 3.5 Sonnet at the top of the leaderboard (Cline has always been the top application on OpenRouter), began trying to use them and gradually became a power user
+- Aug 2025 Because I used more than $200 in July, I decided to start using Claude Max Plan with relay service in AWS. I'm using this project: [claude-relay-service](https://github.com/Wei-Shaw/claude-relay-service)
+- Jul 2025 [Started using Claude Code](https://luohy15.com/compare-cline-and-claude-code/), got [y-router](https://luohy15.com/building-y-router/) logic working in less than one evening, recent expenses have already exceeded Cline
+- Jun 2025 Claude Sonnet Upgraded from 3.7 to 4
+- May 2025 Because I mentioned DeepWiki in y-gui's README, Devin gave me $500 open source grant credit. I tried using it a few times but wasn't used to the mode of committing every session (I prefer deciding when to commit based on my own thoughts), so I didn't continue using it
+- Mar 2025 Started using Cline to build y-gui code
+- Feb 2025 Claude Sonnet Upgraded from 3.5 to 3.7
+- Jan 2025 Started using Cline to build y-cli code
+- Jan 2025 Direct connection to OpenRouter started erroring (regional restrictions), so I [found Cloudflare AI Gateway](https://luohy15.com/cline-openrouter-fix/) as a proxy, which allowed me to continue using it stably. I tried submitting code to the Cline project to support custom OpenRouter Base URLs, but it wasn't merged, so I've been using a custom version (from another perspective, this prevented the solution from being widely used, keeping it available without being banned)
 - Dec 2024 Also tried using Cursor, got a membership, but at that time Cursor actually generated Flask code for me in a FastAPI project, which I found quite stupid so I uninstalled it immediately; later tried installing it once more but didn't really use it, mainly for two reasons:
 	- I prefer tools like Cline that allow manual context management
 	- I'm used to VS Code (I even use VS Code for Java projects)
-- Jan 2025 Direct connection to OpenRouter started erroring (regional restrictions), so I [found Cloudflare AI Gateway](https://luohy15.com/cline-openrouter-fix/) as a proxy, which allowed me to continue using it stably. I tried submitting code to the Cline project to support custom OpenRouter Base URLs, but it wasn't merged, so I've been using a custom version (from another perspective, this prevented the solution from being widely used, keeping it available without being banned)
-- Jan 2025 Started using Cline to build y-cli code
-- Feb 2025 Claude Sonnet Upgraded from 3.5 to 3.7
-- Mar 2025 Started using Cline to build y-gui code
-- May 2025 Because I mentioned DeepWiki in y-gui's README, Devin gave me $500 open source grant credit. I tried using it a few times but wasn't used to the mode of committing every session (I prefer deciding when to commit based on my own thoughts), so I didn't continue using it
-- Jun 2025 Claude Sonnet Upgraded from 3.7 to 4
-- Jul 2025 [Started using Claude Code](https://luohy15.com/compare-cline-and-claude-code/), got [y-router](https://luohy15.com/building-y-router/) logic working in less than one evening, recent expenses have already exceeded Cline
-- Aug 2025 Because I used more than $200 in July, I decided to start using Claude Max Plan with relay service in AWS. I'm using this project: [claude-relay-service](https://github.com/Wei-Shaw/claude-relay-service)
+- Nov 2024 Started getting familiar with OpenRouter, saw Cline and Claude 3.5 Sonnet at the top of the leaderboard (Cline has always been the top application on OpenRouter), began trying to use them and gradually became a power user
 
 ## What I Mainly Use It For
 

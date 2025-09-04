@@ -1,3 +1,9 @@
+---
+created: 2025-07-07
+updated: 2025-08-06
+tags: [knowledge/technical/ai-coding, claude-code]
+---
+
 # Cline vs Claude Code: Technical Comparison
 
 A detailed comparison between Cline (3rd party) and Claude Code (official Anthropic CLI) at the request level, analyzing their architectures, capabilities, and design philosophies.

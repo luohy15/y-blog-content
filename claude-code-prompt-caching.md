@@ -1,3 +1,9 @@
+---
+created: 2025-07-06
+updated: 2025-07-06
+tags: [knowledge/technical/ai-coding, claude-code]
+---
+
 # Adding Prompt Caching Support to Claude Code with OpenRouter
 
 > **Note**: As of Claude Code version 1.0.15+, prompt caching is now natively supported. This post documents the work done to add prompt caching via OpenRouter before native support was available and serves primarily as a development log.

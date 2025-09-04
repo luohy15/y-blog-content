@@ -1,3 +1,9 @@
+---
+created: 2025-07-07
+updated: 2025-08-06
+tags: [knowledge/technical/ai-coding, claude-code]
+---
+
 # Cline vs Claude Code：技术对比
 
 一份详细的请求级别对比分析，探讨 Cline（第三方）和 Claude Code（Anthropic 官方 CLI）的架构、功能和设计理念。

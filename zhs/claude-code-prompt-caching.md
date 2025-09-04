@@ -1,3 +1,9 @@
+---
+created: 2025-07-06
+updated: 2025-07-06
+tags: [knowledge/technical/ai-coding, claude-code]
+---
+
 # 为 Claude Code 使用 OpenRouter 添加提示缓存支持
 
 > **注意**：自 Claude Code 1.0.15+ 版本起，已原生支持提示缓存。本文记录了在原生支持可用之前通过 OpenRouter 添加提示缓存的工作，主要作为开发日志。

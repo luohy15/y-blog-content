@@ -2,7 +2,7 @@
 
 ## Hi, I'm Roy (Huayi Luo, aka luohy15)
 
-I'm Roy, a Full-Stack Engineer. I chose luohy15 as my common online ID.
+I'm Roy, a Full-Stack Engineer. My online handle is luohy15.
 
 I graduated from Tsinghua University in 2019, majoring in Computer Science and Technology.
 

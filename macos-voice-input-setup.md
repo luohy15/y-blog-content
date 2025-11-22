@@ -7,20 +7,22 @@ tags: [knowledge/technical/workspace, macos, productivity, ai]
 
 ## Overview
 
-Voice-activated productivity automation setup using Spokenly for detection and Eleven Labs for voice synthesis.
+Voice-to-text setup using Spokenly app with ElevenLabs transcription API.
+
+> **Note**: This article was written using the voice input setup described here with Claude Code.
 
 **Motivation**: Wrist discomfort from prolonged typing/mouse usage led to exploring voice-based interaction with AI coding agents. This setup enables hands-free coding productivity when experiencing RSI symptoms, reducing wrist strain while maintaining development workflow.
 
-![Voice input setup](https://cdn.luohy15.com/voice-input-setup.png) 
+![Voice input setup](https://cdn.luohy15.com/voice-input-setup.png)
 
 ## Setup Process
 
-### Voice Detection
-- **[Spokenly](https://spokenly.app/)** - Super lightweight macOS/iOS application, easy to use and connects to popular APIs like ElevenLabs
+### Application
+- **[Spokenly](https://spokenly.app/)** - Lightweight macOS/iOS app that connects to transcription APIs
 
-### Voice Synthesis
-- **[Eleven Labs](https://elevenlabs.io/app/developers/api-keys)** - Excellent voice processing quality. Previously used their voice APIs for an AI role chat application.
-- Transcribe model: **[scribe_v2](https://elevenlabs.io/docs/models#scribe-v2-realtime)** (non-real-time version, as of 2025-11-23 Spokenly doesn't support the real-time model yet)
+### Transcription API
+- **[Eleven Labs](https://elevenlabs.io/app/developers/api-keys)** - Provides the speech-to-text transcription. Excellent voice processing quality.
+- Transcription model: **[scribe_v2](https://elevenlabs.io/docs/models#scribe-v2-realtime)** (non-real-time version, as of 2025-11-23 Spokenly doesn't support the real-time model yet)
 
 ## Workflow
 

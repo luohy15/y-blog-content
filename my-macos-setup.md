@@ -1,6 +1,6 @@
 ---
 created: 2020-06-15
-updated: 2025-09-04
+updated: 2025-11-23
 tags: [knowledge/technical/workspace, macos]
 ---
 
@@ -32,3 +32,8 @@ Use **Karabiner-Elements** for:
 - **Alfred** - Application launcher
 - **ScrollReverser** for natural mouse scrolling preferences
 - **LetsVPN** - VPN service for poor network regions
+
+## Voice Input
+
+- **Spokenly** - Voice-to-text input with ElevenLabs API for hands-free coding when experiencing wrist strain
+- See detailed setup: [macOS Voice Input Setup](https://luohy15.com/macos-voice-input-setup/)

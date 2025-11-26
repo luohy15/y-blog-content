@@ -3,7 +3,7 @@ created: 2025-11-23
 tags: [knowledge/technical/workspace, macos, ios, productivity, ai]
 ---
 
-# macOS & iOS Voice Input Setup with Spokenly and Eleven Labs
+# macOS & iOS Voice Input Setup with Spokenly and ElevenLabs
 
 ## Overview
 
@@ -20,7 +20,7 @@ Voice-to-text setup using Spokenly app with ElevenLabs transcription API.
 - **[Spokenly](https://spokenly.app/)** - Lightweight macOS/iOS app that connects to transcription APIs
 
 ### Transcription API
-- **[Eleven Labs](https://elevenlabs.io/app/developers/api-keys)** - Provides the speech-to-text transcription. Excellent voice processing quality.
+- **[ElevenLabs](https://elevenlabs.io/app/developers/api-keys)** - Provides the speech-to-text transcription. Excellent voice processing quality.
 - Transcription model: **[scribe_v2](https://elevenlabs.io/docs/models#scribe-v2-realtime)** (non-real-time version, as of 2025-11-23 Spokenly doesn't support real-time for this model)
 - **Pricing**: Requires at least a Starter plan ($5/month) to use the latest transcription models
 

@@ -3,7 +3,7 @@ created: 2025-11-23
 tags: [knowledge/technical/workspace, macos, ios, productivity, ai]
 ---
 
-# macOS & iOS 语音输入配置：Spokenly + Eleven Labs
+# macOS & iOS 语音输入配置：Spokenly + ElevenLabs
 
 ## 为什么要用语音输入
 
@@ -17,7 +17,7 @@ tags: [knowledge/technical/workspace, macos, ios, productivity, ai]
 - **[Spokenly](https://spokenly.app/)** - 轻量的 macOS/iOS 应用，用来对接转录 API
 
 ### 转录 API
-- **[Eleven Labs](https://elevenlabs.io/app/developers/api-keys)** - 提供语音转文字的转录服务，识别质量不错
+- **[ElevenLabs](https://elevenlabs.io/app/developers/api-keys)** - 提供语音转文字的转录服务，识别质量不错
 - 转录模型：**[scribe_v2](https://elevenlabs.io/docs/models#scribe-v2-realtime)**（目前用的是普通版本，Spokenly 还不支持这个模型的实时版本，截至 2025-11-23）
 - **价格**：使用最新的转录模型至少需要订阅 Starter 套餐（每月 $5）
 

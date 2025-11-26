@@ -36,4 +36,4 @@ Use **Karabiner-Elements** for:
 ## Voice Input
 
 - **Spokenly** - Voice-to-text input with ElevenLabs API for hands-free coding when experiencing wrist strain
-- See detailed setup: [macOS Voice Input Setup](https://luohy15.com/macos-voice-input-setup/)
+- See detailed setup: [Voice Input Setup](https://luohy15.com/voice-input-setup/)

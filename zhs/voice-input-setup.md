@@ -15,6 +15,7 @@ tags: [knowledge/technical/workspace, macos, ios, productivity, ai]
 
 ### 应用程序
 - **[Spokenly](https://spokenly.app/)** - 轻量的 macOS/iOS 应用，用来对接转录 API
+- *备选*：**[Willow Voice](https://willowvoice.com/)** - 如果不想配置 API，可以直接用这个（$12-15/月，内置转录功能）
 
 ### 转录 API
 - **[ElevenLabs](https://elevenlabs.io/app/developers/api-keys)** - 提供语音转文字的转录服务，识别质量不错

@@ -18,6 +18,7 @@ Voice-to-text setup using Spokenly app with ElevenLabs transcription API.
 
 ### Application
 - **[Spokenly](https://spokenly.app/)** - Lightweight macOS/iOS app that connects to transcription APIs
+- *Alternative*: **[Willow Voice](https://willowvoice.com/)** - If you don't want to configure APIs, use this instead ($12-15/month with built-in transcription)
 
 ### Transcription API
 - **[ElevenLabs](https://elevenlabs.io/app/developers/api-keys)** - Provides the speech-to-text transcription. Excellent voice processing quality.

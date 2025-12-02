@@ -3,7 +3,7 @@ created: 2025-11-23
 tags: [knowledge/technical/workspace, macos, ios, productivity, ai]
 ---
 
-# macOS & iOS 语音输入配置：Spokenly + ElevenLabs
+# macOS & iOS 语音输入配置：Willow Voice
 
 ## 为什么要用语音输入
 
@@ -14,13 +14,14 @@ tags: [knowledge/technical/workspace, macos, ios, productivity, ai]
 ## 配置方法
 
 ### 应用程序
-- **[Spokenly](https://spokenly.app/)** - 轻量的 macOS/iOS 应用，用来对接转录 API
-- *备选*：**[Willow Voice](https://willowvoice.com/)** - 如果不想配置 API，可以直接用这个（$12-15/月，内置转录功能）
+- **[Willow Voice](https://willowvoice.com/?ref=JC5OO6)** - 首选方案。速度快，内置转录功能，无需配置 API。（$12-15/月）
+- *备选*：**[Spokenly](https://spokenly.app/)** - 更便宜的选择，可以使用自己的 API（需要配置）。
 
-### 转录 API
+### 转录 API（仅 Spokenly 需要）
 - **[ElevenLabs](https://elevenlabs.io/app/developers/api-keys)** - 提供语音转文字的转录服务，识别质量不错
 - 转录模型：**[scribe_v2](https://elevenlabs.io/docs/models#scribe-v2-realtime)**（目前用的是普通版本，Spokenly 还不支持这个模型的实时版本，截至 2025-11-23）
 - **价格**：使用最新的转录模型至少需要订阅 Starter 套餐（每月 $5）
+- **免费选项**：Spokenly 也支持本地模型，在本地机器上运行（完全免费）
 
 ### 硬件（可选）
 - **外置麦克风** - 仅在 macOS 合盖模式下需要

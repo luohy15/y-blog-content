@@ -3,11 +3,11 @@ created: 2025-11-23
 tags: [knowledge/technical/workspace, macos, ios, productivity, ai]
 ---
 
-# macOS & iOS Voice Input Setup with Spokenly and ElevenLabs
+# macOS & iOS Voice Input Setup with Willow Voice
 
 ## Overview
 
-Voice-to-text setup using Spokenly app with ElevenLabs transcription API.
+Voice-to-text setup using Willow Voice (or alternatively Spokenly with ElevenLabs transcription API).
 
 > **Note**: This article was written using the voice input setup described here with Claude Code.
 
@@ -17,13 +17,14 @@ Voice-to-text setup using Spokenly app with ElevenLabs transcription API.
 ## Setup Process
 
 ### Application
-- **[Spokenly](https://spokenly.app/)** - Lightweight macOS/iOS app that connects to transcription APIs
-- *Alternative*: **[Willow Voice](https://willowvoice.com/)** - If you don't want to configure APIs, use this instead ($12-15/month with built-in transcription)
+- **[Willow Voice](https://willowvoice.com/?ref=JC5OO6)** - Recommended first choice. Fast, built-in transcription, no API configuration needed. ($12-15/month)
+- *Alternative*: **[Spokenly](https://spokenly.app/)** - Cheaper option if you want to use your own API (requires configuration).
 
-### Transcription API
+### Transcription API (for Spokenly only)
 - **[ElevenLabs](https://elevenlabs.io/app/developers/api-keys)** - Provides the speech-to-text transcription. Excellent voice processing quality.
 - Transcription model: **[scribe_v2](https://elevenlabs.io/docs/models#scribe-v2-realtime)** (non-real-time version, as of 2025-11-23 Spokenly doesn't support real-time for this model)
 - **Pricing**: Requires at least a Starter plan ($5/month) to use the latest transcription models
+- **Free option**: Spokenly also supports local models which run on your machine (effectively free)
 
 ### Hardware (Optional)
 - **External microphone** - Only needed for macOS clamshell mode (closed lid)

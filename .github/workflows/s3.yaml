@@ -1,0 +1,61 @@
+name: S3 Bucket Sync
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+env:
+  AWS_REGION: us-east-1
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  sync-s3-files:
+    runs-on: ubuntu-latest
+    environment: prod
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Configure AWS credentials (OIDC)
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: Parse config
+        run: |
+          CONFIG='${{ secrets.CONFIG }}'
+          echo "$CONFIG" | jq -r 'to_entries | .[] | "\(.key)=\(.value)"' >> $GITHUB_ENV
+          echo "$CONFIG" | jq -r '.[]' | while read -r value; do
+            [ -n "$value" ] && echo "::add-mask::$value"
+          done
+
+      - name: Sync files to S3
+        run: |
+          aws s3 sync ./ s3://${{ env.S3_BUCKET_NAME }}/blog/ \
+            --exclude ".git/*" \
+            --exclude ".git" \
+            --exclude ".github/*" \
+            --exclude ".obsidian/*" \
+            --exclude "logseq/*" \
+            --exclude ".gitignore" \
+            --exclude ".claude/*" \
+            --delete
+
+      - name: Invalidate CloudFront cache
+        run: |
+          aws cloudfront create-invalidation \
+            --distribution-id ${{ env.CLOUDFRONT_DISTRIBUTION_ID }} \
+            --paths "/blog/*"
+
+      - name: Trigger deployment
+        run: |
+          curl -X POST \
+            -H "Accept: application/vnd.github.v3+json" \
+            -H "Authorization: token ${{ secrets.DEPLOY_TOKEN }}" \
+            https://api.github.com/repos/${{ github.repository_owner }}/${{ secrets.TARGET_REPO }}/dispatches \
+            -d '{"event_type":"deploy"}'

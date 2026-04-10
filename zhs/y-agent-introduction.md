@@ -14,39 +14,51 @@
 ## 思路
 
 1. Delegate, don't rebuild
+
 能套壳 Claude Code 就不自己重写一个 agent loop，能用现成的工具（比如 stream-json）就不自己写一个 parser。y-agent 的核心就是一层 thin wrapper，提供一些 glue code，把这些东西连起来。
 
 2. 执行与监控解耦
+
 Agent loop 的执行完全在 EC2 上，监控层（Lambda）只负责 tail stdout、写数据库、续接进度。这样 agent 可以跑数小时不受 Lambda 15 分钟超时限制，监控层随时可以断开重连，互不影响。
 
 3. 薄抽象层
+
 y-cli -> y-agent，核心数据模型（session/message）没变，只是加了 work_dir/status/task_id。底层从 model API 换成 coding agent，上层几乎不用重写。
 
 4. 人机同视角
+
 GUI/CLI/LUI 访问同一份数据，人和 agent 看到的是一样的东西
 
 ## 实现
 
 1. 远程运行 coding agent (主要是 Claude Code)
+
 我是直接把它放到我的 AWS EC2 上运行的。然后我有一个 Lambda，可以 SSH 到 EC2 执行命令。EC2 是配置成自动 Hibernate，这样没有东西在跑的时候是 scaled down to zero 的，不会有费用。
 
 2. 会话持久化和可视化
+
 使用 stream-json 输出 Claude Code 的消息，然后有个 Lambda 监听这个输出，并写到数据库，最后有个 Web 界面进行展示。
 
 3. Telegram 支持
+
 Telegram bot 监听消息，触发 Lambda，Lambda 通过 SSH 调用 Claude Code
 
 4. 多 agent 协同
+
 首先定义一系列的 Skills，专门定义各个角色和他们的职责，然后 Agent 或者对话启动的时候，可以指定特定的 skill，也就是特定的角色。
+
 各角色会话启动的时候指定 task ID，这样实现多个会话关联到同一个 task
+
 实现一个命令行命令（y notify），执行该命令可以启动一个新的会话，并指定参数，然后在 CLAUDE.md 上写 y notify 的用法
 
 5. 长时间运行
+
 Agent 实际运行在 EC2 的 tmux detached session 里，监控层（Lambda）只负责 tail stdout、写数据库、续接进度。这样 agent 可以跑数小时不受 Lambda 15 分钟超时限制，监控层随时可以断开重连，互不影响。
 
 ## 效果示例
 
 https://yovy.app/t/856542
+
 远程运行，会话持久化和可视化，Telegram 支持，多 agent 协同，长时间运行，这些需求都满足了。
 
 ## 对比

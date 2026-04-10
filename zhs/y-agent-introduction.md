@@ -51,7 +51,7 @@ https://yovy.app/t/856542
 
 ## 对比
 
-vs Anthropic Managed Agents:
+[vs Anthropic Managed Agents](https://yovy.app/t/1d7bfa):
 | 维度 | Managed Agents | y-agent |
 |------|---------------|---------|
 | 定位 | Enterprise PaaS，托管 infra/合规/多租户 | Personal infra，自己用自己控 |
@@ -67,7 +67,7 @@ vs Anthropic Managed Agents:
 | 部署方式 | Console / Claude Code / CLI | AWS SAM serverless |
 | 早期用户 | Notion、Rakuten、Asana、Vibecode、Sentry | 自己 |
 
-vs Hermes Agent:
+[vs Hermes Agent](https://yovy.app/t/13825d):
 
 | 维度 | Hermes Agent | y-agent |
 |------|-------------|---------|

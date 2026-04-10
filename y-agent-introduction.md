@@ -51,7 +51,7 @@ Remote execution, session persistence and visualization, Telegram support, multi
 
 ## Comparisons
 
-vs Anthropic Managed Agents:
+[vs Anthropic Managed Agents](https://yovy.app/t/1d7bfa):
 | Dimension | Managed Agents | y-agent |
 |-----------|---------------|---------|
 | Positioning | Enterprise PaaS — managed infra/compliance/multi-tenant | Personal infra — self-hosted, self-controlled |
@@ -67,7 +67,7 @@ vs Anthropic Managed Agents:
 | Deployment | Console / Claude Code / CLI | AWS SAM serverless |
 | Early users | Notion, Rakuten, Asana, Vibecode, Sentry | Myself |
 
-vs Hermes Agent:
+[vs Hermes Agent](https://yovy.app/t/13825d):
 
 | Dimension | Hermes Agent | y-agent |
 |-----------|-------------|---------|

@@ -13,37 +13,37 @@
 
 ## Design Principles
 
-1. Delegate, don't rebuild
+### Delegate, don't rebuild
 
 If I can wrap Claude Code, I don't rewrite an agent loop. If there's an existing tool (like stream-json), I don't build my own parser. y-agent is a thin wrapper at its core — just glue code that connects these pieces together.
 
-2. Decouple execution from monitoring
+### Decouple execution from monitoring
 
 The agent loop runs entirely on EC2. The monitoring layer (Lambda) only tails stdout, writes to the database, and resumes progress. This way the agent can run for hours without hitting Lambda's 15-minute timeout, and the monitoring layer can disconnect and reconnect at any time without affecting execution.
 
-3. Thin abstraction layer
+### Thin abstraction layer
 
 From y-cli to y-agent, the core data model (session/message) stayed the same — just added work_dir/status/task_id. The underlying engine switched from model APIs to coding agents, but the upper layer barely needed rewriting.
 
-4. Same view for humans and agents
+### Same view for humans and agents
 
 GUI, CLI, and LUI all access the same data. What the human sees is exactly what the agent sees.
 
 ## Implementation
 
-1. Running coding agents remotely (primarily Claude Code)
+### Running coding agents remotely (primarily Claude Code)
 
 I run it directly on my AWS EC2 instance. A Lambda function SSHs into the EC2 to execute commands. The EC2 is configured to auto-hibernate, so it scales down to zero when nothing is running — no cost when idle.
 
-2. Session persistence and visualization
+### Session persistence and visualization
 
 Claude Code output is streamed via stream-json. A Lambda monitors this output, writes it to the database, and a web interface displays everything.
 
-3. Telegram support
+### Telegram support
 
 A Telegram bot listens for messages, triggers Lambda, and Lambda invokes Claude Code via SSH.
 
-4. Multi-agent collaboration
+### Multi-agent collaboration
 
 First, I define a set of Skills that specify each agent's role and responsibilities. When starting an agent or conversation, you can assign a specific skill — effectively a specific role.
 
@@ -51,7 +51,7 @@ Each agent session is tagged with a task ID, linking multiple sessions to the sa
 
 A CLI command (`y notify`) starts a new session with specified parameters, and CLAUDE.md documents how to use it.
 
-5. Long-running tasks
+### Long-running tasks
 
 Agents run inside tmux detached sessions on EC2. The monitoring layer (Lambda) only tails stdout, writes to the database, and resumes progress. This lets agents run for hours without hitting Lambda's 15-minute timeout, and the monitoring layer can disconnect and reconnect freely.
 

@@ -57,7 +57,7 @@ First, I define a set of Skills that specify each agent's role and responsibilit
 
 Each agent session is tagged with a task ID, linking multiple sessions to the same task.
 
-A CLI command (`y notify`) starts a new session with specified parameters, and CLAUDE.md documents how to use it.
+A CLI command (`y chat`) starts a new session with specified parameters, and CLAUDE.md documents how to use it.
 
 ### Long-running tasks
 
@@ -85,13 +85,13 @@ This is where the design philosophies diverge most sharply:
 
 | Project | Communication | Structure |
 |---------|--------------|-----------|
-| y-agent | `y notify` async fire-and-forget | Hub-and-spoke (DM dispatches) |
+| y-agent | `y chat` async fire-and-forget | Hub-and-spoke (DM dispatches) |
 | Multica | WebSocket + DB sync | Flat (kanban board) |
 | Paperclip | Issue + Comments + Approval chain | Org tree (management hierarchy) |
 | Hermes Agent | Synchronous `delegate_task` | Parent-child (max 2 levels) |
 | Managed Agents | Sub-agent spawning (preview) | Sub-agent tree |
 
-y-agent uses async fire-and-forget messaging (`y notify`) with a hub-and-spoke topology — DM acts as the central dispatcher, routing tasks to specialized skills (dev, blog, finance, etc.). Each session is linked by a trace ID, so you can follow the full chain in [TraceView](https://yovy.app/t/856542). This is intentionally simple: no synchronous blocking, no approval gates, just "send and forget, callback when done."
+y-agent uses async fire-and-forget messaging (`y chat`) with a hub-and-spoke topology — DM acts as the central dispatcher, routing tasks to specialized skills (dev, blog, finance, etc.). Each session is linked by a trace ID, so you can follow the full chain in [TraceView](https://yovy.app/t/856542). This is intentionally simple: no synchronous blocking, no approval gates, just "send and forget, callback when done."
 
 Paperclip takes the opposite approach — modeling multi-agent coordination as an org chart with managers, approval flows, and budget controls. It's the right design for autonomous AI companies, but overkill for personal use.
 

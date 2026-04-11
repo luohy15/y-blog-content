@@ -11,11 +11,12 @@ https://yovy.app/t/856542
 
 ## What I Need
 
-1. Run coding agents remotely (primarily Claude Code)
-2. Session persistence and visualization
-3. Telegram support
-4. Multi-agent collaboration
-5. Long-running tasks
+1. Task list
+2. Run coding agents remotely (primarily Claude Code)
+3. Session persistence and visualization
+4. Telegram support
+5. Multi-agent collaboration
+6. Long-running tasks
 
 ## Design Principles
 
@@ -38,6 +39,10 @@ If I can wrap Claude Code, I don't rewrite an agent loop. If there's an existing
 The agent loop runs entirely on EC2. The monitoring layer (Lambda) only tails stdout, writes to the database, and resumes progress. This way the agent can run for hours without hitting Lambda's 15-minute timeout, and the monitoring layer can disconnect and reconnect at any time without affecting execution.
 
 ## Implementation
+
+### Task list
+
+A CLI command (`y todo`) for creating, updating, and tracking tasks. Agents can read and update tasks the same way humans do.
 
 ### Running coding agents remotely (primarily Claude Code)
 

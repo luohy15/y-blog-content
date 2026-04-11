@@ -11,11 +11,12 @@ https://yovy.app/t/856542
 
 ## 目前的需求
 
-1. 远程运行 coding agent (主要是 Claude Code)
-2. 会话持久化和可视化
-3. Telegram 支持
-4. 多 agent 协同
-5. 长时间运行
+1. 任务列表
+2. 远程运行 coding agent (主要是 Claude Code)
+3. 会话持久化和可视化
+4. Telegram 支持
+5. 多 agent 协同
+6. 长时间运行
 
 ## 思路
 
@@ -38,6 +39,10 @@ y-cli -> y-agent，核心数据模型（session/message）没变，只是加了 
 Agent loop 的执行完全在 EC2 上，监控层（Lambda）只负责 tail stdout、写数据库、续接进度。这样 agent 可以跑数小时不受 Lambda 15 分钟超时限制，监控层随时可以断开重连，互不影响。
 
 ## 实现
+
+### 任务列表
+
+一个 CLI 命令（`y todo`），用来创建、更新和追踪任务。人和 agent 用同样的方式操作任务。
 
 ### 远程运行 coding agent (主要是 Claude Code)
 

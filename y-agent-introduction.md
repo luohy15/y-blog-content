@@ -19,6 +19,16 @@ https://yovy.app/t/856542
 
 ## Design Principles
 
+### Context handling
+
+Everything lives in one directory on EC2 — code, config, data, CLAUDE.md. If a skill specifies a work_dir, it gets its own subdirectory. No remote mounts, no syncing, no context assembly step. The agent just reads what's there.
+
+This also means humans and agents share the same view. GUI, CLI, and LUI all access the same data — what you see is exactly what the agent sees.
+
+### Thin abstraction layer
+
+From y-cli to y-agent, the core data model (session/message) stayed the same — just added work_dir/status/task_id. The underlying engine switched from model APIs to coding agents, but the upper layer barely needed rewriting.
+
 ### Delegate, don't rebuild
 
 If I can wrap Claude Code, I don't rewrite an agent loop. If there's an existing tool (like stream-json), I don't build my own parser. y-agent is a thin wrapper at its core — just glue code that connects these pieces together.
@@ -26,16 +36,6 @@ If I can wrap Claude Code, I don't rewrite an agent loop. If there's an existing
 ### Decouple execution from monitoring
 
 The agent loop runs entirely on EC2. The monitoring layer (Lambda) only tails stdout, writes to the database, and resumes progress. This way the agent can run for hours without hitting Lambda's 15-minute timeout, and the monitoring layer can disconnect and reconnect at any time without affecting execution.
-
-### Thin abstraction layer
-
-From y-cli to y-agent, the core data model (session/message) stayed the same — just added work_dir/status/task_id. The underlying engine switched from model APIs to coding agents, but the upper layer barely needed rewriting.
-
-### Context handling
-
-Everything lives in one directory on EC2 — code, config, data, CLAUDE.md. If a skill specifies a work_dir, it gets its own subdirectory. No remote mounts, no syncing, no context assembly step. The agent just reads what's there.
-
-This also means humans and agents share the same view. GUI, CLI, and LUI all access the same data — what you see is exactly what the agent sees.
 
 ## Implementation
 

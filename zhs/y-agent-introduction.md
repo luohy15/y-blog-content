@@ -63,32 +63,37 @@ https://yovy.app/t/856542
 
 ## 对比
 
-[vs Anthropic Managed Agents](https://yovy.app/t/1d7bfa):
-| 维度 | Managed Agents | y-agent |
-|------|---------------|---------|
-| 定位 | Enterprise PaaS，托管 infra/合规/多租户 | Personal infra，自己用自己控 |
-| Agent 定义 | 自然语言描述 + tools/security rules | SKILL.md + CLAUDE.md，code-as-config |
-| 执行模型 | 每个 agent 起隔离容器，平台管状态 | Lambda + SQS + Celery，agent loop 在 EC2 上 |
-| Multi-agent | Sub-agent spawning（research preview） | `y notify` + trace context，dev-manager 并行派发 worktree dev（production） |
-| Tool 体系 | MCP server 连第三方服务 | Claude Code + Codex |
-| Backend | 只绑 Claude | Claude Code + Codex，可按任务选引擎 |
-| 长任务 | Agent 可跑数小时 | 支持长任务运行 |
-| Session/State | 平台自动管状态和 credentials | PostgreSQL 存 chat/message，SSE 实时流 |
-| Tracing | Console 里看 session trace | TraceView 时间线/瀑布图，已实现 |
-| 成本 | $0.08/hr 平台费 + model usage | 付 Lambda/RDS + model usage，infra 极低，主要是 model usage |
-| 部署方式 | Console / Claude Code / CLI | AWS SAM serverless |
-| 早期用户 | Notion、Rakuten、Asana、Vibecode、Sentry | 自己 |
+Agent 编排领域已经有不少项目（[调研 trace](https://yovy.app/t/e10a7a)），这里从三个关键维度做对比：
 
-[vs Hermes Agent](https://yovy.app/t/13825d):
+### 定位和目标用户
 
-| 维度 | Hermes Agent | y-agent |
-|------|-------------|---------|
-| 定位 | 通用开源 agent 框架，面向所有用户 | 个人 AI 工具集，给自己用 |
-| 架构 | 单进程 monolith（agent + CLI + gateway） | 微服务分层：Frontend → API → Worker → Agent |
-| 运行方式 | 长驻进程，CLI 或 gateway 持续运行 | 触发式：notify → enqueue → execute → callback |
-| 部署 | VPS/Docker/Modal/本地 | AWS Lambda + SQS + RDS + EC2 |
-| LLM 集成 | 内建 LLM 调用，直接管理 API client | 委托给 Claude Code / Codex CLI 子进程 |
-| 前端 | Rich TUI (CLI) + 多平台 gateway | React SPA + Telegram bot |
+| 项目 | 定位 | 目标用户 |
+|------|------|----------|
+| y-agent | 个人 AI 工具集 | 个人开发者 |
+| [Multica](https://github.com/multica-io/multica) | 团队看板 + AI agents | 2-10 人小团队 |
+| [Paperclip](https://github.com/paperclip-ai/paperclip) | AI 公司控制平面 | 想运行 AI 公司的创始人 |
+| [Hermes Agent](https://github.com/hermes-ai/hermes-agent) | 通用开源 agent 框架 | Self-host 开发者 |
+| [Managed Agents](https://docs.anthropic.com/en/docs/agents/managed-agents) | Enterprise PaaS | 企业客户 |
+
+y-agent 处于这个光谱最轻的一端。它只为一个人设计，不是为团队或企业。代价很明显——没有多租户、没有审批流程、没有成本治理——但换来的是近零 infra 成本和对每一层的完全掌控。
+
+### 多 Agent 通信
+
+这是设计哲学分歧最大的地方：
+
+| 项目 | 通信方式 | 拓扑结构 |
+|------|----------|----------|
+| y-agent | `y notify` 异步 fire-and-forget | Hub-and-spoke（DM 中心调度） |
+| Multica | WebSocket + DB 同步 | Flat（看板） |
+| Paperclip | Issue + Comments + Approval 审批链 | Org 树（管理层级） |
+| Hermes Agent | 同步 `delegate_task` | Parent-child（最多 2 层） |
+| Managed Agents | Sub-agent spawning（preview） | Sub-agent 树 |
+
+y-agent 用异步 fire-and-forget 消息（`y notify`）配合 hub-and-spoke 拓扑——DM 作为中心调度器，把任务路由给专门的 skill（dev、blog、finance 等）。每个会话通过 trace ID 关联，可以在 [TraceView](https://yovy.app/t/856542) 里看到完整链路。设计上刻意简单：没有同步阻塞，没有审批门禁，就是"发出去就不管，完成了回调"。
+
+Paperclip 走了相反的方向——把多 agent 协调建模为组织架构图，有管理链、审批流程和预算控制。对于自治 AI 公司来说是对的设计，但对个人使用来说太重了。
+
+Multica 居中，用看板隐喻，agent 是团队成员，从共享看板上领取 issue。
 
 ## 展望
 

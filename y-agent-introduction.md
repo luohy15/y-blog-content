@@ -63,32 +63,37 @@ Remote execution, session persistence and visualization, Telegram support, multi
 
 ## Comparisons
 
-[vs Anthropic Managed Agents](https://yovy.app/t/1d7bfa):
-| Dimension | Managed Agents | y-agent |
-|-----------|---------------|---------|
-| Positioning | Enterprise PaaS — managed infra/compliance/multi-tenant | Personal infra — self-hosted, self-controlled |
-| Agent definition | Natural language + tools/security rules | SKILL.md + CLAUDE.md, code-as-config |
-| Execution model | Isolated container per agent, platform manages state | Lambda + SQS + Celery, agent loop on EC2 |
-| Multi-agent | Sub-agent spawning (research preview) | `y notify` + trace context, dev-manager dispatches parallel worktree devs (production) |
-| Tool system | MCP servers connecting third-party services | Claude Code + Codex |
-| Backend | Claude only | Claude Code + Codex, choose engine per task |
-| Long tasks | Agents can run for hours | Supports long-running tasks |
-| Session/State | Platform auto-manages state and credentials | PostgreSQL stores chat/message, SSE real-time streaming |
-| Tracing | Console session trace | TraceView timeline/waterfall, already implemented |
-| Cost | $0.08/hr platform fee + model usage | Lambda/RDS + model usage, infra cost near zero, mainly model usage |
-| Deployment | Console / Claude Code / CLI | AWS SAM serverless |
-| Early users | Notion, Rakuten, Asana, Vibecode, Sentry | Myself |
+There are several projects in the agent orchestration space ([research trace](https://yovy.app/t/e10a7a)). Here's how y-agent compares on three key dimensions:
 
-[vs Hermes Agent](https://yovy.app/t/13825d):
+### Positioning and target users
 
-| Dimension | Hermes Agent | y-agent |
-|-----------|-------------|---------|
-| Positioning | General-purpose open-source agent framework | Personal AI toolkit, built for myself |
-| Architecture | Single-process monolith (agent + CLI + gateway) | Microservice layers: Frontend → API → Worker → Agent |
-| Execution | Long-running process, CLI or gateway stays alive | Event-driven: notify → enqueue → execute → callback |
-| Deployment | VPS/Docker/Modal/local | AWS Lambda + SQS + RDS + EC2 |
-| LLM integration | Built-in LLM calls, manages API client directly | Delegates to Claude Code / Codex CLI subprocesses |
-| Frontend | Rich TUI (CLI) + multi-platform gateway | React SPA + Telegram bot |
+| Project | Positioning | Target users |
+|---------|------------|--------------|
+| y-agent | Personal AI toolkit | Individual builder |
+| [Multica](https://github.com/multica-io/multica) | Team kanban + AI agents | Small teams (2-10 people) |
+| [Paperclip](https://github.com/paperclip-ai/paperclip) | AI company control plane | Founders running AI companies |
+| [Hermes Agent](https://github.com/hermes-ai/hermes-agent) | General-purpose open-source agent framework | Self-hosting developers |
+| [Managed Agents](https://docs.anthropic.com/en/docs/agents/managed-agents) | Enterprise PaaS | Enterprise customers |
+
+y-agent sits at the lightest end of this spectrum. It's built for one person, not a team or an enterprise. The tradeoff is obvious — no multi-tenant, no approval workflows, no cost governance — but in exchange, there's near-zero infra cost and full control over every layer.
+
+### Multi-agent communication
+
+This is where the design philosophies diverge most sharply:
+
+| Project | Communication | Structure |
+|---------|--------------|-----------|
+| y-agent | `y notify` async fire-and-forget | Hub-and-spoke (DM dispatches) |
+| Multica | WebSocket + DB sync | Flat (kanban board) |
+| Paperclip | Issue + Comments + Approval chain | Org tree (management hierarchy) |
+| Hermes Agent | Synchronous `delegate_task` | Parent-child (max 2 levels) |
+| Managed Agents | Sub-agent spawning (preview) | Sub-agent tree |
+
+y-agent uses async fire-and-forget messaging (`y notify`) with a hub-and-spoke topology — DM acts as the central dispatcher, routing tasks to specialized skills (dev, blog, finance, etc.). Each session is linked by a trace ID, so you can follow the full chain in [TraceView](https://yovy.app/t/856542). This is intentionally simple: no synchronous blocking, no approval gates, just "send and forget, callback when done."
+
+Paperclip takes the opposite approach — modeling multi-agent coordination as an org chart with managers, approval flows, and budget controls. It's the right design for autonomous AI companies, but overkill for personal use.
+
+Multica lands in between, using a kanban metaphor where agents are team members picking up issues from a shared board.
 
 ## Looking Forward
 

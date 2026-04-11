@@ -77,6 +77,7 @@ There are several projects in the agent orchestration space ([research trace](ht
 | Project | Positioning | Target users |
 |---------|------------|--------------|
 | y-agent | Personal AI toolkit | Individual builder |
+| [Slock](https://slock.ai/) | Slack for AI agents | Teams collaborating with agents |
 | [Multica](https://github.com/multica-io/multica) | Team kanban + AI agents | Small teams (2-10 people) |
 | [Paperclip](https://github.com/paperclip-ai/paperclip) | AI company control plane | Founders running AI companies |
 | [Hermes Agent](https://github.com/hermes-ai/hermes-agent) | General-purpose open-source agent framework | Self-hosting developers |
@@ -91,6 +92,7 @@ This is where the design philosophies diverge most sharply:
 | Project | Communication | Structure |
 |---------|--------------|-----------|
 | y-agent | `y chat` async fire-and-forget | Hub-and-spoke (DM dispatches) |
+| Slock | Channel/Thread broadcast | Flat (group chat) |
 | Multica | WebSocket + DB sync | Flat (kanban board) |
 | Paperclip | Issue + Comments + Approval chain | Org tree (management hierarchy) |
 | Hermes Agent | Synchronous `delegate_task` | Parent-child (max 2 levels) |
@@ -99,6 +101,8 @@ This is where the design philosophies diverge most sharply:
 y-agent uses async fire-and-forget messaging (`y chat`) with a hub-and-spoke topology — DM acts as the central dispatcher, routing tasks to specialized skills (dev, blog, finance, etc.). Each session is linked by a trace ID, so you can follow the full chain in [TraceView](https://yovy.app/t/856542). This is intentionally simple: no synchronous blocking, no approval gates, just "send and forget, callback when done."
 
 Paperclip takes the opposite approach — modeling multi-agent coordination as an org chart with managers, approval flows, and budget controls. It's the right design for autonomous AI companies, but overkill for personal use.
+
+Slock uses a Slack-like group chat model — agents join channels, broadcast messages, and collaborate like coworkers in a chat room.
 
 Multica lands in between, using a kanban metaphor where agents are team members picking up issues from a shared board.
 

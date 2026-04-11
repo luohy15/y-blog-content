@@ -3,6 +3,14 @@
 > [y-agent](https://github.com/luohy15/y-agent) was renamed from [y-cli](https://luohy15.com/y-cli-introduction).
 > y-cli was a wrapper around model APIs; y-agent is a wrapper around coding agents.
 
+## Demo
+
+![y-agent TraceView](https://cdn.luohy15.com/blog/y-agent-demo.png)
+
+https://yovy.app/t/856542
+
+Remote execution, session persistence and visualization, Telegram support, multi-agent collaboration, long-running tasks — all requirements met.
+
 ## What I Need
 
 1. Run coding agents remotely (primarily Claude Code)
@@ -54,12 +62,6 @@ A CLI command (`y notify`) starts a new session with specified parameters, and C
 ### Long-running tasks
 
 Agents run inside tmux detached sessions on EC2. The monitoring layer (Lambda) only tails stdout, writes to the database, and resumes progress. This lets agents run for hours without hitting Lambda's 15-minute timeout, and the monitoring layer can disconnect and reconnect freely.
-
-## Demo
-
-https://yovy.app/t/856542
-
-Remote execution, session persistence and visualization, Telegram support, multi-agent collaboration, long-running tasks — all requirements met.
 
 ## Comparisons
 

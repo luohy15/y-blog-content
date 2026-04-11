@@ -3,6 +3,14 @@
 > [y-agent](https://github.com/luohy15/y-agent) 由之前的 [y-cli](https://luohy15.com/zhs/y-cli-introduction) 项目重命名而来。
 > y-cli 是对 model API 的封装，y-agent 是对 coding agent 的封装。
 
+## 效果示例
+
+![y-agent TraceView](https://cdn.luohy15.com/blog/y-agent-demo.png)
+
+https://yovy.app/t/856542
+
+远程运行，会话持久化和可视化，Telegram 支持，多 agent 协同，长时间运行，这些需求都满足了。
+
 ## 目前的需求
 
 1. 远程运行 coding agent (主要是 Claude Code)
@@ -54,12 +62,6 @@ Telegram bot 监听消息，触发 Lambda，Lambda 通过 SSH 调用 Claude Code
 ### 长时间运行
 
 Agent 实际运行在 EC2 的 tmux detached session 里，监控层（Lambda）只负责 tail stdout、写数据库、续接进度。这样 agent 可以跑数小时不受 Lambda 15 分钟超时限制，监控层随时可以断开重连，互不影响。
-
-## 效果示例
-
-https://yovy.app/t/856542
-
-远程运行，会话持久化和可视化，Telegram 支持，多 agent 协同，长时间运行，这些需求都满足了。
 
 ## 对比
 

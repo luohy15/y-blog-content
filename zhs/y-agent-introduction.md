@@ -9,8 +9,6 @@
 
 https://yovy.app/t/856542
 
-远程运行，会话持久化和可视化，Telegram 支持，多 agent 协同，长时间运行，这些需求都满足了。
-
 ## 目前的需求
 
 1. 远程运行 coding agent (主要是 Claude Code)

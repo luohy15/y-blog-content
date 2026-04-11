@@ -9,8 +9,6 @@
 
 https://yovy.app/t/856542
 
-Remote execution, session persistence and visualization, Telegram support, multi-agent collaboration, long-running tasks — all requirements met.
-
 ## What I Need
 
 1. Run coding agents remotely (primarily Claude Code)

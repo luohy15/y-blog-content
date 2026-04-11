@@ -31,9 +31,11 @@ Agent loop 的执行完全在 EC2 上，监控层（Lambda）只负责 tail stdo
 
 y-cli -> y-agent，核心数据模型（session/message）没变，只是加了 work_dir/status/task_id。底层从 model API 换成 coding agent，上层几乎不用重写。
 
-### 人机同视角
+### Context 处理
 
-GUI/CLI/LUI 访问同一份数据，人和 agent 看到的是一样的东西
+所有东西都在 EC2 的一个目录下——代码、配置、数据、CLAUDE.md。如果 skill 指定了 work_dir，就在对应子目录下工作。不需要远程挂载、不需要同步、不需要组装 context，agent 直接读就行。
+
+这也意味着人机同视角。GUI/CLI/LUI 访问同一份数据，人看到的就是 agent 看到的。
 
 ## 实现
 

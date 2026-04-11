@@ -5,7 +5,7 @@
 
 ## 效果示例
 
-![y-agent TraceView](https://cdn.luohy15.com/blog/y-agent-demo.png)
+![y-agent TraceView](https://cdn.luohy15.com/y-agent-demo.png)
 
 https://yovy.app/t/856542
 

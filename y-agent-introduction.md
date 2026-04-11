@@ -24,7 +24,7 @@ https://yovy.app/t/856542
 
 Everything lives in one directory on EC2 — code, config, data, CLAUDE.md. If a skill specifies a work_dir, it gets its own subdirectory. No remote mounts, no syncing, no context assembly step. The agent just reads what's there.
 
-This also means humans and agents share the same view. GUI, CLI, and LUI all access the same data — what you see is exactly what the agent sees.
+This also means humans and agents share the same view. We provide agents with CLI tools and skills so they can access the same data humans see through the GUI — tasks, sessions, calendars, finances. No separate "agent API" layer, just the same data accessed through different interfaces.
 
 ### Thin abstraction layer
 

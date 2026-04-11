@@ -42,7 +42,7 @@ The agent loop runs entirely on EC2. The monitoring layer (Lambda) only tails st
 
 ### Task list
 
-A CLI command (`y todo`) for creating, updating, and tracking tasks. Agents can read and update tasks the same way humans do.
+A CLI command (`y todo`) for creating, updating, and tracking tasks. Humans use the GUI, agents use the CLI, but both operate on the same data.
 
 ### Running coding agents remotely (primarily Claude Code)
 

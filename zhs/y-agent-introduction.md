@@ -42,7 +42,7 @@ Agent loop 的执行完全在 EC2 上，监控层（Lambda）只负责 tail stdo
 
 ### 任务列表
 
-一个 CLI 命令（`y todo`），用来创建、更新和追踪任务。人和 agent 用同样的方式操作任务。
+一个 CLI 命令（`y todo`），用来创建、更新和追踪任务。人用 GUI 操作，agent 用 CLI，但面对的是同一份数据。
 
 ### 远程运行 coding agent (主要是 Claude Code)
 

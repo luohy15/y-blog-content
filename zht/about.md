@@ -2,19 +2,19 @@
 
 ## 嗨，我是羅華一（Roy，常用 ID luohy15）
 
-我是羅華一，一名軟體工程師。luohy15 是我常用的網路ID。
+寫程式的，喜歡折騰 AI 工具，什麼語言都想試試。
 
-我現在是 [Alpha Vantage](https://www.alphavantage.co/)（YC S18）的一名工程師，專注於即時金融數據的雲端基礎設施和基於 LLM 的數據處理。
+目前在 [Alpha Vantage](https://www.alphavantage.co/)（YC S18）當工程師，主要做即時金融數據的雲端基礎設施和 LLM 數據處理相關的工作。
 
-我曾在聆心智能（智譜 AI 子公司）、阿里雲、必示科技等公司擔任工程師。
+之前在聆心智能（後來被智譜 AI 收購）、阿里雲、必示科技待過。2019 年清華計算機系畢業。
 
-我於2019年從清華大學計算機系畢業。
+業餘時間寫開源比較多——[y-agent](https://github.com/luohy15/y-agent) 是我做的一個簡單的 agent 應用，也參與了 [TradingAgents](https://github.com/TauricResearch/TradingAgents) 這個多 agent 交易框架的開發。
 
-## 在這裡找到我
+## 找到我
 
-- [Github](https://github.com/luohy15)
+- [GitHub](https://github.com/luohy15)
+- [部落格](https://luohy15.com)
+- [Twitter/X](https://x.com/myroy15)
 - [LinkedIn](https://www.linkedin.com/in/huayiluo/)
-- [Twitter](https://twitter.com/myroy15)
 - [Telegram](https://t.me/luohy15)
-- [Keybase](https://keybase.io/luohy15)
 - [履歷](https://cdn.luohy15.com/cv.pdf)

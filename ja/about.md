@@ -1,20 +1,20 @@
 # こんにちは
 
-## こんにちは、ロイです（Huayi Luo、別名 luohy15）
+## こんにちは、ロイです（羅華一、luohy15）
 
-私はロイ、ソフトウェアエンジニアです。luohy15 は私のオンラインハンドルです。
+AIツールを作ったり、いろんなプログラミング言語を触ったりするのが好きなソフトウェアエンジニアです。
 
-現在、[Alpha Vantage](https://www.alphavantage.co/)（YC S18）のエンジニアとして、リアルタイム金融データのクラウドインフラストラクチャと LLM ベースのデータ処理に取り組んでいます。
+現在 [Alpha Vantage](https://www.alphavantage.co/)（YC S18）でエンジニアとして、リアルタイム金融データのクラウドインフラと LLM ベースのデータ処理に取り組んでいます。
 
-以前は、Lingxin Intelligence（Zhipu AI に買収）、Alibaba Cloud、BizSeer Technology でエンジニアとして働いていました。
+以前は Lingxin Intelligence（Zhipu AI に買収）、Alibaba Cloud、BizSeer で働いていました。2019年清華大学コンピュータサイエンス卒。
 
-2019年に清華大学コンピュータサイエンス学部を卒業しました。
+プライベートでもオープンソースをよくやっています — [y-agent](https://github.com/luohy15/y-agent) はシンプルなエージェントアプリで、[TradingAgents](https://github.com/TauricResearch/TradingAgents) というマルチエージェント LLM トレーディングフレームワークにも貢献しています。
 
-## 私を見つける
+## リンク
 
-- [Github](https://github.com/luohy15)
+- [GitHub](https://github.com/luohy15)
+- [ブログ](https://luohy15.com)
+- [Twitter/X](https://x.com/myroy15)
 - [LinkedIn](https://www.linkedin.com/in/huayiluo/)
-- [Twitter](https://twitter.com/myroy15)
 - [Telegram](https://t.me/luohy15)
-- [Keybase](https://keybase.io/luohy15)
 - [履歴書](https://cdn.luohy15.com/cv.pdf)

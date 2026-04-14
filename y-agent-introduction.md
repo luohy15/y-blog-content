@@ -5,7 +5,7 @@
 
 ## Demo
 
-![y-agent TraceView](https://cdn.luohy15.com/y-agent-demo.png)
+![y-agent TraceView](https://cdn.luohy15.com/y-agent-demo-1.png)
 
 https://yovy.app/t/341d4a
 

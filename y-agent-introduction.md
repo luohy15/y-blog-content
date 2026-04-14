@@ -7,7 +7,7 @@
 
 ![y-agent TraceView](https://cdn.luohy15.com/y-agent-demo.png)
 
-https://yovy.app/t/856542
+https://yovy.app/t/341d4a
 
 ## What I Need
 
@@ -98,7 +98,7 @@ This is where the design philosophies diverge most sharply:
 | Hermes Agent | Synchronous `delegate_task` | Parent-child (max 2 levels) |
 | Managed Agents | Sub-agent spawning (preview) | Sub-agent tree |
 
-y-agent uses async fire-and-forget messaging (`y chat`) with a hub-and-spoke topology — DM acts as the central dispatcher, routing tasks to specialized skills (dev, blog, finance, etc.). Each session is linked by a trace ID, so you can follow the full chain in [TraceView](https://yovy.app/t/856542). This is intentionally simple: no synchronous blocking, no approval gates, just "send and forget, callback when done."
+y-agent uses async fire-and-forget messaging (`y chat`) with a hub-and-spoke topology — DM acts as the central dispatcher, routing tasks to specialized skills (dev, blog, finance, etc.). Each session is linked by a trace ID, so you can follow the full chain in [TraceView](https://yovy.app/t/341d4a). This is intentionally simple: no synchronous blocking, no approval gates, just "send and forget, callback when done."
 
 Paperclip takes the opposite approach — modeling multi-agent coordination as an org chart with managers, approval flows, and budget controls. It's the right design for autonomous AI companies, but overkill for personal use.
 

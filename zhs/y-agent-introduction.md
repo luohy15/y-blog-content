@@ -7,7 +7,7 @@
 
 ![y-agent TraceView](https://cdn.luohy15.com/y-agent-demo.png)
 
-https://yovy.app/t/856542
+https://yovy.app/t/341d4a
 
 ## 目前的需求
 
@@ -98,7 +98,7 @@ y-agent 处于这个光谱最轻的一端。它只为一个人设计，不是为
 | Hermes Agent | 同步 `delegate_task` | Parent-child（最多 2 层） |
 | Managed Agents | Sub-agent spawning（preview） | Sub-agent 树 |
 
-y-agent 用异步 fire-and-forget 消息（`y chat`）配合 hub-and-spoke 拓扑——DM 作为中心调度器，把任务路由给专门的 skill（dev、blog、finance 等）。每个会话通过 trace ID 关联，可以在 [TraceView](https://yovy.app/t/856542) 里看到完整链路。设计上刻意简单：没有同步阻塞，没有审批门禁，就是"发出去就不管，完成了回调"。
+y-agent 用异步 fire-and-forget 消息（`y chat`）配合 hub-and-spoke 拓扑——DM 作为中心调度器，把任务路由给专门的 skill（dev、blog、finance 等）。每个会话通过 trace ID 关联，可以在 [TraceView](https://yovy.app/t/341d4a) 里看到完整链路。设计上刻意简单：没有同步阻塞，没有审批门禁，就是"发出去就不管，完成了回调"。
 
 Paperclip 走了相反的方向——把多 agent 协调建模为组织架构图，有管理链、审批流程和预算控制。对于自治 AI 公司来说是对的设计，但对个人使用来说太重了。
 

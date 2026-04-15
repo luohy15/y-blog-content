@@ -5,7 +5,7 @@
 
 ## Demo
 
-![y-agent TraceView](https://cdn.luohy15.com/y-agent-demo-1.png)
+![y-agent TraceView](https://cdn.luohy15.com/y-agent-demo.png)
 
 https://yovy.app/t/341d4a
 
@@ -58,11 +58,14 @@ A Telegram bot listens for messages, triggers Lambda, and Lambda invokes Claude 
 
 ### Multi-agent collaboration
 
-First, I define a set of Skills that specify each agent's role and responsibilities. When starting an agent or conversation, you can assign a specific skill — effectively a specific role.
+Skills fall into two categories:
 
-Each agent session is tagged with a task ID, linking multiple sessions to the same task.
+- **Notifiable roles**: Independent agents that can receive and execute tasks via `y notify` — currently DM, dev-manager, dev, and skill-manager. A single role can have multiple sessions across different or even the same task, reusing existing sessions when needed, with consistent behavior defined by the same skill config.
+- **Tool skills**: Knowledge/tools loaded on demand within a dev session (blog, cdn, git, pdf, image, etc.). They don't run independently.
 
-A CLI command (`y chat`) starts a new session with specified parameters, and CLAUDE.md documents how to use it.
+DM acts as the central dispatcher, routing tasks to the right role via `y notify` — an async, fire-and-forget CLI command. Each session is linked by a trace ID (typically a todo ID), so you can follow the full chain in TraceView.
+
+Callbacks are optional — agents decide whether to report back based on whether the caller needs the result to continue. DM never accepts callbacks; dev calls back to dev-manager when the commit is ready.
 
 ### Long-running tasks
 
@@ -91,14 +94,14 @@ This is where the design philosophies diverge most sharply:
 
 | Project | Communication | Structure |
 |---------|--------------|-----------|
-| y-agent | `y chat` async fire-and-forget | Hub-and-spoke (DM dispatches) |
+| y-agent | `y notify` async fire-and-forget | Hub-and-spoke (DM dispatches) |
 | Slock | Channel/Thread broadcast | Flat (group chat) |
 | Multica | WebSocket + DB sync | Flat (kanban board) |
 | Paperclip | Issue + Comments + Approval chain | Org tree (management hierarchy) |
 | Hermes Agent | Synchronous `delegate_task` | Parent-child (max 2 levels) |
 | Managed Agents | Sub-agent spawning (preview) | Sub-agent tree |
 
-y-agent uses async fire-and-forget messaging (`y chat`) with a hub-and-spoke topology — DM acts as the central dispatcher, routing tasks to specialized skills (dev, blog, finance, etc.). Each session is linked by a trace ID, so you can follow the full chain in [TraceView](https://yovy.app/t/341d4a). This is intentionally simple: no synchronous blocking, no approval gates, just "send and forget, callback when done."
+y-agent uses async fire-and-forget messaging (`y notify`) with a hub-and-spoke topology — DM acts as the central dispatcher, routing tasks to specialized roles (dev-manager, dev, skill-manager, etc.). Skills are split into notifiable roles (independent agents) and tool skills (loaded on demand). Each session is linked by a trace ID, so you can follow the full chain in [TraceView](https://yovy.app/t/341d4a). Callbacks are optional — agents decide based on whether the caller needs the result — keeping things simple without synchronous blocking or approval gates.
 
 Paperclip takes the opposite approach — modeling multi-agent coordination as an org chart with managers, approval flows, and budget controls. It's the right design for autonomous AI companies, but overkill for personal use.
 

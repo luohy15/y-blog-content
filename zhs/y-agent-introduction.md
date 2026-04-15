@@ -61,7 +61,7 @@ Telegram bot 监听消息，触发 Lambda，Lambda 通过 SSH 调用 Claude Code
 Skill 分两类：
 
 - **可 notify 的独立角色**：能通过 `y notify` 独立接收和执行任务的 agent——目前有 DM、dev-manager、dev、skill-manager。同一个角色可以有多个会话，分布在不同甚至相同的 task 下，有需要就复用已有会话，但行为由同一份 skill 定义保持一致。
-- **工具型 skill**：在 dev 会话中按需加载的知识/工具（blog、cdn、git、pdf、image 等），不独立运行。
+- **工具型 skill**：在任意会话中按需加载的知识/工具（blog、cdn、git、pdf、image 等），不独立运行。
 
 DM 作为中心调度器，通过 `y notify` 把任务路由给对应角色——这是一个异步 fire-and-forget 的 CLI 命令。每个会话通过 trace ID（通常是 todo ID）关联，可以在 TraceView 里看到完整链路。
 

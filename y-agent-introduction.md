@@ -61,7 +61,7 @@ A Telegram bot listens for messages, triggers Lambda, and Lambda invokes Claude 
 Skills fall into two categories:
 
 - **Notifiable roles**: Independent agents that can receive and execute tasks via `y notify` — currently DM, dev-manager, dev, and skill-manager. A single role can have multiple sessions across different or even the same task, reusing existing sessions when needed, with consistent behavior defined by the same skill config.
-- **Tool skills**: Knowledge/tools loaded on demand within a dev session (blog, cdn, git, pdf, image, etc.). They don't run independently.
+- **Tool skills**: Knowledge/tools loaded on demand within any session (blog, cdn, git, pdf, image, etc.). They don't run independently.
 
 DM acts as the central dispatcher, routing tasks to the right role via `y notify` — an async, fire-and-forget CLI command. Each session is linked by a trace ID (typically a todo ID), so you can follow the full chain in TraceView.
 

@@ -58,7 +58,7 @@ A Telegram bot listens for messages, triggers Lambda, and Lambda invokes Claude 
 
 ### Multi-agent collaboration
 
-Skills fall into two categories: **notifiable roles** that independently receive and execute tasks (Manager, dev, skill-manager), and **tool-type skills** loaded on-demand within any session (blog, cdn, finance, etc.).
+Sessions fall into two categories: **Manager** (dispatches tasks via `y notify`, doesn't execute) and **Worker** (loads any skill — dev, hr, blog, cdn, finance, etc. — and executes tasks received via topic).
 
 A CLI command (`y notify`) sends async fire-and-forget messages between roles. Messages are routed by topic — decoupled from skill names. Each session is linked by a trace ID, and CLAUDE.md documents the communication protocol.
 

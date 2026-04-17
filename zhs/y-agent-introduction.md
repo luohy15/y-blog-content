@@ -58,7 +58,7 @@ Telegram bot 监听消息，触发 Lambda，Lambda 通过 SSH 调用 Claude Code
 
 ### 多 agent 协同
 
-首先定义一系列的 Skills，分为两类：可 notify 的独立角色（Manager、dev 等），以及工具型 skill（blog、cdn、finance 等），后者在任意会话中按需加载。Agent 或对话启动时指定特定的 skill，即特定的角色。
+Session 分为两类：**Manager**（通过 `y notify` 派发任务，不做具体执行）和 **Worker**（加载任意 skill——dev、hr、blog、cdn、finance 等——通过 topic 接收并执行任务）。
 
 消息路由基于 topic——每条消息带一个 topic，Manager 根据 topic 路由到对应角色，不再绑定 skill 名。各角色会话通过 trace ID 关联到同一个任务。
 

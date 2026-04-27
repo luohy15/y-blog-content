@@ -68,7 +68,7 @@ leaves │ plan │ │ impl │ │ review │   anonymous, ephemeral;
 
 **Are skills tied to topics?** I assumed yes at first — the `dev` topic runs the dev skill, the `blog` topic runs the blog skill. Then I noticed I was conflating two things. A topic is just a stable address; what work the session does depends on what message came in. So skills load per-task and aren't bound to topic. The same `dev` address can run a review skill one minute and an implementation skill the next, depending on what arrived.
 
-All of this — addressing, dispatching, replying, callback — stays under one CLI. `y chat -m "..."` is async fire-and-forget. `y chat -i` is the interactive REPL. `--topic`, `--skill`, `--chat-id` are addressing flags on the same command. The protocol — when to set `--trace-id`, when to add `--new`, when to call back — lives in CLAUDE.md so every session can read it.
+All of this — addressing, dispatching, replying, callback — stays under one CLI. `y chat -m "..."` is async fire-and-forget; `--topic`, `--skill`, `--chat-id` are addressing flags on the same command. The protocol — when to set `--trace-id`, when to add `--new`, when to call back — lives in CLAUDE.md so every session can read it.
 
 This is the only multi-agent design I've found that I can actually keep in my head. No central scheduler, no approval gates, no synchronous blocking — just messages, traces, and the same primitives recursing.
 

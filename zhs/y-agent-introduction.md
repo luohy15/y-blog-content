@@ -68,7 +68,7 @@ leaves │ plan │ │ impl │ │ review │   匿名、短暂；
 
 **Skill 跟 topic 绑吗？** 我一开始假设是绑的——`dev` topic 跑 dev skill，`blog` topic 跑 blog skill。后来发现这是把两件事混了。Topic 只是稳定地址，session 实际做什么取决于进来的是什么消息。所以 skill 按任务动态加载，不绑定 topic。同一个 `dev` 地址这一分钟可以跑 review skill，下一分钟跑 impl skill，看进来的是什么任务。
 
-所有这些——寻址、派发、回复、回调——都收在一条 CLI 下。`y chat -m "..."` 异步 fire-and-forget，`y chat -i` 是交互式 REPL。`--topic`、`--skill`、`--chat-id` 是同一条命令上的寻址 flag。协议——什么时候设 `--trace-id`、什么时候加 `--new`、什么时候回调——写在 CLAUDE.md 里，每个 session 都能读到。
+所有这些——寻址、派发、回复、回调——都收在一条 CLI 下。`y chat -m "..."` 异步 fire-and-forget，`--topic`、`--skill`、`--chat-id` 是同一条命令上的寻址 flag。协议——什么时候设 `--trace-id`、什么时候加 `--new`、什么时候回调——写在 CLAUDE.md 里，每个 session 都能读到。
 
 这是我自己唯一能装进脑子里的多 agent 设计。没有中央调度、没有审批门、没有同步阻塞——就是消息、trace 和同样的原语递归。
 

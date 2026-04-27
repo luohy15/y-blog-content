@@ -1,6 +1,6 @@
 # Y-Blog Content
 
-This repository contains the content for [Roy's Blog](https://github.com/luohy15/y-blog), a multilingual technical blog powered by Next.js.
+This repository contains the content for [Roy's Blog](https://github.com/luohy15/y-blog), a multilingual technical blog built with Vite + React.
 
 ## About
 
@@ -51,19 +51,19 @@ Each language directory contains an `index.jsonl` file with article metadata:
 {
   "title": "Article Title",
   "create_time": "2025-01-01",
-  "update_time": "2025-01-01", 
-  "url": "https://cdn.1u0hy.com/article-name.md"
+  "update_time": "2025-01-01",
+  "url": "https://cdn.luohy15.com/blog/article-name.md"
 }
 ```
 
 ## Integration with Blog
 
-This content repository is consumed by the [Y-Blog Next.js application](https://github.com/luohy15/y-blog) which:
+This content repository is consumed by the [Y-Blog application](https://github.com/luohy15/y-blog) (Vite + React, deployed as a static site to S3 + CloudFront), which:
 
-- Fetches articles from the CDN URLs specified in `index.jsonl` files
-- Renders markdown content with syntax highlighting
-- Provides multilingual navigation
-- Handles article metadata and organization
+- Fetches each language's `index.jsonl` from `https://cdn.luohy15.com/blog/` (root for English, `<lang>/` subpath for others)
+- Loads each article's markdown from the `url` field at runtime
+- Renders markdown via `react-markdown` with `rehype-highlight` for syntax highlighting and `remark-gfm` for GitHub-flavored markdown
+- Provides multilingual navigation and routing via React Router
 
 ## Content Guidelines
 

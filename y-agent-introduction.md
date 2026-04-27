@@ -68,7 +68,7 @@ Agents run inside tmux detached sessions on EC2. The monitoring layer (Lambda) o
 
 ## Comparisons
 
-There are several projects in the agent orchestration space ([research trace](https://yovy.app/t/e10a7a)). Here's how y-agent compares on three key dimensions:
+There are several projects in the agent orchestration space. Here's how y-agent compares on three key dimensions:
 
 ### Positioning and target users
 

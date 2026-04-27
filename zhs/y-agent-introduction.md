@@ -62,7 +62,7 @@ Telegram bot 监听消息，触发 Lambda，Lambda 通过 SSH 调用 Claude Code
 
 所有 session 都是同质的——每个都是加载若干 skill、执行任务、按需 spawn 子节点的运行时。是否派发子任务由当前工作决定，不是预先指定的角色。简单任务一个 session 闭环；复杂任务自然长成一棵子树。
 
-一个 CLI 命令（`y chat`）作为统一入口——`y chat -m "..."` 异步 fire-and-forget 派发，`y chat -i` 进入交互式 REPL。会话通过 topic 寻址（长期命名地址，比如 `manager` topic 对应我的 Telegram 私聊，作为根入口），或直接用 chat ID。Skill 按任务动态加载，不绑定 topic，所以同一个地址可以根据进来的任务跑 dev、blog 或 finance。每次派发携带 trace ID，CLAUDE.md 里定义协议。
+一个 CLI 命令（`y chat`）作为统一入口——`y chat -m "..."` 异步 fire-and-forget 派发，`y chat -i` 进入交互式 REPL。会话通过 topic 寻址（长期命名地址，比如 `manager` topic 对应我的 Telegram 私聊，作为根入口），或直接用 chat ID。Skill 按任务动态加载，不绑定 topic，所以同一个地址可以根据进来的任务跑 dev、blog 或 finance。甚至单个领域内部也会拆到不同 skill——dev 的工作流本身就会按阶段加载不同 skill 处理 plan、impl、review。每次派发携带 trace ID，CLAUDE.md 里定义协议。
 
 Dev 使用两阶段工作流：Phase 1（research/plan）在主目录只读代码、理解需求、拆分子任务；Phase 2（implement）为每个子任务创建独立 worktree 并行实现。Dev 自己协调整个流程——完成后自行 commit 和清理。
 
@@ -100,7 +100,7 @@ y-agent 处于这个光谱最轻的一端。它只为一个人设计，不是为
 | Hermes Agent | 同步 `delegate_task` | Parent-child（最多 2 层） |
 | Managed Agents | Sub-agent spawning（preview） | Sub-agent 树 |
 
-y-agent 用异步 fire-and-forget 消息（`y chat -m`）配合递归 session 树——所有 session 同质，任何一个都能在任务需要时 spawn 子节点。Telegram 私聊只是树根入口（长期的 `manager` topic），不是固定的调度器。Skill 按任务动态加载，不绑定 topic，所以同一个地址可以承担不同类型的工作。每个会话通过 trace ID 关联，可以在 [TraceView](https://yovy.app/t/0de510) 里看到完整链路。Dev 收到任务后自己协调两阶段工作流（research → parallel impl），完成后自行 commit。设计上刻意简单：没有同步阻塞，没有审批门禁，就是"发出去就不管，完成了回调"。
+y-agent 用异步 fire-and-forget 消息（`y chat -m`）配合递归 session 树——所有 session 同质，任何一个都能在任务需要时 spawn 子节点。Telegram 私聊只是树根入口（长期的 `manager` topic），不是固定的调度器。Skill 按任务动态加载，不绑定 topic，所以同一个地址可以承担不同类型的工作。每个会话通过 trace ID 关联，可以在 [TraceView](https://yovy.app/t/0de510) 里看到完整链路。Dev 自己也按阶段拆成四个 skill——`plan` 读代码写 plan note，`impl` 在独立 worktree 里并行跑实现，`review` 对照 plan 检查 diff，外面套一层薄的 `dev` 壳串联三者。设计上刻意简单：没有同步阻塞，没有审批门禁，就是"发出去就不管，完成了回调"。
 
 Paperclip 走了相反的方向——把多 agent 协调建模为组织架构图，有管理链、审批流程和预算控制。对于自治 AI 公司来说是对的设计，但对个人使用来说太重了。
 

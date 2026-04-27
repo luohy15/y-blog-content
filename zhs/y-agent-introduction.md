@@ -11,7 +11,7 @@ https://yovy.app/t/0de510
 
 ## 目前的需求
 
-1. 任务列表
+1. 高效的 Context 管理
 2. 远程运行 coding agent (主要是 Claude Code)
 3. 会话持久化和可视化
 4. Telegram 支持
@@ -20,19 +20,23 @@ https://yovy.app/t/0de510
 
 ## 思路
 
-### Context 处理
+### Context 管理
 
-所有东西都在 EC2 的一个目录下——代码、日志（journals）、笔记（notes）、日历、财务账本（beancount）、收藏的 link、RSS items、邮件，以及 CLAUDE.md 和 skill 树。如果 skill 指定了 work_dir，就在对应子目录下工作。不需要远程挂载、不需要同步、不需要组装 context，agent 直接读就行。
+我把所有东西都放在一个目录和一个数据库里：代码、笔记、日历、账本（beancount）、浏览记录、RSS 文章、邮件，以及 AGENTS.md 和 skill 树。不需要远程挂载、不需要同步、不需要组装 context，agent 直接读就行。
 
-这也意味着人机同视角。每个实体都有三种界面：给人看的面板、给 agent 用的 CLI、以及最底下的文件或 DB 行。问一句"上周做了什么"，Claude Code 直接 grep `journals/` 加查 todo 表——和看板渲染用的是同一份数据。Dev skill 写计划时存成一条 `note`，`content_key` 指向 `pages/` 下的 markdown，文件查看器打开的就是这同一个文件。不需要单独的 "agent API" 层——数据、工具、视图是同一个东西。
+```bash
+$ ls ~/luohy15/
+agent/   assets/   blog/    chat/    code/   diffs/   draws/
+email/   english/  finance/ journals/ links/  pages/   scripts/
+```
+
+尽量保持人机同视角。每个实体都有三种界面：给人看的面板、给 agent 用的 CLI、以及最底层的文件或 DB 数据。问一句"上周做了什么"，Agent 直接 grep `journals/` 加查 todo 表，和看板渲染用的是同一份数据。Dev skill 写计划时存成一条 `note`，`content_key` 指向 `pages/` 下的 markdown，文件查看器打开的就是这同一个文件。所有工具和视图都基于同一份数据。
 
 ### 薄抽象层
 
-y-cli -> y-agent，核心数据模型（session/message）没变，只是加了 work_dir/status/task_id。底层从 model API 换成 coding agent，上层几乎不用重写。
+从 y-cli 到 y-agent，核心数据模型（session/message）没变，只是加了 `work_dir`/`status`/`task_id`。底层从 model API 换成 coding agent，上层几乎不用重写。
 
-### Delegate, don't rebuild
-
-能套壳 Claude Code 就不自己重写一个 agent loop，能用现成的工具（比如 stream-json）就不自己写一个 parser。y-agent 的核心就是一层 thin wrapper，提供一些 glue code，把这些东西连起来。
+能套壳现成的 Claude Code / Codex 就不自己重写一个 agent loop，能用现成的工具（比如 stream-json）就不自己写一个 parser。y-agent 的核心就是一层 thin wrapper，提供一些 glue code，把这些东西连起来。
 
 ### 执行与监控解耦
 
@@ -40,11 +44,36 @@ Agent loop 的执行完全在 EC2 上，监控层（Lambda）只负责 tail stdo
 
 ## 实现
 
-### 任务列表
+### Context 管理
 
-一个 CLI 命令（`y todo`），用来创建、更新和追踪任务。人用 GUI 看板，agent 用 CLI，但面对的是同一份数据。
+数据库一侧也是一个池子——所有实体放在同一个 schema 下，todo 是把它们串起来的脊梁。
 
-Todo 是整个系统的脊梁，其它能力都挂在它上面。一份计划是一条 `note`，`content_key` 指向 `pages/` 下的 markdown，通过 `note_todo_relation` 关联到对应 todo。一个有 deadline 的事变成 `reminder`，到点通过 Telegram bot 推送。开发任务触发 `y dev wt add` 创建独立 worktree，最后的 commit 也回链到同一条 todo。每次跨 skill 的 `y chat` 派发把 `todo_id` 作为 `trace_id`，整条"根节点派发 → dev 规划 → 多个 impl session 并行 → dev 收尾 commit"的瀑布图都能在 [TraceView](https://yovy.app/t/0de510) 里回放。一个 ID 把看板卡片、计划文档、提醒、worktree、trace 串成同一条线。
+```sql
+$ psql -d yovy -c "\dt"
+                List of relations
+ Schema |         Name         | Type
+--------+----------------------+-------
+ public | calendar_event       | table
+ public | chat                 | table
+ public | dev_worktree         | table
+ public | email                | table
+ public | entity               | table
+ public | entity_link_relation | table
+ public | entity_note_relation | table
+ public | entity_rss_relation  | table
+ public | link                 | table
+ public | link_activity        | table
+ public | link_todo_relation   | table
+ public | note                 | table
+ public | note_todo_relation   | table
+ public | reminder             | table
+ public | rss_feed             | table
+ public | todo                 | table
+ public | trace_share          | table
+ public | user                 | table
+```
+
+近一半是 `*_relation` 表——这就是脊梁的具象化。一份计划是 `note` 通过 `note_todo_relation` 挂到 todo；一个 deadline 是 `reminder` 直接持有 `todo_id`；一个开发任务是 `dev_worktree` 也持有 `todo_id`；一次跨 skill 派发把 `todo_id` 当作 `trace_id`，让 `chat` 和 `trace_share` 都能回链到这条 todo。同一个 ID 把看板卡、计划文档、提醒、worktree、trace 串成同一条线。
 
 ### 远程运行 coding agent (主要是 Claude Code)
 

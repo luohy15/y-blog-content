@@ -24,6 +24,12 @@ https://yovy.app/t/0de510
 
 Everything lives in one directory on EC2 — code, journals, notes, calendar, finance ledger (beancount), saved links, RSS items, emails, plus CLAUDE.md and the skills tree. If a skill specifies a work_dir, it gets its own subdirectory. No remote mounts, no syncing, no context assembly step. The agent just reads what's there.
 
+```bash
+$ ls ~/luohy15/
+agent/   assets/   blog/    chat/    code/   diffs/   draws/
+email/   english/  finance/ journals/ links/  pages/   scripts/
+```
+
 This also means humans and agents share the same view. Every entity has three interfaces: a panel for humans, a CLI for agents, and the raw file or DB row for inspection. Ask "what did I do last week" and Claude Code greps `journals/` and queries the todo table — the exact source the kanban renders from. The dev skill writes a plan as a `note` with `content_key` pointing to a markdown file under `pages/`, and the file viewer opens that same file. There's no separate "agent API" to keep in sync — the data, the tool, and the view are the same thing.
 
 ### Thin abstraction layer
@@ -45,6 +51,33 @@ The agent loop runs entirely on EC2. The monitoring layer (Lambda) only tails st
 A CLI command (`y todo`) for creating, updating, and tracking tasks. Humans use the GUI kanban, agents use the CLI, both operate on the same data.
 
 Todo is the spine the rest of the system hangs off. A plan is a `note` with `content_key` pointing to a markdown file under `pages/`, attached to a todo via `note_todo_relation`. A scheduled deliverable becomes a `reminder` tied to that todo, fired through the Telegram bot when due. A coding task triggers `y dev wt add` to spin up a per-task worktree, and the resulting commits link back to the same todo. Every cross-skill `y chat` dispatch carries the `todo_id` as `trace_id`, so the full chain — root dispatched → dev planned → impl sessions ran in parallel → dev committed — can be replayed in [TraceView](https://yovy.app/t/0de510). One ID stitches the kanban card, the markdown plan, the reminder, the worktree, and the trace into a single thread.
+
+```sql
+$ psql -d yovy -c "\dt"
+                List of relations
+ Schema |         Name         | Type
+--------+----------------------+-------
+ public | calendar_event       | table
+ public | chat                 | table
+ public | dev_worktree         | table
+ public | email                | table
+ public | entity               | table
+ public | entity_link_relation | table
+ public | entity_note_relation | table
+ public | entity_rss_relation  | table
+ public | link                 | table
+ public | link_activity        | table
+ public | link_todo_relation   | table
+ public | note                 | table
+ public | note_todo_relation   | table
+ public | reminder             | table
+ public | rss_feed             | table
+ public | todo                 | table
+ public | trace_share          | table
+ public | user                 | table
+```
+
+Almost half of these are `*_relation` tables — that's the spine made literal. Every cross-entity link is a row in a relation table that pivots on `todo_id`, which is also the `trace_id` for any cross-skill chain that touches the task.
 
 ### Running coding agents remotely (primarily Claude Code)
 

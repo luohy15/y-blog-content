@@ -5,9 +5,9 @@
 
 ## 效果示例
 
-![y-agent TraceView](https://cdn.luohy15.com/y-agent-demo-2.png)
+![y-agent TraceView](https://cdn.luohy15.com/y-agent-demo-3.png)
 
-https://yovy.app/t/c6eff2
+https://yovy.app/t/0de510
 
 ## 目前的需求
 
@@ -44,7 +44,7 @@ Agent loop 的执行完全在 EC2 上，监控层（Lambda）只负责 tail stdo
 
 一个 CLI 命令（`y todo`），用来创建、更新和追踪任务。人用 GUI 看板，agent 用 CLI，但面对的是同一份数据。
 
-Todo 是整个系统的脊梁，其它能力都挂在它上面。一份计划是一条 `note`，`content_key` 指向 `pages/` 下的 markdown，通过 `note_todo_relation` 关联到对应 todo。一个有 deadline 的事变成 `reminder`，到点通过 Telegram bot 推送。开发任务触发 `y dev wt add` 创建独立 worktree，最后的 commit 也回链到同一条 todo。每次跨 skill 的 `y notify` 把 `todo_id` 作为 `trace_id`，整条"manager 派发 → dev 规划 → 多个 impl session 并行 → dev 收尾 commit"的瀑布图都能在 [TraceView](https://yovy.app/t/c6eff2) 里回放。一个 ID 把看板卡片、计划文档、提醒、worktree、trace 串成同一条线。
+Todo 是整个系统的脊梁，其它能力都挂在它上面。一份计划是一条 `note`，`content_key` 指向 `pages/` 下的 markdown，通过 `note_todo_relation` 关联到对应 todo。一个有 deadline 的事变成 `reminder`，到点通过 Telegram bot 推送。开发任务触发 `y dev wt add` 创建独立 worktree，最后的 commit 也回链到同一条 todo。每次跨 skill 的 `y notify` 把 `todo_id` 作为 `trace_id`，整条"manager 派发 → dev 规划 → 多个 impl session 并行 → dev 收尾 commit"的瀑布图都能在 [TraceView](https://yovy.app/t/0de510) 里回放。一个 ID 把看板卡片、计划文档、提醒、worktree、trace 串成同一条线。
 
 ### 远程运行 coding agent (主要是 Claude Code)
 
@@ -102,7 +102,7 @@ y-agent 处于这个光谱最轻的一端。它只为一个人设计，不是为
 | Hermes Agent | 同步 `delegate_task` | Parent-child（最多 2 层） |
 | Managed Agents | Sub-agent spawning（preview） | Sub-agent 树 |
 
-y-agent 用异步 fire-and-forget 消息（`y notify`）配合 hub-and-spoke 拓扑——Manager 作为中心调度器，根据 topic 把任务路由到对应角色（dev 等）。每个会话通过 trace ID 关联，可以在 [TraceView](https://yovy.app/t/c6eff2) 里看到完整链路。Dev 收到任务后自己协调两阶段工作流（research → parallel impl），完成后自行 commit。设计上刻意简单：没有同步阻塞，没有审批门禁，就是"发出去就不管，完成了回调"。
+y-agent 用异步 fire-and-forget 消息（`y notify`）配合 hub-and-spoke 拓扑——Manager 作为中心调度器，根据 topic 把任务路由到对应角色（dev 等）。每个会话通过 trace ID 关联，可以在 [TraceView](https://yovy.app/t/0de510) 里看到完整链路。Dev 收到任务后自己协调两阶段工作流（research → parallel impl），完成后自行 commit。设计上刻意简单：没有同步阻塞，没有审批门禁，就是"发出去就不管，完成了回调"。
 
 Paperclip 走了相反的方向——把多 agent 协调建模为组织架构图，有管理链、审批流程和预算控制。对于自治 AI 公司来说是对的设计，但对个人使用来说太重了。
 

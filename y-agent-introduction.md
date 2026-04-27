@@ -5,9 +5,9 @@
 
 ## Demo
 
-![y-agent TraceView](https://cdn.luohy15.com/y-agent-demo-2.png)
+![y-agent TraceView](https://cdn.luohy15.com/y-agent-demo-3.png)
 
-https://yovy.app/t/c6eff2
+https://yovy.app/t/0de510
 
 ## What I Need
 
@@ -44,7 +44,7 @@ The agent loop runs entirely on EC2. The monitoring layer (Lambda) only tails st
 
 A CLI command (`y todo`) for creating, updating, and tracking tasks. Humans use the GUI kanban, agents use the CLI, both operate on the same data.
 
-Todo is the spine the rest of the system hangs off. A plan is a `note` with `content_key` pointing to a markdown file under `pages/`, attached to a todo via `note_todo_relation`. A scheduled deliverable becomes a `reminder` tied to that todo, fired through the Telegram bot when due. A coding task triggers `y dev wt add` to spin up a per-task worktree, and the resulting commits link back to the same todo. Every cross-skill `y notify` call carries the `todo_id` as `trace_id`, so the full chain — manager dispatched → dev planned → impl sessions ran in parallel → dev committed — can be replayed in [TraceView](https://yovy.app/t/c6eff2). One ID stitches the kanban card, the markdown plan, the reminder, the worktree, and the trace into a single thread.
+Todo is the spine the rest of the system hangs off. A plan is a `note` with `content_key` pointing to a markdown file under `pages/`, attached to a todo via `note_todo_relation`. A scheduled deliverable becomes a `reminder` tied to that todo, fired through the Telegram bot when due. A coding task triggers `y dev wt add` to spin up a per-task worktree, and the resulting commits link back to the same todo. Every cross-skill `y notify` call carries the `todo_id` as `trace_id`, so the full chain — manager dispatched → dev planned → impl sessions ran in parallel → dev committed — can be replayed in [TraceView](https://yovy.app/t/0de510). One ID stitches the kanban card, the markdown plan, the reminder, the worktree, and the trace into a single thread.
 
 ### Running coding agents remotely (primarily Claude Code)
 
@@ -98,7 +98,7 @@ This is where the design philosophies diverge most sharply:
 | Hermes Agent | Synchronous `delegate_task` | Parent-child (max 2 levels) |
 | Managed Agents | Sub-agent spawning (preview) | Sub-agent tree |
 
-y-agent uses async fire-and-forget messaging (`y notify`) with a hub-and-spoke topology — Manager acts as the central dispatcher, routing tasks by topic to notifiable roles. Topics are the routing key, decoupled from skill names, so routing can change without restructuring the system. Dev uses a two-phase workflow: Phase 1 reads code and plans subtasks, then Phase 2 spawns parallel implementation sessions in separate worktrees, with the dev coordinator handling commits and cleanup itself. Each session is linked by a trace ID, so you can follow the full chain in [TraceView](https://yovy.app/t/c6eff2). This is intentionally simple: no synchronous blocking, no approval gates, just "send and forget, callback when done."
+y-agent uses async fire-and-forget messaging (`y notify`) with a hub-and-spoke topology — Manager acts as the central dispatcher, routing tasks by topic to notifiable roles. Topics are the routing key, decoupled from skill names, so routing can change without restructuring the system. Dev uses a two-phase workflow: Phase 1 reads code and plans subtasks, then Phase 2 spawns parallel implementation sessions in separate worktrees, with the dev coordinator handling commits and cleanup itself. Each session is linked by a trace ID, so you can follow the full chain in [TraceView](https://yovy.app/t/0de510). This is intentionally simple: no synchronous blocking, no approval gates, just "send and forget, callback when done."
 
 Paperclip takes the opposite approach — modeling multi-agent coordination as an org chart with managers, approval flows, and budget controls. It's the right design for autonomous AI companies, but overkill for personal use.
 

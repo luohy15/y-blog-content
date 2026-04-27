@@ -22,9 +22,9 @@ https://yovy.app/t/c6eff2
 
 ### Context 处理
 
-所有东西都在 EC2 的一个目录下——代码、配置、数据、CLAUDE.md。如果 skill 指定了 work_dir，就在对应子目录下工作。不需要远程挂载、不需要同步、不需要组装 context，agent 直接读就行。
+所有东西都在 EC2 的一个目录下——代码、日志（journals）、笔记（notes）、日历、财务账本（beancount）、收藏的 link、RSS items、邮件，以及 CLAUDE.md 和 skill 树。如果 skill 指定了 work_dir，就在对应子目录下工作。不需要远程挂载、不需要同步、不需要组装 context，agent 直接读就行。
 
-这也意味着人机同视角。我们给 agent 提供 CLI 工具和 skill，让它能访问和人在 GUI 上看到的同一份数据——任务、会话、日历、财务。不需要单独的 "agent API" 层，就是同一份数据、不同的界面。
+这也意味着人机同视角。每个实体都有三种界面：给人看的面板、给 agent 用的 CLI、以及最底下的文件或 DB 行。问一句"上周做了什么"，Claude Code 直接 grep `journals/` 加查 todo 表——和看板渲染用的是同一份数据。Dev skill 写计划时存成一条 `note`，`content_key` 指向 `pages/` 下的 markdown，文件查看器打开的就是这同一个文件。不需要单独的 "agent API" 层——数据、工具、视图是同一个东西。
 
 ### 薄抽象层
 
@@ -42,7 +42,9 @@ Agent loop 的执行完全在 EC2 上，监控层（Lambda）只负责 tail stdo
 
 ### 任务列表
 
-一个 CLI 命令（`y todo`），用来创建、更新和追踪任务。人用 GUI 操作，agent 用 CLI，但面对的是同一份数据。
+一个 CLI 命令（`y todo`），用来创建、更新和追踪任务。人用 GUI 看板，agent 用 CLI，但面对的是同一份数据。
+
+Todo 是整个系统的脊梁，其它能力都挂在它上面。一份计划是一条 `note`，`content_key` 指向 `pages/` 下的 markdown，通过 `note_todo_relation` 关联到对应 todo。一个有 deadline 的事变成 `reminder`，到点通过 Telegram bot 推送。开发任务触发 `y dev wt add` 创建独立 worktree，最后的 commit 也回链到同一条 todo。每次跨 skill 的 `y notify` 把 `todo_id` 作为 `trace_id`，整条"manager 派发 → dev 规划 → 多个 impl session 并行 → dev 收尾 commit"的瀑布图都能在 [TraceView](https://yovy.app/t/c6eff2) 里回放。一个 ID 把看板卡片、计划文档、提醒、worktree、trace 串成同一条线。
 
 ### 远程运行 coding agent (主要是 Claude Code)
 

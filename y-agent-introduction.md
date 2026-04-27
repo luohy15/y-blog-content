@@ -22,9 +22,9 @@ https://yovy.app/t/c6eff2
 
 ### Context handling
 
-Everything lives in one directory on EC2 — code, config, data, CLAUDE.md. If a skill specifies a work_dir, it gets its own subdirectory. No remote mounts, no syncing, no context assembly step. The agent just reads what's there.
+Everything lives in one directory on EC2 — code, journals, notes, calendar, finance ledger (beancount), saved links, RSS items, emails, plus CLAUDE.md and the skills tree. If a skill specifies a work_dir, it gets its own subdirectory. No remote mounts, no syncing, no context assembly step. The agent just reads what's there.
 
-This also means humans and agents share the same view. We provide agents with CLI tools and skills so they can access the same data humans see through the GUI — tasks, sessions, calendars, finances. No separate "agent API" layer, just the same data accessed through different interfaces.
+This also means humans and agents share the same view. Every entity has three interfaces: a panel for humans, a CLI for agents, and the raw file or DB row for inspection. Ask "what did I do last week" and Claude Code greps `journals/` and queries the todo table — the exact source the kanban renders from. The dev skill writes a plan as a `note` with `content_key` pointing to a markdown file under `pages/`, and the file viewer opens that same file. There's no separate "agent API" to keep in sync — the data, the tool, and the view are the same thing.
 
 ### Thin abstraction layer
 
@@ -42,7 +42,9 @@ The agent loop runs entirely on EC2. The monitoring layer (Lambda) only tails st
 
 ### Task list
 
-A CLI command (`y todo`) for creating, updating, and tracking tasks. Humans use the GUI, agents use the CLI, but both operate on the same data.
+A CLI command (`y todo`) for creating, updating, and tracking tasks. Humans use the GUI kanban, agents use the CLI, both operate on the same data.
+
+Todo is the spine the rest of the system hangs off. A plan is a `note` with `content_key` pointing to a markdown file under `pages/`, attached to a todo via `note_todo_relation`. A scheduled deliverable becomes a `reminder` tied to that todo, fired through the Telegram bot when due. A coding task triggers `y dev wt add` to spin up a per-task worktree, and the resulting commits link back to the same todo. Every cross-skill `y notify` call carries the `todo_id` as `trace_id`, so the full chain — manager dispatched → dev planned → impl sessions ran in parallel → dev committed — can be replayed in [TraceView](https://yovy.app/t/c6eff2). One ID stitches the kanban card, the markdown plan, the reminder, the worktree, and the trace into a single thread.
 
 ### Running coding agents remotely (primarily Claude Code)
 

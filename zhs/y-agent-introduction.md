@@ -18,17 +18,38 @@ https://yovy.app/t/0de510
 5. 多 agent 协同
 6. 长时间运行
 
+## 架构
+
+所有 session 是一棵树，每个节点都是同质的运行时：加载 skill、做事、按需通过 `y chat` 派发子任务。协调（coordinate）是每个 session 都有的能力，不是分配给特定角色的职责。Skill 按任务动态加载；topic 只是长期命名地址的语法糖。
+
+```
+        Telegram 私聊 / Web UI                      ← 用户输入入口
+                  │
+                  ▼
+       ┌─────────────────────┐
+root   │  topic: manager     │   长期命名地址，
+       │  skills: per task   │   绑定 Telegram 私聊（单例）
+       └──────────┬──────────┘
+                  │   y chat --topic dev -m "..."
+                  ▼
+       ┌─────────────────────┐
+trunk  │  topic: dev         │   收到任务后，
+       │  (coordinator)      │   可继续向下派发
+       └──┬───────┬───────┬──┘
+          │       │       │   y chat --skill {plan,impl,review}
+          ▼       ▼       ▼
+       ┌──────┐ ┌──────┐ ┌────────┐
+leaves │ plan │ │ impl │ │ review │   匿名、短暂；
+       └──────┘ └──────┘ └────────┘   每次派发动态加载 skill
+```
+
+一条 `trace_id`（任务被追踪时即 `todo_id`）贯穿整棵树，TraceView 把整条链渲染成 waterfall。
+
 ## 思路
 
 ### Context 管理
 
 我把所有东西都放在一个目录和一个数据库里：代码、笔记、日历、账本（beancount）、浏览记录、RSS 文章、邮件，以及 AGENTS.md 和 skill 树。不需要远程挂载、不需要同步、不需要组装 context，agent 直接读就行。
-
-```bash
-$ ls ~/luohy15/
-agent/   assets/   blog/    chat/    code/   diffs/   draws/
-email/   english/  finance/ journals/ links/  pages/   scripts/
-```
 
 尽量保持人机同视角。每个实体都有三种界面：给人看的面板、给 agent 用的 CLI、以及最底层的文件或 DB 数据。问一句"上周做了什么"，Agent 直接 grep `journals/` 加查 todo 表，和看板渲染用的是同一份数据。Dev skill 写计划时存成一条 `note`，`content_key` 指向 `pages/` 下的 markdown，文件查看器打开的就是这同一个文件。所有工具和视图都基于同一份数据。
 
@@ -43,37 +64,6 @@ email/   english/  finance/ journals/ links/  pages/   scripts/
 Agent loop 的执行完全在 EC2 上，监控层（Lambda）只负责 tail stdout、写数据库、续接进度。这样 agent 可以跑数小时不受 Lambda 15 分钟超时限制，监控层随时可以断开重连，互不影响。
 
 ## 实现
-
-### Context 管理
-
-数据库一侧也是一个池子——所有实体放在同一个 schema 下，todo 是把它们串起来的核心。
-
-```sql
-$ psql -d yovy -c "\dt"
-                List of relations
- Schema |         Name         | Type
---------+----------------------+-------
- public | calendar_event       | table
- public | chat                 | table
- public | dev_worktree         | table
- public | email                | table
- public | entity               | table
- public | entity_link_relation | table
- public | entity_note_relation | table
- public | entity_rss_relation  | table
- public | link                 | table
- public | link_activity        | table
- public | link_todo_relation   | table
- public | note                 | table
- public | note_todo_relation   | table
- public | reminder             | table
- public | rss_feed             | table
- public | todo                 | table
- public | trace_share          | table
- public | user                 | table
-```
-
-近一半是 `*_relation` 表——这就是 todo 作为核心的具象化。一份计划是 `note` 通过 `note_todo_relation` 挂到 todo；一个 deadline 是 `reminder` 直接持有 `todo_id`；一个开发任务是 `dev_worktree` 也持有 `todo_id`；一次跨 skill 派发把 `todo_id` 当作 `trace_id`，让 `chat` 和 `trace_share` 都能回链到这条 todo。同一个 ID 把看板卡、计划文档、提醒、worktree、trace 串成同一条线。
 
 ### 远程运行 coding agent (主要是 Claude Code)
 

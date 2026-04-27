@@ -9,18 +9,35 @@
 
 https://yovy.app/t/0de510
 
-## What I Need
+---
 
-1. Task list
-2. Run coding agents remotely (primarily Claude Code)
-3. Session persistence and visualization
-4. Telegram support
-5. Multi-agent collaboration
-6. Long-running tasks
+Coding agents like Claude Code are genuinely useful — for code. But code is only a sliver of what I actually need help with day to day. Notes pile up. Bills come in. Tasks slip. Links sit unread. I wanted the same kind of agent help across all of that, not just inside a repository.
 
-## Architecture
+This post walks through three things I ran into while extending a coding agent into a personal agent, in the order I ran into them: organizing context so an agent can actually use it, getting the agent to live somewhere other than a terminal session, and letting one agent grow into many when one isn't enough.
 
-Sessions form a tree where every node is the same kind of runtime: load skills, do work, optionally dispatch sub-tasks via `y chat`. Coordinating is a capability available to every session, not a role assigned to special ones. Skills load per task; topic is sugar for a long-lived, named address.
+## Context — organizing it, sharing it
+
+Coding agents are good at code partly because the codebase is already a single, well-defined directory tree. They walk in, grep what they need, and go. The personal-life equivalent is much messier — notes in Obsidian, calendar in Google, money in a spreadsheet, todos in some app, reading list in a browser tab. An agent staring at any one of those sees almost nothing.
+
+So I pulled everything into one directory on EC2. Code, journals, notes, calendar, the beancount ledger, saved links, RSS items, emails. Plus AGENTS.md and the skills tree. Each "domain" gets a subdirectory; the agent reads what's there. No remote mounts, no syncing layer, no context-assembly step before each query.
+
+The other half of "shared context" is making sure humans and agents look at the same thing. Every entity in the system has three interfaces: a panel for me, a CLI for the agent, the raw file or DB row underneath. Ask "what did I do last week" and the agent greps `journals/` and queries the todo table — the exact source the kanban renders from. A plan written by the dev skill is just a markdown file under `pages/`; the file viewer opens it directly, no separate "agent API" to drift out of sync.
+
+What ties these domains together is the todo. Todo is the spine the rest of the system hangs off — a note (markdown plan) attaches via `note_todo_relation`, a deadline becomes a reminder fired through the Telegram bot, a coding task spins up a worktree whose commits link back, and every cross-skill dispatch carries the `todo_id` as `trace_id`. One ID stitches the kanban card, the markdown plan, the reminder, the worktree, and the trace into a single thread.
+
+## The agent should live somewhere, for a long time
+
+Once context is organized, the next thing you notice is that a coding agent is *ephemeral*. You open a terminal, it works on something, you close the terminal, it dies. That's fine for an afternoon of coding. It's a poor fit for everything else — calendar prompts, evening journal nudges, "remind me about X when I get home" — all of which need an agent that's standby, not summoned.
+
+So I moved the agent off my laptop and onto EC2. A small Lambda SSHs in and runs Claude Code on demand; the EC2 itself is configured to auto-hibernate, scaling to zero when idle. From the user's perspective the agent is now always reachable, but no infra cost when nobody's talking to it.
+
+The "talking to it" part is Telegram. A bot listens on my DM, the message hits a Lambda, the Lambda triggers Claude Code via SSH on EC2. From any device, anywhere, I can poke the agent and get a response — no app to open, no terminal to attach to.
+
+For long-running tasks, the agent runs inside a tmux detached session on EC2. The Lambda layer only tails its stdout, writes messages to the database, and resumes from where it left off. That separation of execution from monitoring lets tasks run for hours without bumping into Lambda's 15-minute timeout, and lets the monitoring layer disconnect or reconnect freely without disturbing the agent. Everything is also rendered in a web UI — chat history, trace tree, raw stream — so I can replay what any session did, when.
+
+## From one agent to many
+
+A single long-running agent handles single-step requests fine. But the moment a request gets harder — "research this person and write a profile", "plan, implement, and review this feature", "draft a blog post" — one session isn't enough. The work splits naturally: someone reads the code, someone writes it, someone checks it. y-agent leans into this by letting any session spawn children when the task calls for it.
 
 ```
         Telegram DM  /  Web UI                     ← user input edge
@@ -43,104 +60,26 @@ leaves │ plan │ │ impl │ │ review │   anonymous, ephemeral;
        └──────┘ └──────┘ └────────┘   skill loaded per dispatch
 ```
 
-A `trace_id` (= `todo_id` when the task is tracked) threads the whole tree, so TraceView renders the chain as a waterfall.
+A few ideas underneath that diagram are worth pulling out:
 
-## Design Principles
+- **Every session is the same kind of runtime.** It loads some skills, runs a task, and may dispatch sub-tasks via `y chat`. Whether it actually dispatches depends on what the task needs, not on a role assigned at design time. Simple tasks close inside one session; complex ones grow a subtree. "root", "trunk", "leaves" in the diagram are positions in the current run, not session types.
 
-### Context handling
+- **Skills are a per-task capability bag.** They load when the session needs them and aren't bound to a topic. The same `dev` topic can run a code-review skill one minute and an implementation skill the next, depending on what came in.
 
-Everything lives in one directory on EC2 — code, journals, notes, calendar, finance ledger (beancount), saved links, RSS items, emails, plus CLAUDE.md and the skills tree. If a skill specifies a work_dir, it gets its own subdirectory. No remote mounts, no syncing, no context assembly step. The agent just reads what's there.
+- **Topics are just named addresses.** A topic does two things: provides a long-lived name to send messages to (so I don't have to remember chat IDs), and binds to a Telegram conversation. The `manager` topic happens to be bound to my Telegram DM and serves as the root inbox; everything else is anonymous and ephemeral unless I give it a name.
 
-This also means humans and agents share the same view. Every entity has three interfaces: a panel for humans, a CLI for agents, and the raw file or DB row for inspection. Ask "what did I do last week" and Claude Code greps `journals/` and queries the todo table — the exact source the kanban renders from. The dev skill writes a plan as a `note` with `content_key` pointing to a markdown file under `pages/`, and the file viewer opens that same file. There's no separate "agent API" to keep in sync — the data, the tool, and the view are the same thing.
+- **One ID threads the whole run.** Every dispatch carries a `trace_id`, which is the `todo_id` when the task is tracked. So a single run — root dispatched → dev planned → impl sessions ran in parallel → dev committed — replays as one waterfall in [TraceView](https://yovy.app/t/0de510). The kanban card, the plan note, the worktree commits, and the trace are all the same thread seen from different angles.
 
-### Thin abstraction layer
+- **Dispatch is one CLI.** `y chat -m "..."` is async fire-and-forget. `y chat -i` is the interactive REPL. Topic, skill, and chat-id are addressing flags on the same command. The protocol — when to set `--trace-id`, when to add `--new`, when to call back — lives in CLAUDE.md so every session can read it.
 
-From y-cli to y-agent, the core data model (session/message) stayed the same — just added work_dir/status/task_id. The underlying engine switched from model APIs to coding agents, but the upper layer barely needed rewriting.
+This is the only multi-agent design I've found that I can actually keep in my head. No central scheduler, no approval gates, no synchronous blocking — just messages, traces, and the same primitives recursing.
 
-### Delegate, don't rebuild
+## Looking forward
 
-If I can wrap Claude Code, I don't rewrite an agent loop. If there's an existing tool (like stream-json), I don't build my own parser. y-agent is a thin wrapper at its core — just glue code that connects these pieces together.
+When I wrote the y-cli introduction last year, I bet that the AI stack would keep moving fast and that the useful play was to build a thin, stable interface on top of it. A year later that played out: the underlying capability went from model APIs to coding agents, and the same thin-wrapper bet carried over to y-agent.
 
-### Decouple execution from monitoring
+I think the line continues. Coding agent today; something more general tomorrow. Each layer of capability brings the agent closer to ordinary life — and y-agent's job is just to be the stable middle layer that tracks it without forcing me to relearn my own setup every six months.
 
-The agent loop runs entirely on EC2. The monitoring layer (Lambda) only tails stdout, writes to the database, and resumes progress. This way the agent can run for hours without hitting Lambda's 15-minute timeout, and the monitoring layer can disconnect and reconnect at any time without affecting execution.
+The other half of this post, less argued: a small invitation. y-agent isn't a product — it's tools I built for myself. The satisfying part isn't the system, it's the position: one person, a coding agent, and a willingness to wire things together. If you have a coding agent and a few hours, you can build a setup that fits your life better than anything you'd buy off the shelf. That's worth more than what's in this post.
 
-## Implementation
-
-### Task list
-
-A CLI command (`y todo`) for creating, updating, and tracking tasks. Humans use the GUI kanban, agents use the CLI, both operate on the same data.
-
-Todo is the spine the rest of the system hangs off. A plan is a `note` with `content_key` pointing to a markdown file under `pages/`, attached to a todo via `note_todo_relation`. A scheduled deliverable becomes a `reminder` tied to that todo, fired through the Telegram bot when due. A coding task triggers `y dev wt add` to spin up a per-task worktree, and the resulting commits link back to the same todo. Every cross-skill `y chat` dispatch carries the `todo_id` as `trace_id`, so the full chain — root dispatched → dev planned → impl sessions ran in parallel → dev committed — can be replayed in [TraceView](https://yovy.app/t/0de510). One ID stitches the kanban card, the markdown plan, the reminder, the worktree, and the trace into a single thread.
-
-### Running coding agents remotely (primarily Claude Code)
-
-I run it directly on my AWS EC2 instance. A Lambda function SSHs into the EC2 to execute commands. The EC2 is configured to auto-hibernate, so it scales down to zero when nothing is running — no cost when idle.
-
-### Session persistence and visualization
-
-Claude Code output is streamed via stream-json. A Lambda monitors this output, writes it to the database, and a web interface displays everything.
-
-### Telegram support
-
-A Telegram bot listens for messages, triggers Lambda, and Lambda invokes Claude Code via SSH.
-
-### Multi-agent collaboration
-
-All sessions are homogeneous — each one loads some skills, runs a task, and can spawn children when the work calls for it. Whether a session dispatches subtasks depends on what it's doing, not on a predefined role. Simple tasks close within one session; complex ones naturally grow into a subtree.
-
-A single CLI command (`y chat`) is the unified entry point — `y chat -m "..."` for async fire-and-forget dispatch, `y chat -i` for interactive REPL. Sessions are addressed by topic (a long-lived name, like the `manager` topic that maps to my Telegram DM and serves as the root inbox) or directly by chat ID. Skills load per task and aren't bound to topic, so the same address can run dev, blog, or finance work depending on what comes in. Even a single domain fans out across skills — dev work itself loads separate skills for planning, implementation, and review. Every dispatch carries a trace ID, and CLAUDE.md documents the protocol.
-
-### Long-running tasks
-
-Agents run inside tmux detached sessions on EC2. The monitoring layer (Lambda) only tails stdout, writes to the database, and resumes progress. This lets agents run for hours without hitting Lambda's 15-minute timeout, and the monitoring layer can disconnect and reconnect freely.
-
-## Comparisons
-
-There are several projects in the agent orchestration space. Here's how y-agent compares on three key dimensions:
-
-### Positioning and target users
-
-| Project | Positioning | Target users |
-|---------|------------|--------------|
-| y-agent | Personal AI toolkit | Individual builder |
-| [Slock](https://slock.ai/) | Slack for AI agents | Teams collaborating with agents |
-| [Multica](https://github.com/multica-io/multica) | Team kanban + AI agents | Small teams (2-10 people) |
-| [Paperclip](https://github.com/paperclip-ai/paperclip) | AI company control plane | Founders running AI companies |
-| [Hermes Agent](https://github.com/hermes-ai/hermes-agent) | General-purpose open-source agent framework | Self-hosting developers |
-| [Managed Agents](https://docs.anthropic.com/en/docs/agents/managed-agents) | Enterprise PaaS | Enterprise customers |
-
-y-agent sits at the lightest end of this spectrum. It's built for one person, not a team or an enterprise. The tradeoff is obvious — no multi-tenant, no approval workflows, no cost governance — but in exchange, there's near-zero infra cost and full control over every layer.
-
-### Multi-agent communication
-
-This is where the design philosophies diverge most sharply:
-
-| Project | Communication | Structure |
-|---------|--------------|-----------|
-| y-agent | `y chat` async fire-and-forget | Recursive session tree |
-| Slock | Channel/Thread broadcast | Flat (group chat) |
-| Multica | WebSocket + DB sync | Flat (kanban board) |
-| Paperclip | Issue + Comments + Approval chain | Org tree (management hierarchy) |
-| Hermes Agent | Synchronous `delegate_task` | Parent-child (max 2 levels) |
-| Managed Agents | Sub-agent spawning (preview) | Sub-agent tree |
-
-y-agent uses async fire-and-forget messaging (`y chat -m`) over a recursive session tree — every session is homogeneous, and any one of them can spawn children when a task calls for it. The Telegram DM is just the root entry point (a long-lived `manager` topic), not a fixed dispatcher. Skills load per task and aren't bound to topic, so the same address can take on different work over time. Dev itself splits across four skills loaded per phase — `plan` reads code and writes a plan note, `impl` spawns parallel implementation sessions in separate worktrees, `review` checks the resulting diffs against the plan, and a thin `dev` shell coordinates between them. Each session is linked by a trace ID, so you can follow the full chain in [TraceView](https://yovy.app/t/0de510). This is intentionally simple: no synchronous blocking, no approval gates, just "send and forget, callback when done."
-
-Paperclip takes the opposite approach — modeling multi-agent coordination as an org chart with managers, approval flows, and budget controls. It's the right design for autonomous AI companies, but overkill for personal use.
-
-Slock uses a Slack-like group chat model — agents join channels, broadcast messages, and collaborate like coworkers in a chat room.
-
-Multica lands in between, using a kanban metaphor where agents are team members picking up issues from a shared board.
-
-## Looking Forward
-
-When I wrote the y-cli introduction last year, I said: the AI landscape will continue to evolve rapidly, with new models, capabilities, and paradigms emerging. y-cli's goal was to provide a stable, user-controlled interface to this changing world.
-
-A year later, that prediction fully played out. The underlying capability upgraded from model APIs to coding agents, and y-cli evolved into y-agent. But the core approach hasn't changed: build a thin abstraction on top of the latest capabilities, providing a stable interface that you control.
-
-Each step up in foundational capability brings applications closer to daily life. Model API → coding agent → general agent — this trajectory won't stop. y-agent's role is always that stable middle layer — keeping my interactions and data consistent while quickly integrating new advances.
-
-While it's not designed for others to use, as "personal infra for builders" y-agent proves that one person + a coding agent can maintain a complete, daily-use agent system with near-zero infra cost.
-
-If you want to take control of your own AI workflow, check out [y-agent on GitHub](https://github.com/luohy15/y-agent).
+If you want to look at the code: [y-agent on GitHub](https://github.com/luohy15/y-agent).

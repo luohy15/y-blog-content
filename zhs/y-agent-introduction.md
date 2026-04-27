@@ -37,7 +37,11 @@ Context 组织好之后，下一件事就显出来了：coding agent 默认是 *
 
 ## 从一个 Agent 到多个
 
-一个长期运行的 agent 处理单步请求够用。但请求一变难——"研究这个人写个 profile"、"对这个 feature 先 plan 再 impl 再 review"、"起草一篇博客"——一个 session 就不够了。事情自然会拆：有人读代码、有人写、有人检查。y-agent 让任何 session 都可以在任务需要时 spawn 子节点。
+一个长期运行的 agent 处理单步请求够用。但请求一变难——"研究这个人写个 profile"、"对这个 feature 先 plan 再 impl 再 review"、"起草一篇博客"——一个 session 就不够了。事情自然会拆：有人读代码、有人写、有人检查。所以一个 session 必须把工作交给另一个，紧接着就有几个问题冒出来。
+
+**一个 session 怎么寻址另一个？** 有些 session 你只想用一次就扔——一次性的 impl 跑、临时的研究任务，用 chat ID 寻址就够了。但有些 session 你会反复用：我的 Telegram 私聊就是所有消息的总入口，跑代码任务的 session 是所有代码工作的固定接收方。这种我希望有一个稳定的名字能直接写进脚本，而不是每次去查一个 hex chat ID。所以地址有两种：`--chat-id` 用于一次性的，`--topic` 用于长期命名地址。`manager` topic 恰好绑到我的 Telegram 私聊作为根入口，`dev` topic 接所有代码工作，其他 session 默认匿名，除非我专门给它起名字。
+
+**哪些 session 有资格派发？** 我最初的本能是分开——一个"manager" session 负责派发，"worker" session 负责执行。但这种分类其实没什么收益。每个 session 就是一个运行时：加载若干 skill、跑任务，任务需要时可以派发子任务。简单任务一个 session 闭环，复杂任务自然长出子树。图里的 "root"、"trunk"、"leaves" 是这次运行的位置，不是 session 类型。
 
 ```
         Telegram 私聊 / Web UI                      ← 用户输入入口
@@ -60,17 +64,11 @@ leaves │ plan │ │ impl │ │ review │   匿名、短暂；
        └──────┘ └──────┘ └────────┘   每次派发动态加载 skill
 ```
 
-图下面有几个值得单独拎出来讲的概念：
+**怎么追踪一次跨多个 session 的运行？** 看任何一个 session 的日志只能看到一片，整棵树才是完整故事。所以每次派发携带一个 `trace_id`，任务被追踪时即 `todo_id`——和看板卡片用的是同一个 ID。一次完整运行——root 派发 → dev 做 plan → 多个 impl 并行 → dev commit——能在 [TraceView](https://yovy.app/t/0de510) 里渲染成一条 waterfall。看板卡片、plan note、worktree commit、trace 都是同一根线的不同视角。
 
-- **每个 session 都是同质的运行时。** 加载若干 skill、跑任务、按需通过 `y chat` 派发子任务。是否真的派发由任务决定，不是设计时分配的角色。简单任务一个 session 闭环，复杂任务自然长出子树。图里的 "root"、"trunk"、"leaves" 是这次运行的位置，不是 session 类型。
+**Skill 跟 topic 绑吗？** 我一开始假设是绑的——`dev` topic 跑 dev skill，`blog` topic 跑 blog skill。后来发现这是把两件事混了。Topic 只是稳定地址，session 实际做什么取决于进来的是什么消息。所以 skill 按任务动态加载，不绑定 topic。同一个 `dev` 地址这一分钟可以跑 review skill，下一分钟跑 impl skill，看进来的是什么任务。
 
-- **Skill 是 per-task 的能力包。** 按 session 当前需要动态加载，不绑定 topic。同一个 `dev` topic 这一分钟可以跑 review skill，下一分钟跑 impl skill，看进来的是什么任务。
-
-- **Topic 只是命名地址。** Topic 干两件事：提供一个长期的名字方便我发消息（不用记 chat ID），以及绑定到一个 Telegram 会话。`manager` topic 恰好绑到我的 Telegram 私聊，作为根入口；其他 session 默认匿名、短暂，除非我给它起个名字。
-
-- **一个 ID 串起整次运行。** 每次派发携带 `trace_id`，任务被追踪时即 `todo_id`。所以一次运行——root 派发 → dev 做 plan → 多个 impl 并行 → dev commit——能在 [TraceView](https://yovy.app/t/0de510) 里渲染成一条 waterfall。看板卡片、plan note、worktree commit、trace 都是同一根线的不同视角。
-
-- **派发就是一条 CLI。** `y chat -m "..."` 异步 fire-and-forget，`y chat -i` 是交互式 REPL。Topic、skill、chat-id 是同一条命令上的寻址 flag。协议——什么时候设 `--trace-id`、什么时候加 `--new`、什么时候回调——写在 CLAUDE.md 里，每个 session 都能读到。
+所有这些——寻址、派发、回复、回调——都收在一条 CLI 下。`y chat -m "..."` 异步 fire-and-forget，`y chat -i` 是交互式 REPL。`--topic`、`--skill`、`--chat-id` 是同一条命令上的寻址 flag。协议——什么时候设 `--trace-id`、什么时候加 `--new`、什么时候回调——写在 CLAUDE.md 里，每个 session 都能读到。
 
 这是我自己唯一能装进脑子里的多 agent 设计。没有中央调度、没有审批门、没有同步阻塞——就是消息、trace 和同样的原语递归。
 

@@ -37,7 +37,11 @@ For long-running tasks, the agent runs inside a tmux detached session on EC2. Th
 
 ## From one agent to many
 
-A single long-running agent handles single-step requests fine. But the moment a request gets harder — "research this person and write a profile", "plan, implement, and review this feature", "draft a blog post" — one session isn't enough. The work splits naturally: someone reads the code, someone writes it, someone checks it. y-agent leans into this by letting any session spawn children when the task calls for it.
+A single long-running agent handles single-step requests fine. But the moment a request gets harder — "research this person and write a profile", "plan, implement, and review this feature", "draft a blog post" — one session isn't enough. The work splits naturally: someone reads the code, someone writes it, someone checks it. So one session has to hand work to another, and a few questions immediately follow.
+
+**How does one session address another?** Some sessions you want to talk to once and throw away — an ad-hoc implementation run, a one-off research task. A chat ID is enough for those. But others you talk to repeatedly: my Telegram DM is the inbox for everything; whatever runs the code work is the standing recipient for any code task. For those I want a stable name I can hard-code into scripts, not a hex chat ID I have to look up. So addresses come in two flavors. `--chat-id` for one-offs. `--topic` for long-lived names. The `manager` topic happens to be bound to my Telegram DM and serves as the root inbox; the `dev` topic handles code work; everything else stays anonymous unless I bother to name it.
+
+**Which session is allowed to dispatch?** My first instinct was to pre-classify — a "manager" session that dispatches and "worker" sessions that execute. That turned out to buy nothing. Every session is just a runtime: loads some skills, runs a task, and may dispatch sub-tasks if the task calls for it. Simple tasks close inside one session; complex ones grow a subtree. "root", "trunk", "leaves" become positions in the current run, not session types.
 
 ```
         Telegram DM  /  Web UI                     ← user input edge
@@ -60,17 +64,11 @@ leaves │ plan │ │ impl │ │ review │   anonymous, ephemeral;
        └──────┘ └──────┘ └────────┘   skill loaded per dispatch
 ```
 
-A few ideas underneath that diagram are worth pulling out:
+**How do I follow a run that spans multiple sessions?** Reading any one session log only shows you that slice; the interesting story is the whole tree. So every dispatch carries a `trace_id`, and when the task is tracked it's just the `todo_id` — same identifier as the kanban card. A full run — root dispatched → dev planned → impl sessions ran in parallel → dev committed — replays as one waterfall in [TraceView](https://yovy.app/t/0de510). The kanban card, the plan note, the worktree commits, and the trace are all the same thread seen from different angles.
 
-- **Every session is the same kind of runtime.** It loads some skills, runs a task, and may dispatch sub-tasks via `y chat`. Whether it actually dispatches depends on what the task needs, not on a role assigned at design time. Simple tasks close inside one session; complex ones grow a subtree. "root", "trunk", "leaves" in the diagram are positions in the current run, not session types.
+**Are skills tied to topics?** I assumed yes at first — the `dev` topic runs the dev skill, the `blog` topic runs the blog skill. Then I noticed I was conflating two things. A topic is just a stable address; what work the session does depends on what message came in. So skills load per-task and aren't bound to topic. The same `dev` address can run a review skill one minute and an implementation skill the next, depending on what arrived.
 
-- **Skills are a per-task capability bag.** They load when the session needs them and aren't bound to a topic. The same `dev` topic can run a code-review skill one minute and an implementation skill the next, depending on what came in.
-
-- **Topics are just named addresses.** A topic does two things: provides a long-lived name to send messages to (so I don't have to remember chat IDs), and binds to a Telegram conversation. The `manager` topic happens to be bound to my Telegram DM and serves as the root inbox; everything else is anonymous and ephemeral unless I give it a name.
-
-- **One ID threads the whole run.** Every dispatch carries a `trace_id`, which is the `todo_id` when the task is tracked. So a single run — root dispatched → dev planned → impl sessions ran in parallel → dev committed — replays as one waterfall in [TraceView](https://yovy.app/t/0de510). The kanban card, the plan note, the worktree commits, and the trace are all the same thread seen from different angles.
-
-- **Dispatch is one CLI.** `y chat -m "..."` is async fire-and-forget. `y chat -i` is the interactive REPL. Topic, skill, and chat-id are addressing flags on the same command. The protocol — when to set `--trace-id`, when to add `--new`, when to call back — lives in CLAUDE.md so every session can read it.
+All of this — addressing, dispatching, replying, callback — stays under one CLI. `y chat -m "..."` is async fire-and-forget. `y chat -i` is the interactive REPL. `--topic`, `--skill`, `--chat-id` are addressing flags on the same command. The protocol — when to set `--trace-id`, when to add `--new`, when to call back — lives in CLAUDE.md so every session can read it.
 
 This is the only multi-agent design I've found that I can actually keep in my head. No central scheduler, no approval gates, no synchronous blocking — just messages, traces, and the same primitives recursing.
 

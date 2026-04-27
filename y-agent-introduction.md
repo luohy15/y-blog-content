@@ -44,7 +44,7 @@ The agent loop runs entirely on EC2. The monitoring layer (Lambda) only tails st
 
 A CLI command (`y todo`) for creating, updating, and tracking tasks. Humans use the GUI kanban, agents use the CLI, both operate on the same data.
 
-Todo is the spine the rest of the system hangs off. A plan is a `note` with `content_key` pointing to a markdown file under `pages/`, attached to a todo via `note_todo_relation`. A scheduled deliverable becomes a `reminder` tied to that todo, fired through the Telegram bot when due. A coding task triggers `y dev wt add` to spin up a per-task worktree, and the resulting commits link back to the same todo. Every cross-skill `y notify` call carries the `todo_id` as `trace_id`, so the full chain — manager dispatched → dev planned → impl sessions ran in parallel → dev committed — can be replayed in [TraceView](https://yovy.app/t/0de510). One ID stitches the kanban card, the markdown plan, the reminder, the worktree, and the trace into a single thread.
+Todo is the spine the rest of the system hangs off. A plan is a `note` with `content_key` pointing to a markdown file under `pages/`, attached to a todo via `note_todo_relation`. A scheduled deliverable becomes a `reminder` tied to that todo, fired through the Telegram bot when due. A coding task triggers `y dev wt add` to spin up a per-task worktree, and the resulting commits link back to the same todo. Every cross-skill `y chat` dispatch carries the `todo_id` as `trace_id`, so the full chain — root dispatched → dev planned → impl sessions ran in parallel → dev committed — can be replayed in [TraceView](https://yovy.app/t/0de510). One ID stitches the kanban card, the markdown plan, the reminder, the worktree, and the trace into a single thread.
 
 ### Running coding agents remotely (primarily Claude Code)
 
@@ -60,9 +60,9 @@ A Telegram bot listens for messages, triggers Lambda, and Lambda invokes Claude 
 
 ### Multi-agent collaboration
 
-Sessions fall into two categories: **Manager** (dispatches tasks via `y notify`, doesn't execute) and **Worker** (loads any skill — dev, hr, blog, cdn, finance, etc. — and executes tasks received via topic).
+All sessions are homogeneous — each one loads some skills, runs a task, and can spawn children when the work calls for it. Whether a session dispatches subtasks depends on what it's doing, not on a predefined role. Simple tasks close within one session; complex ones naturally grow into a subtree.
 
-A CLI command (`y notify`) sends async fire-and-forget messages between roles. Messages are routed by topic — decoupled from skill names. Each session is linked by a trace ID, and CLAUDE.md documents the communication protocol.
+A single CLI command (`y chat`) is the unified entry point — `y chat -m "..."` for async fire-and-forget dispatch, `y chat -i` for interactive REPL. Sessions are addressed by topic (a long-lived name, like the `manager` topic that maps to my Telegram DM and serves as the root inbox) or directly by chat ID. Skills load per task and aren't bound to topic, so the same address can run dev, blog, or finance work depending on what comes in. Every dispatch carries a trace ID, and CLAUDE.md documents the protocol.
 
 ### Long-running tasks
 
@@ -91,14 +91,14 @@ This is where the design philosophies diverge most sharply:
 
 | Project | Communication | Structure |
 |---------|--------------|-----------|
-| y-agent | `y notify` async fire-and-forget | Hub-and-spoke (Manager dispatches) |
+| y-agent | `y chat` async fire-and-forget | Recursive session tree |
 | Slock | Channel/Thread broadcast | Flat (group chat) |
 | Multica | WebSocket + DB sync | Flat (kanban board) |
 | Paperclip | Issue + Comments + Approval chain | Org tree (management hierarchy) |
 | Hermes Agent | Synchronous `delegate_task` | Parent-child (max 2 levels) |
 | Managed Agents | Sub-agent spawning (preview) | Sub-agent tree |
 
-y-agent uses async fire-and-forget messaging (`y notify`) with a hub-and-spoke topology — Manager acts as the central dispatcher, routing tasks by topic to notifiable roles. Topics are the routing key, decoupled from skill names, so routing can change without restructuring the system. Dev uses a two-phase workflow: Phase 1 reads code and plans subtasks, then Phase 2 spawns parallel implementation sessions in separate worktrees, with the dev coordinator handling commits and cleanup itself. Each session is linked by a trace ID, so you can follow the full chain in [TraceView](https://yovy.app/t/0de510). This is intentionally simple: no synchronous blocking, no approval gates, just "send and forget, callback when done."
+y-agent uses async fire-and-forget messaging (`y chat -m`) over a recursive session tree — every session is homogeneous, and any one of them can spawn children when a task calls for it. The Telegram DM is just the root entry point (a long-lived `manager` topic), not a fixed dispatcher. Skills load per task and aren't bound to topic, so the same address can take on different work over time. Dev uses a two-phase workflow: Phase 1 reads code and plans subtasks, then Phase 2 spawns parallel implementation sessions in separate worktrees, with the dev coordinator handling commits and cleanup itself. Each session is linked by a trace ID, so you can follow the full chain in [TraceView](https://yovy.app/t/0de510). This is intentionally simple: no synchronous blocking, no approval gates, just "send and forget, callback when done."
 
 Paperclip takes the opposite approach — modeling multi-agent coordination as an org chart with managers, approval flows, and budget controls. It's the right design for autonomous AI companies, but overkill for personal use.
 

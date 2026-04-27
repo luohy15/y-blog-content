@@ -44,7 +44,7 @@ Agent loop 的执行完全在 EC2 上，监控层（Lambda）只负责 tail stdo
 
 一个 CLI 命令（`y todo`），用来创建、更新和追踪任务。人用 GUI 看板，agent 用 CLI，但面对的是同一份数据。
 
-Todo 是整个系统的脊梁，其它能力都挂在它上面。一份计划是一条 `note`，`content_key` 指向 `pages/` 下的 markdown，通过 `note_todo_relation` 关联到对应 todo。一个有 deadline 的事变成 `reminder`，到点通过 Telegram bot 推送。开发任务触发 `y dev wt add` 创建独立 worktree，最后的 commit 也回链到同一条 todo。每次跨 skill 的 `y notify` 把 `todo_id` 作为 `trace_id`，整条"manager 派发 → dev 规划 → 多个 impl session 并行 → dev 收尾 commit"的瀑布图都能在 [TraceView](https://yovy.app/t/0de510) 里回放。一个 ID 把看板卡片、计划文档、提醒、worktree、trace 串成同一条线。
+Todo 是整个系统的脊梁，其它能力都挂在它上面。一份计划是一条 `note`，`content_key` 指向 `pages/` 下的 markdown，通过 `note_todo_relation` 关联到对应 todo。一个有 deadline 的事变成 `reminder`，到点通过 Telegram bot 推送。开发任务触发 `y dev wt add` 创建独立 worktree，最后的 commit 也回链到同一条 todo。每次跨 skill 的 `y chat` 派发把 `todo_id` 作为 `trace_id`，整条"根节点派发 → dev 规划 → 多个 impl session 并行 → dev 收尾 commit"的瀑布图都能在 [TraceView](https://yovy.app/t/0de510) 里回放。一个 ID 把看板卡片、计划文档、提醒、worktree、trace 串成同一条线。
 
 ### 远程运行 coding agent (主要是 Claude Code)
 
@@ -60,13 +60,11 @@ Telegram bot 监听消息，触发 Lambda，Lambda 通过 SSH 调用 Claude Code
 
 ### 多 agent 协同
 
-Session 分为两类：**Manager**（通过 `y notify` 派发任务，不做具体执行）和 **Worker**（加载任意 skill——dev、hr、blog、cdn、finance 等——通过 topic 接收并执行任务）。
+所有 session 都是同质的——每个都是加载若干 skill、执行任务、按需 spawn 子节点的运行时。是否派发子任务由当前工作决定，不是预先指定的角色。简单任务一个 session 闭环；复杂任务自然长成一棵子树。
 
-消息路由基于 topic——每条消息带一个 topic，Manager 根据 topic 路由到对应角色，不再绑定 skill 名。各角色会话通过 trace ID 关联到同一个任务。
+一个 CLI 命令（`y chat`）作为统一入口——`y chat -m "..."` 异步 fire-and-forget 派发，`y chat -i` 进入交互式 REPL。会话通过 topic 寻址（长期命名地址，比如 `manager` topic 对应我的 Telegram 私聊，作为根入口），或直接用 chat ID。Skill 按任务动态加载，不绑定 topic，所以同一个地址可以根据进来的任务跑 dev、blog 或 finance。每次派发携带 trace ID，CLAUDE.md 里定义协议。
 
-CLI 命令 `y notify` 实现异步消息传递，启动新会话或向已有会话发送消息，CLAUDE.md 里定义用法和协议。
-
-Dev 使用两阶段工作流：Phase 1（research/plan）在主目录只读代码、理解需求、拆分子任务；Phase 2（implement）为每个子任务创建独立 worktree 并行实现。Dev 自己协调整个流程——完成后自行 commit 和清理，不需要上级角色介入。
+Dev 使用两阶段工作流：Phase 1（research/plan）在主目录只读代码、理解需求、拆分子任务；Phase 2（implement）为每个子任务创建独立 worktree 并行实现。Dev 自己协调整个流程——完成后自行 commit 和清理。
 
 ### 长时间运行
 
@@ -95,14 +93,14 @@ y-agent 处于这个光谱最轻的一端。它只为一个人设计，不是为
 
 | 项目 | 通信方式 | 拓扑结构 |
 |------|----------|----------|
-| y-agent | `y notify` 异步 fire-and-forget | Hub-and-spoke（Manager 中心调度） |
+| y-agent | `y chat` 异步 fire-and-forget | 递归 session 树 |
 | Slock | Channel/Thread 广播 | Flat（群聊） |
 | Multica | WebSocket + DB 同步 | Flat（看板） |
 | Paperclip | Issue + Comments + Approval 审批链 | Org 树（管理层级） |
 | Hermes Agent | 同步 `delegate_task` | Parent-child（最多 2 层） |
 | Managed Agents | Sub-agent spawning（preview） | Sub-agent 树 |
 
-y-agent 用异步 fire-and-forget 消息（`y notify`）配合 hub-and-spoke 拓扑——Manager 作为中心调度器，根据 topic 把任务路由到对应角色（dev 等）。每个会话通过 trace ID 关联，可以在 [TraceView](https://yovy.app/t/0de510) 里看到完整链路。Dev 收到任务后自己协调两阶段工作流（research → parallel impl），完成后自行 commit。设计上刻意简单：没有同步阻塞，没有审批门禁，就是"发出去就不管，完成了回调"。
+y-agent 用异步 fire-and-forget 消息（`y chat -m`）配合递归 session 树——所有 session 同质，任何一个都能在任务需要时 spawn 子节点。Telegram 私聊只是树根入口（长期的 `manager` topic），不是固定的调度器。Skill 按任务动态加载，不绑定 topic，所以同一个地址可以承担不同类型的工作。每个会话通过 trace ID 关联，可以在 [TraceView](https://yovy.app/t/0de510) 里看到完整链路。Dev 收到任务后自己协调两阶段工作流（research → parallel impl），完成后自行 commit。设计上刻意简单：没有同步阻塞，没有审批门禁，就是"发出去就不管，完成了回调"。
 
 Paperclip 走了相反的方向——把多 agent 协调建模为组织架构图，有管理链、审批流程和预算控制。对于自治 AI 公司来说是对的设计，但对个人使用来说太重了。
 

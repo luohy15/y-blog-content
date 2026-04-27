@@ -1,9 +1,10 @@
 ---
 created: 2025-11-23
+updated: 2026-04-27
 tags: [knowledge/technical/workspace, macos, ios, productivity, ai]
 ---
 
-# macOS & iOS 语音输入配置：Willow Voice
+# macOS & iOS 语音输入配置：Typeless
 
 ## 为什么要用语音输入
 
@@ -11,10 +12,13 @@ tags: [knowledge/technical/workspace, macos, ios, productivity, ai]
 
 > **说明**：本文使用上述语音输入配合 Claude Code 完成。
 
+> **更新（2026-04-27）**：最初我用的是 [Willow Voice](https://willowvoice.com/?ref=JC5OO6)，本文也是这么推荐的。后来切到了 **[Typeless](https://www.typeless.com/)**，主要原因是 Typeless 的中文识别明显更准——我经常中英混着说，这点差别就很关键了。如果你只用英文听写，Willow Voice 依然是个不错的选择。
+
 ## 配置方法
 
 ### 应用程序
-- **[Willow Voice](https://willowvoice.com/?ref=JC5OO6)** - 首选方案。速度快，内置转录功能，无需配置 API。（$12-15/月）
+- **[Typeless](https://www.typeless.com/)** - 当前推荐。速度快，内置转录，无需配置 API。在我试过的主流语音输入应用里，中文识别效果最好。
+- *之前用过*：**[Willow Voice](https://willowvoice.com/?ref=JC5OO6)** - 英文听写很好用，但中文识别不够准，所以换掉了。（$12-15/月）
 - *备选*：**[Spokenly](https://spokenly.app/)** - 更便宜的选择，可以使用自己的 API（需要配置）。
 
 ### 转录 API（仅 Spokenly 需要）

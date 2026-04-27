@@ -1,15 +1,18 @@
 ---
 created: 2025-11-23
+updated: 2026-04-27
 tags: [knowledge/technical/workspace, macos, ios, productivity, ai]
 ---
 
-# macOS & iOS Voice Input Setup with Willow Voice
+# macOS & iOS Voice Input Setup with Typeless
 
 ## Overview
 
-Voice-to-text setup using Willow Voice (or alternatively Spokenly with ElevenLabs transcription API).
+Voice-to-text setup using Typeless (or alternatively Spokenly with ElevenLabs transcription API).
 
 > **Note**: This article was written using the voice input setup described here with Claude Code.
+
+> **Update (2026-04-27)**: I originally used [Willow Voice](https://willowvoice.com/?ref=JC5OO6) and recommended it here. I've since moved to **[Typeless](https://www.typeless.com/)** because it transcribes Chinese noticeably better — which matters a lot when I switch between English and Chinese mid-sentence. Willow Voice is still a solid option if you only dictate in English.
 
 **Motivation**: Wrist discomfort from prolonged typing/mouse usage led to exploring voice-based interaction with AI coding agents. This setup enables hands-free coding productivity when experiencing RSI symptoms, reducing wrist strain while maintaining development workflow.
 
@@ -17,7 +20,8 @@ Voice-to-text setup using Willow Voice (or alternatively Spokenly with ElevenLab
 ## Setup Process
 
 ### Application
-- **[Willow Voice](https://willowvoice.com/?ref=JC5OO6)** - Recommended first choice. Fast, built-in transcription, no API configuration needed. ($12-15/month)
+- **[Typeless](https://www.typeless.com/)** - Current recommendation. Fast, built-in transcription, no API configuration needed. Best Chinese recognition I've found among the popular voice-input apps.
+- *Previously used*: **[Willow Voice](https://willowvoice.com/?ref=JC5OO6)** - Great for English-only dictation. Switched away because Chinese recognition wasn't as accurate. ($12-15/month)
 - *Alternative*: **[Spokenly](https://spokenly.app/)** - Cheaper option if you want to use your own API (requires configuration).
 
 ### Transcription API (for Spokenly only)

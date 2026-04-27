@@ -46,7 +46,7 @@ Agent loop 的执行完全在 EC2 上，监控层（Lambda）只负责 tail stdo
 
 ### Context 管理
 
-数据库一侧也是一个池子——所有实体放在同一个 schema 下，todo 是把它们串起来的脊梁。
+数据库一侧也是一个池子——所有实体放在同一个 schema 下，todo 是把它们串起来的核心。
 
 ```sql
 $ psql -d yovy -c "\dt"
@@ -73,7 +73,7 @@ $ psql -d yovy -c "\dt"
  public | user                 | table
 ```
 
-近一半是 `*_relation` 表——这就是脊梁的具象化。一份计划是 `note` 通过 `note_todo_relation` 挂到 todo；一个 deadline 是 `reminder` 直接持有 `todo_id`；一个开发任务是 `dev_worktree` 也持有 `todo_id`；一次跨 skill 派发把 `todo_id` 当作 `trace_id`，让 `chat` 和 `trace_share` 都能回链到这条 todo。同一个 ID 把看板卡、计划文档、提醒、worktree、trace 串成同一条线。
+近一半是 `*_relation` 表——这就是 todo 作为核心的具象化。一份计划是 `note` 通过 `note_todo_relation` 挂到 todo；一个 deadline 是 `reminder` 直接持有 `todo_id`；一个开发任务是 `dev_worktree` 也持有 `todo_id`；一次跨 skill 派发把 `todo_id` 当作 `trace_id`，让 `chat` 和 `trace_share` 都能回链到这条 todo。同一个 ID 把看板卡、计划文档、提醒、worktree、trace 串成同一条线。
 
 ### 远程运行 coding agent (主要是 Claude Code)
 

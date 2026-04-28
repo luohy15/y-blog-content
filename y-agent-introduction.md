@@ -5,9 +5,9 @@
 
 ## Demo
 
-![y-agent TraceView](https://cdn.luohy15.com/y-agent-demo-3.png)
+![y-agent TraceView](https://cdn.luohy15.com/y-agent-demo-4.png)
 
-https://yovy.app/t/0de510
+https://yovy.app/t/6fc5c4
 
 ---
 
@@ -64,7 +64,7 @@ leaves │ plan │ │ impl │ │ review │   anonymous, ephemeral;
        └──────┘ └──────┘ └────────┘   skill loaded per dispatch
 ```
 
-**How do I follow a run that spans multiple sessions?** Reading any one session log only shows you that slice; the interesting story is the whole tree. So every dispatch carries a `trace_id`, and when the task is tracked it's just the `todo_id` — same identifier as the kanban card. A full run — root dispatched → dev planned → impl sessions ran in parallel → dev committed — replays as one waterfall in [TraceView](https://yovy.app/t/0de510). The kanban card, the plan note, the worktree commits, and the trace are all the same thread seen from different angles.
+**How do I follow a run that spans multiple sessions?** Reading any one session log only shows you that slice; the interesting story is the whole tree. So every dispatch carries a `trace_id`, and when the task is tracked it's just the `todo_id` — same identifier as the kanban card. A full run — root dispatched → dev planned → impl sessions ran in parallel → dev committed — replays as one waterfall in [TraceView](https://yovy.app/t/6fc5c4). The kanban card, the plan note, the worktree commits, and the trace are all the same thread seen from different angles.
 
 **Are skills tied to topics?** I assumed yes at first — the `dev` topic runs the dev skill, the `blog` topic runs the blog skill. Then I noticed I was conflating two things. A topic is just a stable address; what work the session does depends on what message came in. So skills load per-task and aren't bound to topic. The same `dev` address can run a review skill one minute and an implementation skill the next, depending on what arrived.
 

@@ -5,9 +5,9 @@
 
 ## 效果示例
 
-![y-agent TraceView](https://cdn.luohy15.com/y-agent-demo-3.png)
+![y-agent TraceView](https://cdn.luohy15.com/y-agent-demo-4.png)
 
-https://yovy.app/t/0de510
+https://yovy.app/t/6fc5c4
 
 ---
 
@@ -64,7 +64,7 @@ leaves │ plan │ │ impl │ │ review │   匿名、短暂；
        └──────┘ └──────┘ └────────┘   每次派发动态加载 skill
 ```
 
-**怎么追踪一次跨多个 session 的运行？** 看任何一个 session 的日志只能看到一片，整棵树才是完整故事。所以每次派发携带一个 `trace_id`，任务被追踪时即 `todo_id`——和看板卡片用的是同一个 ID。一次完整运行——root 派发 → dev 做 plan → 多个 impl 并行 → dev commit——能在 [TraceView](https://yovy.app/t/0de510) 里渲染成一条 waterfall。看板卡片、plan note、worktree commit、trace 都是同一根线的不同视角。
+**怎么追踪一次跨多个 session 的运行？** 看任何一个 session 的日志只能看到一片，整棵树才是完整故事。所以每次派发携带一个 `trace_id`，任务被追踪时即 `todo_id`——和看板卡片用的是同一个 ID。一次完整运行——root 派发 → dev 做 plan → 多个 impl 并行 → dev commit——能在 [TraceView](https://yovy.app/t/6fc5c4) 里渲染成一条 waterfall。看板卡片、plan note、worktree commit、trace 都是同一根线的不同视角。
 
 **Skill 跟 topic 绑吗？** 我一开始假设是绑的——`dev` topic 跑 dev skill，`blog` topic 跑 blog skill。后来发现这是把两件事混了。Topic 只是稳定地址，session 实际做什么取决于进来的是什么消息。所以 skill 按任务动态加载，不绑定 topic。同一个 `dev` 地址这一分钟可以跑 review skill，下一分钟跑 impl skill，看进来的是什么任务。
 

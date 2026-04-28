@@ -68,7 +68,7 @@ A real trace: https://yovy.app/t/6fc5c4
 
 ## Looking forward
 
-When I wrote the y-cli intro last year, I bet that the AI stack would keep moving fast, and that the lasting play was to build a thin, stable interface on top of it. A year on, that bet held: the underlying capability went from model APIs to coding agents, and the same thin-wrapper approach carried over from y-cli to y-agent.
+When I wrote the y-cli intro last year, I said that the AI stack would keep moving fast, and that the lasting play was to build a thin, stable interface on top of it. A year on, that held up: the underlying capability went from model APIs to coding agents, and the same thin-wrapper approach carried over from y-cli to y-agent.
 
 I think the line continues. Coding agent today, a more general agent tomorrow. Each layer up, the agent gets closer to ordinary life — and y-agent's job is to be the stable middle layer that tracks the new capabilities, without making me relearn my own setup every six months.
 

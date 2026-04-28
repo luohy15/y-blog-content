@@ -39,7 +39,7 @@ So the coding agent runs on a remote server (e.g. EC2), held in a tmux session i
 
 OpenClaw came out later, but I didn't really like it — too much cognitive overhead. It did give me one idea though: hook in Telegram. Turns out Telegram beats Web chat for input on mobile, by a lot.
 
-So now there are two routes — Web and Telegram — and I just call when I want it. Both the agent and the EC2 have auto-hibernate on, so when nobody's using it, the cost is very low.
+So now there are two routes — Web and Telegram — and I just call when I want it. The EC2 has auto-hibernate on, so when nobody's using it, the cost is very low.
 
 ## Orchestration
 

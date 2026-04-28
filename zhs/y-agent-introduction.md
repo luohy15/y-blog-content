@@ -40,7 +40,7 @@ https://yovy.app/t/6fc5c4
 
 后来出了 OpenClaw，但我其实不喜欢，认知负担太大。不过它给了我一个启发：可以接 Telegram。事实证明，Telegram 在手机上输入比 Web 聊天顺手多了。
 
-于是 Web + Telegram 两条路，想用就喊一声。平常 agent 和 EC2 都开了 auto hibernate（自动休眠），不用的时候成本很低。
+于是 Web + Telegram 两条路，想用就喊一声。EC2 开了 auto hibernate（自动休眠），不用的时候成本很低。
 
 ## Agent 编排
 

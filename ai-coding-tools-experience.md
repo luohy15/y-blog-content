@@ -1,5 +1,5 @@
 ---
-created: 2024-11-01
+created: 2025-07-12
 updated: 2025-09-04
 tags: [knowledge/technical/ai-coding, cline, cursor, claude-code]
 ---

@@ -57,14 +57,16 @@ That way the sub-agent chats are mine to manage too, and I can jump in mid-run t
         ├───► │  skill: dev      │   coordinator;
         │     │                  │   coordinates downstream skill sessions
         │     └──┬──────┬──────┬─┘
-        │        │      │      │   y chat --skill {plan,impl,review}
-        │        ▼      ▼      ▼
+        │        ▲      ▲      ▲   downstream may callback
+        │        ▼      ▼      ▼   y chat --skill {plan,impl,review}
         │     ┌──────┐ ┌──────┐ ┌────────┐
         └───► │ plan │ │ impl │ │ review │   anonymous, ephemeral;
               └──────┘ └──────┘ └────────┘   skill loaded per dispatch
 ```
 
 A real trace: https://yovy.app/t/6fc5c4
+
+For bigger or more complex requests, this multi-skill setup can run efficiently for hours — no idle spinning, and no single session piling up too much context.
 
 ## Looking forward
 

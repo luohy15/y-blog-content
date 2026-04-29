@@ -58,14 +58,16 @@ https://yovy.app/t/6fc5c4
         ├────► │  skill: dev      │   coordinator，
         │      │                  │   协调下层 skill 会话运行
         │      └──┬──────┬──────┬─┘
-        │         │      │      │   y chat --skill {plan,impl,review}
-        │         ▼      ▼      ▼
+        │         ▲      ▲      ▲   子会话可 callback
+        │         ▼      ▼      ▼   y chat --skill {plan,impl,review}
         │      ┌──────┐ ┌──────┐ ┌────────┐
         └────► │ plan │ │ impl │ │ review │   匿名、短暂；
                └──────┘ └──────┘ └────────┘   每次派发动态加载 skill
 ```
 
 一个真实 trace：https://yovy.app/t/6fc5c4
+
+对于比较大或者复杂的需求，这套多 skill 协作可以连续高效地跑好几个小时——不空转，单 session 的 context 也不会堆得过多。
 
 ## 展望
 

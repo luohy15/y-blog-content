@@ -67,7 +67,7 @@ https://yovy.app/t/6fc5c4
 
 一个真实 trace：https://yovy.app/t/6fc5c4
 
-对于比较大或者复杂的需求，这套多 skill 协作可以连续高效地跑好几个小时——不空转，单 session 的 context 也不会堆得过多。
+对于比较大或者复杂的需求，这套多 skill 协作可以连续高效地跑超过 1h——不空转，单 session 的 context 也不会堆得过多。一个跑了超过 1h 的任务示例：https://yovy.app/t/e404c2 ，plan 完之后 impl 和 review 是自动接力的，不需要我介入。
 
 ## 展望
 

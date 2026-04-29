@@ -66,7 +66,7 @@ That way the sub-agent chats are mine to manage too, and I can jump in mid-run t
 
 A real trace: https://yovy.app/t/6fc5c4
 
-For bigger or more complex requests, this multi-skill setup can run efficiently for hours — no idle spinning, and no single session piling up too much context.
+For bigger or more complex requests, this multi-skill setup can run efficiently for over an hour — no idle spinning, and no single session piling up too much context. An example of a task running over 1h: https://yovy.app/t/e404c2 — once the plan finishes, impl and review pick up automatically, no intervention needed.
 
 ## Looking forward
 

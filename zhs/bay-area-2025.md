@@ -30,7 +30,7 @@
 
 ![](https://cdn.luohy15.com/images/bay-area/golden-gate.jpg)
 
-结果在观景点刚拍了两张照，前后不到 5 分钟，车窗就被砸了。后座两个包都没了，护照还在里面
+结果在观景点刚拍了两张照，前后不到 5 分钟，车窗就被砸了。后座两个包都没了，我们的护照都在里面；N 哥在美国几年也是没学到，这下事教人一次就会了
 
 ![](https://cdn.luohy15.com/images/bay-area/broken-window.jpg)
 

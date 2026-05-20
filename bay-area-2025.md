@@ -30,7 +30,7 @@ It was still early, so we went to take a look at the Golden Gate Bridge first.
 
 ![](https://cdn.luohy15.com/images/bay-area/golden-gate.jpg)
 
-We took a couple of photos at the viewpoint. Less than five minutes away from the car, the window got smashed. Both bags on the back seat were gone, and my passport was inside.
+We took a couple of photos at the viewpoint. Less than five minutes away from the car, the window got smashed. Both bags on the back seat were gone, and both of our passports were inside. N had been in the US for years and somehow still had not learned this one. Some lessons only need to happen once.
 
 ![](https://cdn.luohy15.com/images/bay-area/broken-window.jpg)
 

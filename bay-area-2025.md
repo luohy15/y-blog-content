@@ -1,6 +1,6 @@
 # Bay Area: A Seven-Day Trip
 
-This was my first trip to the US.
+This was my first trip to the US, in early June 2025.
 
 The Bay Area was not completely unfamiliar to me. I happened to know a few friends working there, and I had watched Silicon Valley before.
 

@@ -64,9 +64,7 @@ PS: 到日本后发现如果是华为用户，可以考虑使用天际通服务�
 
 最后顺利来到酒店入住，是喜欢的高层大窗。
 
-{{< rawhtml >}}
-<img src="https://cdn.luohy15.com/tokyo/1.jpeg" style="width: 100%;" />
-{{< /rawhtml >}}
+![](https://cdn.luohy15.com/tokyo/1.jpeg)
 
 对东京的第一印象：地铁好窄，建筑层高好低，房间好干净。
 
@@ -81,23 +79,17 @@ PS: 到日本后发现如果是华为用户，可以考虑使用天际通服务�
 
 在浅草寺看到了天空树后来到一家洋食屋，在东京的第一顿午餐是蛋包饭和汉堡肉。
 
-{{< rawhtml >}}
-<img src="https://cdn.luohy15.com/tokyo/2.jpg" style="width: 100%;" />
-{{< /rawhtml >}}
+![](https://cdn.luohy15.com/tokyo/2.jpg)
 
 在浅草游客中心看到了 3 天无限地铁卡，购买之，同时获得了一份镰仓旅游指南。可以感受到，虽然日本信息化效率不高，但其提供的游览服务是大体完备的，东京作为一个旅游目的地，体验是友好的。
 
 坐地铁到上野站，首先去的是阿美横町中央大楼，人潮涌动，有许多小吃摊位，国内步行街既视感。中间的楼就阿美横女学园所在地了，学到了一个词：ロケ地。是有点好笑的是，海女取景地现在是一个吸烟专用区。
 
-{{< rawhtml >}}
-<img src="https://cdn.luohy15.com/tokyo/5.jpeg" style="width: 100%;" />
-{{< /rawhtml >}}
+![](https://cdn.luohy15.com/tokyo/5.jpeg)
 
 接着我来到了上野公园，一月的东京并不寒冷，天气十分舒适。公园里排起了长龙让我很是好奇，走到队首，发现是梵高展，主题是『人生を変えたふたつの出会い』。
 
-{{< rawhtml >}}
-<img src="https://cdn.luohy15.com/tokyo/3.jpeg" style="width: 100%;" />
-{{< /rawhtml >}}
+![](https://cdn.luohy15.com/tokyo/3.jpeg)
 
 晚上先回到酒店洗了个澡，接着前往附近的六本木ヒルズ看夜景。出发的时候已经是晚上 10 点临散场，展望台已经没有多少人了，于是我独自坐在无人的的角落享受百万夜景（此处无图）。第一次见到如此繁华的都市夜景，我认为它比之前见到过的香港夜景更震撼一些，希望下一次有更多人一起来。
 
@@ -111,39 +103,27 @@ PS: 到日本后发现如果是华为用户，可以考虑使用天际通服务�
 
 我随着人流经过步行桥，借助江之岛自动扶梯登上了展望台，观赏湘南海岸景色。远处可以看见一些帆船停泊，据说江之岛曾是奥运会帆船比赛地，本次东京奥运会也会继续作为帆船赛场。
 
-{{< rawhtml >}}
-<img src="https://cdn.luohy15.com/tokyo/7.jpeg" style="width: 100%;" />
-{{< /rawhtml >}}
+![](https://cdn.luohy15.com/tokyo/7.jpeg)
 
 饱览海景后我原路返回，周末，蓝天白云加上海风，十分惬意。
 
-{{< rawhtml >}}
-<img src="https://cdn.luohy15.com/tokyo/6.jpeg" style="width: 100%;" />
-{{< /rawhtml >}}
+![](https://cdn.luohy15.com/tokyo/6.jpeg)
 
 由于旅行前看了倒数第二次恋爱和海街日记，所以下一个目的地就是极乐寺了，到极乐寺的路上经过了镰仓高校前站。一个人出了极乐寺站，第一感觉是不真实，原来它是这么冷清的一个站，甚至没有出站闸机，第二感觉是感叹，从这种小站到人群密集的新宿或涩谷，只需一个半小时，轨道交通好便利。
 
-{{< rawhtml >}}
-<img src="https://cdn.luohy15.com/tokyo/8.jpeg" style="width: 100%;" />
-{{< /rawhtml >}}
+![](https://cdn.luohy15.com/tokyo/8.jpeg)
 
 出了站上坡后下坡，就可以看见电线杆上极乐寺的路标了。
 
-{{< rawhtml >}}
-<img src="https://cdn.luohy15.com/tokyo/9.jpg" style="width: 100%;" />
-{{< /rawhtml >}}
+![](https://cdn.luohy15.com/tokyo/9.jpg)
 
 继续往东走，就可以来到由比ヶ浜海滩，我在这里静静看着夕阳落下，还遇见了一位海边独奏的大叔。
 
-{{< rawhtml >}}
-<img src="https://cdn.luohy15.com/tokyo/9.5.jpeg" style="width: 100%;" />
-{{< /rawhtml >}}
+![](https://cdn.luohy15.com/tokyo/9.5.jpeg)
 
 太阳落下一段时间后，我继续乘坐江之电来到镰仓市内，在小町在一家炸猪排店点了两份套餐。（打工的小姐姐太美了！但是日语蹩脚不知如何搭话）
 
-{{< rawhtml >}}
-<img src="https://cdn.luohy15.com/tokyo/10.jpg" style="width: 100%;" />
-{{< /rawhtml >}}
+![](https://cdn.luohy15.com/tokyo/10.jpg)
 
 晚餐结束后乘江之电回到藤泽（座椅加热太温暖，加上晚餐后困意来袭，不禁在车上打了个盹），换乘小田急电铁回到新宿，结束一天的周游。
 
@@ -155,17 +135,13 @@ PS: 到日本后发现如果是华为用户，可以考虑使用天际通服务�
 
 晚餐过后在六本木ビルズ的楼下尝试了一下经典机位。
 
-{{< rawhtml >}}
-<img src="https://cdn.luohy15.com/tokyo/11.jpeg" style="width: 100%;" />
-{{< /rawhtml >}}
+![](https://cdn.luohy15.com/tokyo/11.jpeg)
 
 ## Day4 东京站羽田机场-北京
 
 最后一天，去了东京站买了一些纪念品：
 
-{{< rawhtml >}}
-<img src="https://cdn.luohy15.com/tokyo/12.jpeg" style="width: 100%;" />
-{{< /rawhtml >}}
+![](https://cdn.luohy15.com/tokyo/12.jpeg)
 
 然后在羽田机场买了一些点心，比如白い恋人，東京ばな奈等。
 

@@ -1,20 +1,20 @@
-# Bay Area 七日游记
+# Bay Area 六日游记
 
 这是我第一次去美国，时间是 2025 年 6 月初
 
-因为运气好认识一些在湾区工作的朋友，加上看过 Silicon Valley 美剧，并不算完全陌生
+恰好认识一些在湾区工作的朋友，加上看过 Silicon Valley 美剧，并不算完全陌生
 
-同学 N 哥刚好在那边工作，又刚好还没回国，于是抓住这个窗口出发了
+同学 N 哥就在那边，于是约着去找他玩
 
 下面是这趟行程记的流水账
 
-## Day 0：出发前
+## Day -1：出发前
 
-之前一直觉得美签会比较麻烦：我是福建人，当时又在一家被制裁的公司上班，担心面签被卡
+之前一直觉得美签会比较麻烦，所以一直没动
 
 后来拿到 HK ID，看到香港办美签效率不错，于是 DS-160 一填，准备面签材料就过去面签了。比想象中顺利
 
-这趟行程去主要想体验：
+这趟行程主要想体验：
 
 - 美国的车文化
 - 开飞机
@@ -22,7 +22,7 @@
 - 一号公路自驾
 - 湾区生活体验
 
-## Day 1：抵达 + 车被砸
+## Day 0：抵达 + 车被砸
 
 下午到机场，N 哥来接
 
@@ -40,7 +40,7 @@
 
 ![](https://cdn.luohy15.com/images/bay-area/popeyes.jpg)
 
-## Day 2：打靶 + 斯坦福
+## Day 1：打靶 + 斯坦福
 
 第二天去打靶
 
@@ -58,7 +58,7 @@
 
 ![](https://cdn.luohy15.com/images/bay-area/in-n-out.jpg)
 
-## Day 3：一号公路
+## Day 2：一号公路
 
 第三天走一号公路，从 Cupertino 开到 Big Sur
 
@@ -72,6 +72,46 @@ N 哥开车。我没有驾照，所以全程负责坐车、看风景、拍照
 
 这一天有一种在 macOS 版本上行走的感觉，还是很有趣的
 
-## Day 4–7：未完待续
+## Day 3：半月湾
 
-后面几天还没整理完，先占个坑
+第四天先去吃了韩式牛骨，Daeho Kalbi Jjim & Beef Soup，甜口，我喜欢
+
+![](https://cdn.luohy15.com/images/bay-area/daeho-kalbi-jjim.jpg)
+
+吃完开车去半月湾
+
+傍晚到的，夕阳把海岸染成金黄色，浪一波波拍上来，有种不太真实的美
+
+![](https://cdn.luohy15.com/images/bay-area/half-moon-bay.jpg)
+
+海边一个城堡酒店，查了下一晚大概 1000 刀，非常老钱风。不知道什么时候才能有机会住在这种地方
+
+![](https://cdn.luohy15.com/images/bay-area/half-moon-bay-castle.jpg)
+
+## Day 4：办旅行证 + Fly Bay Area
+
+上午去中国驻旧金山总领事馆办旅行证
+
+因为护照丢了，顺带解锁了一个较为稀有的证件类型
+
+效率非常高，当天就办好了。出来以后看着领事馆上飘扬的五星红旗，那一刻心情无以言表
+
+![](https://cdn.luohy15.com/images/bay-area/sf-consulate.jpg)
+
+下午是 Fly Bay Area 体验，天气很好
+
+低空飞过去，下面一片小房子，绿化也到位。能理解为什么这里能成为创新的摇篮，环境实在太舒适
+
+![](https://cdn.luohy15.com/images/bay-area/fly-bay-area.jpg)
+
+## Day 5：回程
+
+回程前去买了一杯 Blue Bottle，也算是 SF 特产了
+
+![](https://cdn.luohy15.com/images/bay-area/blue-bottle.jpg)
+
+然后就上飞机
+
+## 后记
+
+这次走的是西海岸，下次有机会想去东海岸看看，比如纽约和波士顿

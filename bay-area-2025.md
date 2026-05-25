@@ -1,16 +1,16 @@
-# Bay Area: A Seven-Day Trip
+# Bay Area: A Six-Day Trip
 
 This was my first trip to the US, in early June 2025.
 
 The Bay Area was not completely unfamiliar to me. I happened to know a few friends working there, and I had watched Silicon Valley before.
 
-My classmate N happened to be working there, and he had not moved back to China yet, so I took the window and went.
+My classmate N happened to be there, so I went over to visit him.
 
 This is the travel log.
 
-## Day 0: Before the Trip
+## Day -1: Before the Trip
 
-I used to think getting a US visa would be troublesome. I am from Fujian, and at the time I was working for a sanctioned company, so I was worried the interview might get stuck.
+I used to think getting a US visa would be troublesome, so I had been putting it off.
 
 Later I got my HK ID and saw that US visa processing in Hong Kong was pretty efficient. So I filled out the DS-160, prepared the interview materials, and went for the interview. It was smoother than expected.
 
@@ -22,7 +22,7 @@ The main things I wanted to experience on this trip:
 - Driving along Highway 1
 - Bay Area life
 
-## Day 1: Arrival + Car Window Smashed
+## Day 0: Arrival + Car Window Smashed
 
 I arrived in the afternoon, and N came to pick me up at the airport.
 
@@ -40,7 +40,7 @@ By the time we finished reporting it, it was already dark. We got back to N's pl
 
 ![](https://cdn.luohy15.com/images/bay-area/popeyes.jpg)
 
-## Day 2: Shooting Range + Stanford
+## Day 1: Shooting Range + Stanford
 
 The second day was shooting range.
 
@@ -58,7 +58,7 @@ After that, we had In-N-Out as late-night food. Good. Very solid.
 
 ![](https://cdn.luohy15.com/images/bay-area/in-n-out.jpg)
 
-## Day 3: Highway 1
+## Day 2: Highway 1
 
 The third day was Highway 1, from Cupertino to Big Sur.
 
@@ -72,6 +72,46 @@ In the evening, we had a crab tower in Monterey.
 
 The whole day felt a bit like walking inside a macOS version. Pretty fun.
 
-## Day 4–7: To Be Continued
+## Day 3: Half Moon Bay
 
-The remaining days are not sorted out yet. Placeholder for now.
+The fourth day started with Korean beef bone soup, Daeho Kalbi Jjim & Beef Soup. Sweet style, which I like.
+
+![](https://cdn.luohy15.com/images/bay-area/daeho-kalbi-jjim.jpg)
+
+After lunch, we drove to Half Moon Bay.
+
+We got there in the evening. The sunset turned the coast golden, and the waves rolled in one after another. It almost looked unreal.
+
+![](https://cdn.luohy15.com/images/bay-area/half-moon-bay.jpg)
+
+There was a castle hotel by the sea. A quick check showed a room runs about $1000 a night. Very old-money vibe. No idea when I will ever get to stay at a place like that.
+
+![](https://cdn.luohy15.com/images/bay-area/half-moon-bay-castle.jpg)
+
+## Day 4: Travel Document + Fly Bay Area
+
+In the morning, I went to the Chinese Consulate General in San Francisco for a travel document.
+
+Since I lost my passport, I unintentionally unlocked a relatively rare document type.
+
+Efficiency was high. It was done the same day. Walking out and looking up at the Chinese flag flying over the consulate, that moment was hard to put into words.
+
+![](https://cdn.luohy15.com/images/bay-area/sf-consulate.jpg)
+
+In the afternoon was the Fly Bay Area experience. The weather was great.
+
+Flying low, I saw rows of small houses, and the greenery was solid. I get why this place became a cradle of innovation. The environment is just too comfortable.
+
+![](https://cdn.luohy15.com/images/bay-area/fly-bay-area.jpg)
+
+## Day 5: Going Home
+
+Before heading back, I grabbed a Blue Bottle. Counts as an SF specialty.
+
+![](https://cdn.luohy15.com/images/bay-area/blue-bottle.jpg)
+
+Then onto the plane.
+
+## Postscript
+
+This trip was the West Coast. Hopefully next time I can explore the East Coast, places like New York and Boston.

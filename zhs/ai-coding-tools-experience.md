@@ -8,7 +8,7 @@ tags: [knowledge/technical/ai-coding, cline, cursor, claude-code]
 
 ## 我的背景
 
-我是一个普通的后端程序员，有 6 年经验，也写过一些简单的前端项目。大厂小厂都待过。感兴趣的话可以看看我的[简历](https://cdn.luohy15.com/cv.pdf)。
+我是一个普通的后端程序员，有 6 年经验，也写过一些简单的前端项目。大厂小厂都待过。感兴趣的话可以看看我的[简历](https://cdn.luohy15.com/CV_Huayi_Luo.pdf)。
 
 因为对技术比较感兴趣，基本上各种语言的项目都接触过。之前工作主要用 Java 写 CRUD 代码。GitHub 上有两个各 100 star 的 AI 聊天练习项目（都是用 AI 编程工具写的），分别是 Python（[y-cli](https://github.com/luohy15/y-cli)）和 TypeScript（[y-gui](https://github.com/luohy15/y-gui)）项目。
 

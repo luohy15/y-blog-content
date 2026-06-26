@@ -8,7 +8,7 @@ tags: [knowledge/technical/ai-coding, cline, cursor, claude-code]
 
 ## My Background
 
-I'm an ordinary backend programmer with 6 years of experience, and I've also written some simple frontend projects. I've worked at both large companies and small startups. You can check out my [resume](https://cdn.luohy15.com/cv.pdf) if you're interested.
+I'm an ordinary backend programmer with 6 years of experience, and I've also written some simple frontend projects. I've worked at both large companies and small startups. You can check out my [resume](https://cdn.luohy15.com/CV_Huayi_Luo.pdf) if you're interested.
 
 Since I'm quite interested in technology, I've basically touched projects in various languages. In my previous work, I mainly used Java to write CRUD code. On GitHub, I have two AI chat practice projects with 100 stars each (both written using AI coding tools), which are Python ([y-cli](https://github.com/luohy15/y-cli)) and TypeScript ([y-gui](https://github.com/luohy15/y-gui)) projects.
 

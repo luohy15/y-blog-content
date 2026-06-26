@@ -17,4 +17,4 @@
 - [Twitter/X](https://x.com/myroy15)
 - [LinkedIn](https://www.linkedin.com/in/huayiluo/)
 - [Telegram](https://t.me/luohy15)
-- [履歷](https://cdn.luohy15.com/cv.pdf)
+- [履歷](https://cdn.luohy15.com/CV_Huayi_Luo.pdf)

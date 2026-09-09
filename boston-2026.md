@@ -172,7 +172,7 @@ The weather was excellent and so was the whole experience. We took a photo toget
 
 Over a year into the job, and this was the first time meeting my boss face to face. Lucky to have had the chance.
 
-## Day 6: Chipotle
+## Day 6: Winding Down
 
 Spent the day pushing work forward. Cannot just play the whole time.
 
@@ -184,7 +184,7 @@ The conversation went all over the place: Chinese EVs, how each of us uses AI (I
 
 ![](https://cdn.luohy15.com/images/boston/back-bay-night.jpg)
 
-## Day 7: Last Full Day
+## Day 7: Winding Down
 
 Still working, nothing scheduled. Just walked around Back Bay and picked up some souvenirs.
 

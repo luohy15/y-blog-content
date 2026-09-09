@@ -25,7 +25,7 @@ One week away, and a laptop is too heavy. So I brought the iPad and the iPhone o
 Three things I wanted out of the trip:
 
 - Meet my colleagues, especially my boss
-- Walden Pond. I brought the book specifically to reread it there
+- Walden Pond. I read the book a long time ago, so this was more of a pilgrimage
 - What an ordinary week here actually feels like
 
 ## Day 0: Three Legs
@@ -36,7 +36,7 @@ Started adjusting to the time zone as soon as I boarded at noon. The guy next to
 
 Transferred in San Francisco, where I ran into a retired couple traveling around the world in the terminal. I envy that state of life.
 
-The time difference had not caught up with me yet, so I nearly fell asleep waiting at the gate, then slept hard the moment I got on the plane. The plains and desert across the American West had great weather that day. I did not look at any of it. I slept the whole way to Boston.
+The time difference had not caught up with me yet, so I nearly fell asleep waiting at the gate, then slept hard the moment I got on the plane. The plains and desert across the American West had great weather that day. I did not look at any of it. I slept the whole way to Boston. I had been going back and forth about whether to read Walden on this leg. I did not.
 
 Landed in the evening local time with L. The Silver Line from the airport into the city is free. Got to the hotel past one in the morning and went straight to sleep.
 
@@ -64,27 +64,37 @@ I figured it out later. This is Seaport. Offices and convention space built on l
 
 ## Day 2: MIT
 
-Met two colleagues to walk around MIT.
+Met two colleagues to walk around MIT. C did most of the guiding, and basically everything I know about the place came from him that afternoon.
 
 In the morning we went to Tatte Bakery and Cafe, croissant and matcha. Lunch was Legal Sea Foods, expensive.
 
-In the afternoon they showed me around, both the academic and residential sides, in a lot of detail. Took the obligatory tourist photo at the Great Dome.
+In the afternoon they showed me around, both the academic and residential sides, in a lot of detail.
+
+What stayed with me most was a hallway. The Infinite Corridor, 251 meters, running dead straight through five buildings from one end of the main campus to the other. It is the spine the whole place hangs off.
+
+Then, the obligatory tourist photo at the Great Dome.
 
 ![](https://cdn.luohy15.com/images/boston/mit-great-dome.jpg)
+
+C told me what the building actually is. Building 10, 1916. Under the dome is a library reading room where students sit all night, and the corridor I had just walked runs directly underneath, with the dome on its midpoint. Same building. I went through the inside without knowing, came out, and photographed it from outside. The lawn in front is where they hold commencement.
+
+He also took me to the Banana Lounge, a room the students run themselves where you walk in and take a free banana and a free coffee. Term had not started. So: lounge, yes. Bananas, no.
 
 Then they took me to the dining hall.
 
 ![](https://cdn.luohy15.com/images/boston/charles-river-from-mit.jpg)
 
-There was a dragon boat parked by the river with "Hangzhou, Living Poetry" written on the hull.
+Afterwards C and I walked along the Charles. He told me two campus stories. A fraternity once measured the bridge next to campus by laying one of their pledges down end over end, which is why its length is still marked in smoots. And some students once got a fake police car onto the top of that dome.
+
+Further along the bank there was a dragon boat parked, with "Hangzhou, Living Poetry" written on the hull.
 
 ![](https://cdn.luohy15.com/images/boston/hangzhou-dragon-boat.jpg)
 
 Flew ten thousand kilometers from Hangzhou and found Hangzhou on the Charles River.
 
-In the evening I met a former colleague and talked for a bit. Seriously impressive person.
+In the evening I crossed the city to see a former colleague who is studying here now. Talked for a bit. Seriously impressive person.
 
-That was the fullest day of the trip.
+That was the fullest day of the trip. Full both ways, the legs and the head.
 
 ## Day 3: Walden Pond
 
@@ -111,6 +121,10 @@ There is a marker at the original site of Thoreau's cabin:
 > I went to the woods because I wished to live deliberately, to front only the essential facts of life, and see if I could not learn what it had to teach, and not, when I came to die, discover that I had not lived.
 
 ![](https://cdn.luohy15.com/images/boston/thoreau-marker.jpg)
+
+The book was on my iPad the whole trip. I did not open it on the plane, and on the day itself I did not even have the iPad with me. We went out light, no bags. I walked the loop with two bottles of Coke in my hands. A different kind of unhurried.
+
+The pond itself was good.
 
 On the way back we got off at Harvard for a look. I did not rub the statue, just took a photo with it.
 
@@ -166,7 +180,7 @@ In the evening I met another colleague, talked about how my week had been, and t
 
 Chipotle came up while we were talking, so we went and ate there. I also showed him the Chinese Chipotle menu page I built for myself.
 
-The conversation went all over the place: Chinese EVs, how each of us uses AI (I introduced my own setup, y-agent), environmental protection versus economic growth, Michelin restaurants, travel, and how much China has developed. At the end I told him to look me up if he ever gets the chance to visit.
+The conversation went all over the place: Chinese EVs, how each of us uses AI (I introduced my own setup, [y-agent](https://luohy15.com/y-agent-introduction)), Michelin restaurants, travel, and how much China has developed. At the end I told him to look me up if he ever gets the chance to visit.
 
 ![](https://cdn.luohy15.com/images/boston/back-bay-night.jpg)
 
@@ -175,20 +189,6 @@ The conversation went all over the place: Chinese EVs, how each of us uses AI (I
 Still working, nothing scheduled. Just walked around Back Bay and picked up some souvenirs.
 
 ![](https://cdn.luohy15.com/images/boston/newbury-street.jpg)
-
-## On Food
-
-When you are out alone, food exposes you completely.
-
-Things I definitely ate this week: udon twice, Tatte, the MIT dining hall, a Chinese noodle place, Legal Sea Foods, omakase at a colleague's place, Pad Thai, Chipotle.
-
-Legal Sea Foods was very expensive, and the omakase was someone else cooking. Of the meals I actually paid for and chose myself, nearly all landed on cheap Southeast Asian and Mexican food.
-
-Here is even better evidence. This week I used my own tooling to translate the menus of Pad Thai, Pho Basil, Chipotle, Legal Sea Foods, and Fogo de Chao into Chinese pages, and turned the process into a reusable skill along the way. I translated the whole set. I still only ate at the cheap ones.
-
-So was I touring America or touring Southeast Asia? Although my agent pointed out that America is a country of immigrants, so this is perfectly normal.
-
-Thinking about it, I am just not willing to spend much, and especially not when I am on my own.
 
 ## Day 8: Going Home
 

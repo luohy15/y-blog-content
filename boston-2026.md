@@ -180,6 +180,8 @@ In the evening I met another colleague, talked about how my week had been, and t
 
 Chipotle came up while we were talking, so we went and ate there. I also showed him the Chinese Chipotle menu page I built for myself.
 
+![](https://cdn.luohy15.com/images/boston/chipotle-selfie.jpg)
+
 The conversation went all over the place: Chinese EVs, how each of us uses AI (I introduced my own setup, [y-agent](https://luohy15.com/y-agent-introduction)), Michelin restaurants, travel, and how much China has developed. At the end I told him to look me up if he ever gets the chance to visit.
 
 ![](https://cdn.luohy15.com/images/boston/back-bay-night.jpg)
@@ -189,6 +191,8 @@ The conversation went all over the place: Chinese EVs, how each of us uses AI (I
 Still working, nothing scheduled. Just walked around Back Bay and picked up some souvenirs.
 
 ![](https://cdn.luohy15.com/images/boston/newbury-street.jpg)
+
+![](https://cdn.luohy15.com/images/boston/newbury-prudential.jpg)
 
 ## Day 8: Going Home
 

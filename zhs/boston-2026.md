@@ -180,6 +180,8 @@ L 哥这天先回去了，后面几天就剩我一个
 
 聊着聊着说到 Chipotle，就一起去吃了。顺便把我自己做的 Chipotle 中文菜单页给他看了
 
+![](https://cdn.luohy15.com/images/boston/chipotle-selfie.jpg)
+
 后面聊得挺散：中国的电动车、各自怎么用 AI（介绍了我自己那套 [y-agent](https://luohy15.com/zhs/y-agent-introduction)），还有米其林餐厅、旅行、中国这些年的发展。最后我说有机会来中国找我
 
 ![](https://cdn.luohy15.com/images/boston/back-bay-night.jpg)
@@ -189,6 +191,8 @@ L 哥这天先回去了，后面几天就剩我一个
 还是在推进工作，没排什么行程，就在 Back Bay 一带走，买了点纪念品
 
 ![](https://cdn.luohy15.com/images/boston/newbury-street.jpg)
+
+![](https://cdn.luohy15.com/images/boston/newbury-prudential.jpg)
 
 ## Day 8：回程
 

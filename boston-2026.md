@@ -1,10 +1,10 @@
 ---
 created: 2026-09-08
-updated: 2026-09-08
+updated: 2026-09-10
 tags: [2026-09-boston]
 ---
 
-# Boston: A Seven-Day Trip
+# Boston: A Nine-Day Trip
 
 The last line of my previous [Bay Area travel log](https://luohy15.com/bay-area-2025) was: "Hopefully next time I can explore the East Coast, places like New York and Boston."
 

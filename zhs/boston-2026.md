@@ -162,7 +162,7 @@ L 哥这天先回去了，后面几天就剩我一个
 
 车是水陆两栖车，全程 80 分钟：陆上跑一个小时，然后从 Museum of Science 旁边的坡道直接开进 Charles River，在水上再漂 20 分钟
 
-![](https://cdn.luohy15.com/images/boston/charles-from-back-bay.jpg)
+![](https://cdn.luohy15.com/images/boston/duck-tour.jpg)
 
 路上看到其他鸭子车，导游就带着全车一起 quack，行人也会 quack 回来
 

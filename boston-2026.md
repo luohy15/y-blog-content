@@ -162,7 +162,7 @@ Met my boss and his wife, and we did the Boston Duck Tour together.
 
 The vehicle is amphibious. The whole thing takes 80 minutes: about an hour on land, then it drives straight down a ramp next to the Museum of Science into the Charles River and floats around for another 20 minutes.
 
-![](https://cdn.luohy15.com/images/boston/charles-from-back-bay.jpg)
+![](https://cdn.luohy15.com/images/boston/duck-tour.jpg)
 
 Whenever we passed another duck boat, the guide had the whole vehicle quack together, and people on the street quacked back.
 

@@ -1,3 +1,9 @@
+---
+created: 2020-06-11
+updated: 2025-01-22
+tags: [2020-01-tokyo]
+---
+
 # Tokyo Five-Day Travelogue
 
 As a small-town student who focused on academics, I had never been abroad until I graduated from university.

@@ -1,4 +1,10 @@
-# Bay Area 六日游记
+---
+created: 2026-05-20
+updated: 2026-09-10
+tags: [2025-06-bay-area]
+---
+
+# 湾区六日游记
 
 这是我第一次去美国，时间是 2025 年 6 月初
 
@@ -88,7 +94,7 @@ N 哥开车。我没有驾照，所以全程负责坐车、看风景、拍照
 
 ![](https://cdn.luohy15.com/images/bay-area/half-moon-bay-castle.jpg)
 
-## Day 4：办旅行证 + Fly Bay Area
+## Day 4：办旅行证 + 湾区飞行体验
 
 上午去中国驻旧金山总领事馆办旅行证
 
@@ -98,7 +104,7 @@ N 哥开车。我没有驾照，所以全程负责坐车、看风景、拍照
 
 ![](https://cdn.luohy15.com/images/bay-area/sf-consulate.jpg)
 
-下午是 Fly Bay Area 体验，天气很好
+下午是湾区飞行体验，天气很好
 
 低空飞过去，下面一片小房子，绿化也到位。能理解为什么这里能成为创新的摇篮，环境实在太舒适
 

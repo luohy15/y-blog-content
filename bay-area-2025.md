@@ -1,3 +1,9 @@
+---
+created: 2026-05-20
+updated: 2026-05-25
+tags: [2025-06-bay-area]
+---
+
 # Bay Area: A Six-Day Trip
 
 This was my first trip to the US, in early June 2025.

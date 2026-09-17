@@ -1,3 +1,6 @@
+---
+tags: [y-agent]
+---
 # y-agent：基于 coding agent 的个人 AI Agent 系统
 
 > [y-agent](https://github.com/luohy15/y-agent) 从之前的 [y-cli](https://luohy15.com/zhs/y-cli-introduction) 项目重命名而来。

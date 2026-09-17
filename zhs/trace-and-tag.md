@@ -1,3 +1,6 @@
+---
+tags: [y-agent]
+---
 # Trace + Tag：我怎么找回之前的 agent session
 
 前几天看到 [@ant_sz](https://x.com/ant_sz/status/2093329629604176065) 的一条推：

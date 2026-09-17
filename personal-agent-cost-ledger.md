@@ -1,3 +1,6 @@
+---
+tags: [y-agent]
+---
 # From 6,081 Requests in a Quarter to 81,000 in a Month
 
 In July 2025 I wrote [a record of the AI coding tools I was using](https://luohy15.com/2025/07/12/ai-coding-tools-experience). The screenshot was OpenRouter's Activity page: 12 Apr to 12 Jul 2025, **6,081 requests** in three months, $294.82 spent, about $100 a month. Prompt tokens 92.3M, completion 2.86M, call it 95M tokens, almost all Claude Sonnet 4.

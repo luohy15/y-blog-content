@@ -1,3 +1,6 @@
+---
+tags: [y-agent]
+---
 # y-agent: A Personal AI Agent System Built on Coding Agents
 
 > [y-agent](https://github.com/luohy15/y-agent) was renamed from [y-cli](https://luohy15.com/y-cli-introduction).

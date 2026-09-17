@@ -1,7 +1,7 @@
 ---
 created: 2025-07-06
 updated: 2025-07-06
-tags: [knowledge/technical/ai-coding, claude-code]
+tags: [ai-coding]
 ---
 
 # Adding Prompt Caching Support to Claude Code with OpenRouter

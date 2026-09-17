@@ -1,3 +1,6 @@
+---
+tags: [ai-coding]
+---
 # 使用 Cloudflare AI Gateway 修复 Cline 的 OpenRouter 403 Provider Error 报错
 
 > 注意：本文主要使用 Cline（AI 编码助手）+ OpenRouter 与 Claude 3.5 Sonnet 生成。

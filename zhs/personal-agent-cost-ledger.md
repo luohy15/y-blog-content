@@ -1,3 +1,6 @@
+---
+tags: [y-agent]
+---
 # 从三个月 6,081 次到单月 8 万：一份个人 agent 成本账
 
 去年 7 月我写过一篇 [AI 编程工具使用记录](https://luohy15.com/zhs/2025/07/12/ai-coding-tools-experience)。配图是 OpenRouter 的 Activity 页：2025-04-12 到 2025-07-12，三个月 **6,081 次请求**，花了 $294.82，大约每月一百刀。Prompt 9230 万、Completion 286 万，合计大约 9500 万 token，几乎全是 Claude Sonnet 4。

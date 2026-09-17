@@ -1,7 +1,7 @@
 ---
 created: 2025-07-12
 updated: 2025-07-12
-tags: [work/personal/y, claude-code, open-router]
+tags: [y-agent, ai-coding]
 ---
 
 # 构建 y-router：连接 Claude Code 和 OpenRouter

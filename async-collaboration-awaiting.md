@@ -1,3 +1,6 @@
+---
+tags: [y-agent]
+---
 # I Knew I Should Work Asynchronously. I Only Managed It After awaiting
 
 "Async collaboration makes you more efficient." I agreed with that a long time ago.

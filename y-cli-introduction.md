@@ -1,3 +1,6 @@
+---
+tags: [y-agent]
+---
 # Why I Built y-cli: Reclaiming Data Ownership in the AI Era
 
 > As the creator of [y-cli](https://github.com/luohy15/y-cli), I wanted to share the philosophy and motivation behind this minimalist terminal-based AI chat interface.

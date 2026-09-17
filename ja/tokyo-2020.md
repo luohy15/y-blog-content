@@ -1,7 +1,7 @@
 ---
 created: 2020-06-11
 updated: 2026-04-27
-tags: [travel, 2020-01-tokyo]
+tags: [travel]
 ---
 
 # 東京五日間の旅行記

@@ -1,3 +1,6 @@
+---
+tags: [y-agent]
+---
 # Trace + Tag: How I Find My Way Back to Old Agent Sessions
 
 A few days ago I saw this tweet from [@ant_sz](https://x.com/ant_sz/status/2093329629604176065):

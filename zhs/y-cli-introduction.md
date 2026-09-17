@@ -1,3 +1,6 @@
+---
+tags: [y-agent]
+---
 # 为什么我要开发 y-cli：在 AI 时代重新掌控数据所有权
 
 > 作为 [y-cli](https://github.com/luohy15/y-cli) 的开发者，我想分享这个极简终端 AI 聊天界面背后的理念和动机。

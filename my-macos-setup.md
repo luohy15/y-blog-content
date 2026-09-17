@@ -1,7 +1,6 @@
 ---
 created: 2020-06-15
 updated: 2025-11-23
-tags: [knowledge/technical/workspace, macos]
 ---
 
 # My macOS Setup Log

@@ -1,3 +1,6 @@
+---
+tags: [ai-coding]
+---
 # Fixing Cline's OpenRouter 403 Provider Error with Cloudflare AI Gateway
 
 > Note: This article was primarily generated using Cline (an AI coding assistant) + OpenRouter with Claude 3.5 Sonnet.

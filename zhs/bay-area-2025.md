@@ -1,7 +1,7 @@
 ---
 created: 2026-05-20
 updated: 2026-09-10
-tags: [travel, 2025-06-bay-area]
+tags: [travel]
 ---
 
 # 湾区六日游记

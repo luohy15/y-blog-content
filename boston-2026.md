@@ -1,7 +1,7 @@
 ---
 created: 2026-09-08
 updated: 2026-09-10
-tags: [travel, 2026-09-boston]
+tags: [travel]
 ---
 
 # Boston: A Nine-Day Trip

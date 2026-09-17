@@ -17,4 +17,6 @@ AIツールを作ったり、いろんなプログラミング言語を触った
 - [Twitter/X](https://x.com/myroy15)
 - [LinkedIn](https://www.linkedin.com/in/huayiluo/)
 - [Telegram](https://t.me/luohy15)
+- [Telegram グループ](https://t.me/+EYMH7uc1hl04ODBl)
+- [Telegram チャンネル](https://t.me/+LvQeIcp3XT9hMDM1)
 - [履歴書](https://cdn.luohy15.com/CV_Huayi_Luo.pdf)

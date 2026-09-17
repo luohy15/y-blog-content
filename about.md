@@ -17,4 +17,6 @@ I spend a lot of my free time on open source — [y-agent](https://github.com/lu
 - [Twitter/X](https://x.com/myroy15)
 - [LinkedIn](https://www.linkedin.com/in/huayiluo/)
 - [Telegram](https://t.me/luohy15)
+- [Telegram group](https://t.me/+EYMH7uc1hl04ODBl)
+- [Telegram channel](https://t.me/+LvQeIcp3XT9hMDM1)
 - [CV](https://cdn.luohy15.com/CV_Huayi_Luo.pdf)

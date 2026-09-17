@@ -1,7 +1,7 @@
 ---
 created: 2025-11-23
 updated: 2026-04-27
-tags: [ai-coding]
+tags: [ai-agent]
 ---
 
 # macOS & iOS Voice Input Setup with Typeless

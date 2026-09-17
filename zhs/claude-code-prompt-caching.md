@@ -1,7 +1,7 @@
 ---
 created: 2025-07-06
 updated: 2025-07-06
-tags: [ai-coding]
+tags: [ai-agent]
 ---
 
 # 为 Claude Code 使用 OpenRouter 添加提示缓存支持

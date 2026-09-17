@@ -1,5 +1,5 @@
 ---
-tags: [y-agent]
+tags: [ai-agent]
 ---
 # 我早就知道要异步协作，直到有了 awaiting 才做到
 

@@ -1,5 +1,5 @@
 ---
-tags: [y-agent]
+tags: [ai-agent]
 ---
 # From 6,081 Requests in a Quarter to 81,000 in a Month
 

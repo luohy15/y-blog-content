@@ -1,7 +1,7 @@
 ---
 created: 2025-07-07
 updated: 2025-08-06
-tags: [ai-coding]
+tags: [ai-agent]
 ---
 
 # Cline vs Claude Code：技术对比

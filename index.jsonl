@@ -1,17 +1,17 @@
-{"title": "I Knew I Should Work Asynchronously. I Only Managed It After awaiting", "create_time": "2026-09-13", "update_time": "2026-09-13", "url": "https://cdn.luohy15.com/blog/async-collaboration-awaiting.md", "tags": ["y-agent"]}
+{"title": "I Knew I Should Work Asynchronously. I Only Managed It After awaiting", "create_time": "2026-09-13", "update_time": "2026-09-13", "url": "https://cdn.luohy15.com/blog/async-collaboration-awaiting.md", "tags": ["ai-agent"]}
 {"title": "Boston: A Nine-Day Trip", "create_time": "2026-09-08", "update_time": "2026-09-10", "url": "https://cdn.luohy15.com/blog/boston-2026.md", "tags": ["travel"]}
-{"title": "From 6,081 Requests in a Quarter to 81,000 in a Month", "create_time": "2026-09-01", "update_time": "2026-09-01", "url": "https://cdn.luohy15.com/blog/personal-agent-cost-ledger.md", "tags": ["y-agent"]}
-{"title": "Trace + Tag: How I Find My Way Back to Old Agent Sessions", "create_time": "2026-08-30", "update_time": "2026-08-30", "url": "https://cdn.luohy15.com/blog/trace-and-tag.md", "tags": ["y-agent"]}
+{"title": "From 6,081 Requests in a Quarter to 81,000 in a Month", "create_time": "2026-09-01", "update_time": "2026-09-01", "url": "https://cdn.luohy15.com/blog/personal-agent-cost-ledger.md", "tags": ["ai-agent"]}
+{"title": "Trace + Tag: How I Find My Way Back to Old Agent Sessions", "create_time": "2026-08-30", "update_time": "2026-08-30", "url": "https://cdn.luohy15.com/blog/trace-and-tag.md", "tags": ["ai-agent"]}
 {"title": "Bay Area: A Six-Day Trip", "create_time": "2026-05-20", "update_time": "2026-05-25", "url": "https://cdn.luohy15.com/blog/bay-area-2025.md", "tags": ["travel"]}
-{"title": "y-agent: A Personal AI Agent System Built on Coding Agents", "create_time": "2026-04-10", "update_time": "2026-04-28", "url": "https://cdn.luohy15.com/blog/y-agent-introduction.md", "tags": ["y-agent"]}
-{"title": "macOS & iOS Voice Input Setup with Typeless", "create_time": "2025-11-23", "update_time": "2026-04-27", "url": "https://cdn.luohy15.com/blog/voice-input-setup.md", "tags": ["ai-coding"]}
-{"title": "My AI Coding Tools Experience Record", "create_time": "2025-07-12", "update_time": "2025-09-04", "url": "https://cdn.luohy15.com/blog/ai-coding-tools-experience.md", "tags": ["ai-coding"]}
-{"title": "Building y-router: A Bridge Between Claude Code and OpenRouter", "create_time": "2025-07-12", "update_time": "2025-07-12", "url": "https://cdn.luohy15.com/blog/building-y-router.md", "tags": ["y-agent", "ai-coding"]}
-{"title": "Cline vs Claude Code: Technical Comparison", "create_time": "2025-07-07", "update_time": "2025-07-07", "url": "https://cdn.luohy15.com/blog/compare-cline-and-claude-code.md", "tags": ["ai-coding"]}
-{"title": "Adding Prompt Caching Support to Claude Code with OpenRouter", "create_time": "2025-07-06", "update_time": "2025-07-06", "url": "https://cdn.luohy15.com/blog/claude-code-prompt-caching.md", "tags": ["ai-coding"]}
-{"title": "Why I Built y-cli: Reclaiming Data Ownership in the AI Era", "create_time": "2025-03-01", "update_time": "2025-03-01", "url": "https://cdn.luohy15.com/blog/y-cli-introduction.md", "tags": ["y-agent"]}
+{"title": "y-agent: A Personal AI Agent System Built on Coding Agents", "create_time": "2026-04-10", "update_time": "2026-04-28", "url": "https://cdn.luohy15.com/blog/y-agent-introduction.md", "tags": ["ai-agent"]}
+{"title": "macOS & iOS Voice Input Setup with Typeless", "create_time": "2025-11-23", "update_time": "2026-04-27", "url": "https://cdn.luohy15.com/blog/voice-input-setup.md", "tags": ["ai-agent"]}
+{"title": "My AI Coding Tools Experience Record", "create_time": "2025-07-12", "update_time": "2025-09-04", "url": "https://cdn.luohy15.com/blog/ai-coding-tools-experience.md", "tags": ["ai-agent"]}
+{"title": "Building y-router: A Bridge Between Claude Code and OpenRouter", "create_time": "2025-07-12", "update_time": "2025-07-12", "url": "https://cdn.luohy15.com/blog/building-y-router.md", "tags": ["ai-agent"]}
+{"title": "Cline vs Claude Code: Technical Comparison", "create_time": "2025-07-07", "update_time": "2025-07-07", "url": "https://cdn.luohy15.com/blog/compare-cline-and-claude-code.md", "tags": ["ai-agent"]}
+{"title": "Adding Prompt Caching Support to Claude Code with OpenRouter", "create_time": "2025-07-06", "update_time": "2025-07-06", "url": "https://cdn.luohy15.com/blog/claude-code-prompt-caching.md", "tags": ["ai-agent"]}
+{"title": "Why I Built y-cli: Reclaiming Data Ownership in the AI Era", "create_time": "2025-03-01", "update_time": "2025-03-01", "url": "https://cdn.luohy15.com/blog/y-cli-introduction.md", "tags": ["ai-agent"]}
 {"title": "Common Math Problems in Programming", "create_time": "2025-01-24", "update_time": "2025-01-24", "url": "https://cdn.luohy15.com/blog/math.md"}
-{"title": "Fixing Cline's OpenRouter 403 Provider Error with Cloudflare AI Gateway", "create_time": "2025-01-22", "update_time": "2025-01-24", "url": "https://cdn.luohy15.com/blog/cline-openrouter-fix.md", "tags": ["ai-coding"]}
+{"title": "Fixing Cline's OpenRouter 403 Provider Error with Cloudflare AI Gateway", "create_time": "2025-01-22", "update_time": "2025-01-24", "url": "https://cdn.luohy15.com/blog/cline-openrouter-fix.md", "tags": ["ai-agent"]}
 {"title": "Introduction to Reactive Programming", "create_time": "2021-02-21", "update_time": "2025-01-22", "url": "https://cdn.luohy15.com/blog/reactive-programming-intro.md"}
 {"title": "Learning Go Notes", "create_time": "2020-07-27", "update_time": "2020-07-27", "url": "https://cdn.luohy15.com/blog/learn-go.md"}
 {"title": "ES6 Syntax Sharing", "create_time": "2020-07-27", "update_time": "2020-07-27", "url": "https://cdn.luohy15.com/blog/es6-slide.md"}

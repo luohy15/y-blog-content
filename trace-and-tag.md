@@ -1,5 +1,5 @@
 ---
-tags: [y-agent]
+tags: [ai-agent]
 ---
 # Trace + Tag: How I Find My Way Back to Old Agent Sessions
 

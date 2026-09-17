@@ -1,5 +1,5 @@
 ---
-tags: [y-agent]
+tags: [ai-agent]
 ---
 # I Knew I Should Work Asynchronously. I Only Managed It After awaiting
 

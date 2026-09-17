@@ -1,5 +1,5 @@
 ---
-tags: [y-agent]
+tags: [ai-agent]
 ---
 # y-agent: A Personal AI Agent System Built on Coding Agents
 

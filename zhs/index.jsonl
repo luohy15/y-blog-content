@@ -1,17 +1,17 @@
-{"title": "我早就知道要异步协作，直到有了 awaiting 才做到", "create_time": "2026-09-13", "update_time": "2026-09-13", "url": "https://cdn.luohy15.com/blog/zhs/async-collaboration-awaiting.md", "tags": ["y-agent"]}
+{"title": "我早就知道要异步协作，直到有了 awaiting 才做到", "create_time": "2026-09-13", "update_time": "2026-09-13", "url": "https://cdn.luohy15.com/blog/zhs/async-collaboration-awaiting.md", "tags": ["ai-agent"]}
 {"title": "波士顿九日游记", "create_time": "2026-09-08", "update_time": "2026-09-10", "url": "https://cdn.luohy15.com/blog/zhs/boston-2026.md", "tags": ["travel"]}
-{"title": "从三个月 6,081 次到单月 8 万：一份个人 agent 成本账", "create_time": "2026-09-01", "update_time": "2026-09-01", "url": "https://cdn.luohy15.com/blog/zhs/personal-agent-cost-ledger.md", "tags": ["y-agent"]}
-{"title": "Trace + Tag：我怎么找回之前的 agent session", "create_time": "2026-08-30", "update_time": "2026-08-30", "url": "https://cdn.luohy15.com/blog/zhs/trace-and-tag.md", "tags": ["y-agent"]}
+{"title": "从三个月 6,081 次到单月 8 万：一份个人 agent 成本账", "create_time": "2026-09-01", "update_time": "2026-09-01", "url": "https://cdn.luohy15.com/blog/zhs/personal-agent-cost-ledger.md", "tags": ["ai-agent"]}
+{"title": "Trace + Tag：我怎么找回之前的 agent session", "create_time": "2026-08-30", "update_time": "2026-08-30", "url": "https://cdn.luohy15.com/blog/zhs/trace-and-tag.md", "tags": ["ai-agent"]}
 {"title": "湾区六日游记", "create_time": "2026-05-20", "update_time": "2026-09-10", "url": "https://cdn.luohy15.com/blog/zhs/bay-area-2025.md", "tags": ["travel"]}
-{"title": "y-agent：基于 coding agent 的个人 AI Agent 系统", "create_time": "2026-04-10", "update_time": "2026-04-28", "url": "https://cdn.luohy15.com/blog/zhs/y-agent-introduction.md", "tags": ["y-agent"]}
-{"title": "macOS & iOS 语音输入配置：Typeless", "create_time": "2025-11-23", "update_time": "2026-04-27", "url": "https://cdn.luohy15.com/blog/zhs/voice-input-setup.md", "tags": ["ai-coding"]}
-{"title": "我的 AI 编程工具使用记录", "create_time": "2025-07-12", "update_time": "2025-09-04", "url": "https://cdn.luohy15.com/blog/zhs/ai-coding-tools-experience.md", "tags": ["ai-coding"]}
-{"title": "构建 y-router：连接 Claude Code 和 OpenRouter", "create_time": "2025-07-12", "update_time": "2025-07-12", "url": "https://cdn.luohy15.com/blog/zhs/building-y-router.md", "tags": ["y-agent", "ai-coding"]}
-{"title": "Cline vs Claude Code：技术对比", "create_time": "2025-07-07", "update_time": "2025-07-07", "url": "https://cdn.luohy15.com/blog/zhs/compare-cline-and-claude-code.md", "tags": ["ai-coding"]}
-{"title": "为 Claude Code 使用 OpenRouter 添加提示缓存支持", "create_time": "2025-07-06", "update_time": "2025-07-06", "url": "https://cdn.luohy15.com/blog/zhs/claude-code-prompt-caching.md", "tags": ["ai-coding"]}
-{"title": "为什么我要开发 y-cli：在 AI 时代重新掌控数据所有权", "create_time": "2025-03-01", "update_time": "2025-03-01", "url": "https://cdn.luohy15.com/blog/zhs/y-cli-introduction.md", "tags": ["y-agent"]}
+{"title": "y-agent：基于 coding agent 的个人 AI Agent 系统", "create_time": "2026-04-10", "update_time": "2026-04-28", "url": "https://cdn.luohy15.com/blog/zhs/y-agent-introduction.md", "tags": ["ai-agent"]}
+{"title": "macOS & iOS 语音输入配置：Typeless", "create_time": "2025-11-23", "update_time": "2026-04-27", "url": "https://cdn.luohy15.com/blog/zhs/voice-input-setup.md", "tags": ["ai-agent"]}
+{"title": "我的 AI 编程工具使用记录", "create_time": "2025-07-12", "update_time": "2025-09-04", "url": "https://cdn.luohy15.com/blog/zhs/ai-coding-tools-experience.md", "tags": ["ai-agent"]}
+{"title": "构建 y-router：连接 Claude Code 和 OpenRouter", "create_time": "2025-07-12", "update_time": "2025-07-12", "url": "https://cdn.luohy15.com/blog/zhs/building-y-router.md", "tags": ["ai-agent"]}
+{"title": "Cline vs Claude Code：技术对比", "create_time": "2025-07-07", "update_time": "2025-07-07", "url": "https://cdn.luohy15.com/blog/zhs/compare-cline-and-claude-code.md", "tags": ["ai-agent"]}
+{"title": "为 Claude Code 使用 OpenRouter 添加提示缓存支持", "create_time": "2025-07-06", "update_time": "2025-07-06", "url": "https://cdn.luohy15.com/blog/zhs/claude-code-prompt-caching.md", "tags": ["ai-agent"]}
+{"title": "为什么我要开发 y-cli：在 AI 时代重新掌控数据所有权", "create_time": "2025-03-01", "update_time": "2025-03-01", "url": "https://cdn.luohy15.com/blog/zhs/y-cli-introduction.md", "tags": ["ai-agent"]}
 {"title": "编程常考数学题", "create_time": "2025-01-24", "update_time": "2025-01-24", "url": "https://cdn.luohy15.com/blog/zhs/math.md"}
-{"title": "使用 Cloudflare AI Gateway 修复 Cline 的 OpenRouter 403 Provider Error 报错", "create_time": "2025-01-22", "update_time": "2025-01-24", "url": "https://cdn.luohy15.com/blog/zhs/cline-openrouter-fix.md", "tags": ["ai-coding"]}
+{"title": "使用 Cloudflare AI Gateway 修复 Cline 的 OpenRouter 403 Provider Error 报错", "create_time": "2025-01-22", "update_time": "2025-01-24", "url": "https://cdn.luohy15.com/blog/zhs/cline-openrouter-fix.md", "tags": ["ai-agent"]}
 {"title": "响应式编程入门", "create_time": "2021-02-21", "update_time": "2025-01-22", "url": "https://cdn.luohy15.com/blog/zhs/reactive-programming-intro.md"}
 {"title": "[转载] 学习 Go 笔记", "create_time": "2020-07-27", "update_time": "2020-07-27", "url": "https://cdn.luohy15.com/blog/zhs/learn-go.md"}
 {"title": "ES6 语法分享", "create_time": "2020-07-27", "update_time": "2020-07-27", "url": "https://cdn.luohy15.com/blog/zhs/es6-slide.md"}

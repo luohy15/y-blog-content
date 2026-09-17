@@ -1,7 +1,7 @@
 ---
 created: 2025-07-12
 updated: 2025-07-12
-tags: [y-agent, ai-coding]
+tags: [ai-agent]
 ---
 
 # Building y-router: A Bridge Between Claude Code and OpenRouter

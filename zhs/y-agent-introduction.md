@@ -1,5 +1,5 @@
 ---
-tags: [y-agent]
+tags: [ai-agent]
 ---
 # y-agent：基于 coding agent 的个人 AI Agent 系统
 

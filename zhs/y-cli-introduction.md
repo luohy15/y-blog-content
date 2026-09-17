@@ -1,5 +1,5 @@
 ---
-tags: [y-agent]
+tags: [ai-agent]
 ---
 # 为什么我要开发 y-cli：在 AI 时代重新掌控数据所有权
 

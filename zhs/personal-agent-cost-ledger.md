@@ -1,5 +1,5 @@
 ---
-tags: [y-agent]
+tags: [ai-agent]
 ---
 # 从三个月 6,081 次到单月 8 万：一份个人 agent 成本账
 

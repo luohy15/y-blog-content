@@ -1,5 +1,5 @@
 ---
-tags: [y-agent]
+tags: [ai-agent]
 ---
 # Why I Built y-cli: Reclaiming Data Ownership in the AI Era
 

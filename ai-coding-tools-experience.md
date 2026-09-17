@@ -1,7 +1,7 @@
 ---
 created: 2025-07-12
 updated: 2025-09-04
-tags: [ai-coding]
+tags: [ai-agent]
 ---
 
 # My AI Coding Tools Experience Record

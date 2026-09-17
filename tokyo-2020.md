@@ -1,7 +1,7 @@
 ---
 created: 2020-06-11
 updated: 2025-01-22
-tags: [2020-01-tokyo]
+tags: [travel, 2020-01-tokyo]
 ---
 
 # Tokyo Five-Day Travelogue

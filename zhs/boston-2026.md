@@ -1,7 +1,7 @@
 ---
 created: 2026-09-08
 updated: 2026-09-10
-tags: [2026-09-boston]
+tags: [travel, 2026-09-boston]
 ---
 
 # 波士顿九日游记

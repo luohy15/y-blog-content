@@ -1,14 +1,14 @@
 {"title": "我早就知道要异步协作，直到有了 awaiting 才做到", "create_time": "2026-09-13", "update_time": "2026-09-13", "url": "https://cdn.luohy15.com/blog/zhs/async-collaboration-awaiting.md"}
-{"title": "波士顿九日游记", "create_time": "2026-09-08", "update_time": "2026-09-10", "url": "https://cdn.luohy15.com/blog/zhs/boston-2026.md"}
+{"title": "波士顿九日游记", "create_time": "2026-09-08", "update_time": "2026-09-10", "url": "https://cdn.luohy15.com/blog/zhs/boston-2026.md", "tags": ["travel", "2026-09-boston"]}
 {"title": "从三个月 6,081 次到单月 8 万：一份个人 agent 成本账", "create_time": "2026-09-01", "update_time": "2026-09-01", "url": "https://cdn.luohy15.com/blog/zhs/personal-agent-cost-ledger.md"}
 {"title": "Trace + Tag：我怎么找回之前的 agent session", "create_time": "2026-08-30", "update_time": "2026-08-30", "url": "https://cdn.luohy15.com/blog/zhs/trace-and-tag.md"}
-{"title": "湾区六日游记", "create_time": "2026-05-20", "update_time": "2026-09-10", "url": "https://cdn.luohy15.com/blog/zhs/bay-area-2025.md"}
+{"title": "湾区六日游记", "create_time": "2026-05-20", "update_time": "2026-09-10", "url": "https://cdn.luohy15.com/blog/zhs/bay-area-2025.md", "tags": ["travel", "2025-06-bay-area"]}
 {"title": "y-agent：基于 coding agent 的个人 AI Agent 系统", "create_time": "2026-04-10", "update_time": "2026-04-28", "url": "https://cdn.luohy15.com/blog/zhs/y-agent-introduction.md"}
-{"title": "macOS & iOS 语音输入配置：Typeless", "create_time": "2025-11-23", "update_time": "2026-04-27", "url": "https://cdn.luohy15.com/blog/zhs/voice-input-setup.md"}
-{"title": "我的 AI 编程工具使用记录", "create_time": "2025-07-12", "update_time": "2025-09-04", "url": "https://cdn.luohy15.com/blog/zhs/ai-coding-tools-experience.md"}
-{"title": "构建 y-router：连接 Claude Code 和 OpenRouter", "create_time": "2025-07-12", "update_time": "2025-07-12", "url": "https://cdn.luohy15.com/blog/zhs/building-y-router.md"}
-{"title": "Cline vs Claude Code：技术对比", "create_time": "2025-07-07", "update_time": "2025-07-07", "url": "https://cdn.luohy15.com/blog/zhs/compare-cline-and-claude-code.md"}
-{"title": "为 Claude Code 使用 OpenRouter 添加提示缓存支持", "create_time": "2025-07-06", "update_time": "2025-07-06", "url": "https://cdn.luohy15.com/blog/zhs/claude-code-prompt-caching.md"}
+{"title": "macOS & iOS 语音输入配置：Typeless", "create_time": "2025-11-23", "update_time": "2026-04-27", "url": "https://cdn.luohy15.com/blog/zhs/voice-input-setup.md", "tags": ["knowledge/technical/workspace", "macos", "ios", "productivity", "ai"]}
+{"title": "我的 AI 编程工具使用记录", "create_time": "2025-07-12", "update_time": "2025-09-04", "url": "https://cdn.luohy15.com/blog/zhs/ai-coding-tools-experience.md", "tags": ["knowledge/technical/ai-coding", "cline", "cursor", "claude-code"]}
+{"title": "构建 y-router：连接 Claude Code 和 OpenRouter", "create_time": "2025-07-12", "update_time": "2025-07-12", "url": "https://cdn.luohy15.com/blog/zhs/building-y-router.md", "tags": ["work/personal/y", "claude-code", "open-router"]}
+{"title": "Cline vs Claude Code：技术对比", "create_time": "2025-07-07", "update_time": "2025-07-07", "url": "https://cdn.luohy15.com/blog/zhs/compare-cline-and-claude-code.md", "tags": ["knowledge/technical/ai-coding", "claude-code"]}
+{"title": "为 Claude Code 使用 OpenRouter 添加提示缓存支持", "create_time": "2025-07-06", "update_time": "2025-07-06", "url": "https://cdn.luohy15.com/blog/zhs/claude-code-prompt-caching.md", "tags": ["knowledge/technical/ai-coding", "claude-code"]}
 {"title": "为什么我要开发 y-cli：在 AI 时代重新掌控数据所有权", "create_time": "2025-03-01", "update_time": "2025-03-01", "url": "https://cdn.luohy15.com/blog/zhs/y-cli-introduction.md"}
 {"title": "编程常考数学题", "create_time": "2025-01-24", "update_time": "2025-01-24", "url": "https://cdn.luohy15.com/blog/zhs/math.md"}
 {"title": "使用 Cloudflare AI Gateway 修复 Cline 的 OpenRouter 403 Provider Error 报错", "create_time": "2025-01-22", "update_time": "2025-01-24", "url": "https://cdn.luohy15.com/blog/zhs/cline-openrouter-fix.md"}
@@ -22,5 +22,5 @@
 {"title": "博客搭建记录", "create_time": "2020-06-12", "update_time": "2023-09-26", "url": "https://cdn.luohy15.com/blog/zhs/blog-setup.md"}
 {"title": "Git 细节", "create_time": "2020-06-11", "update_time": "2020-06-12", "url": "https://cdn.luohy15.com/blog/zhs/git-detail.md"}
 {"title": "Drone CI 使用", "create_time": "2020-06-11", "update_time": "2020-07-27", "url": "https://cdn.luohy15.com/blog/zhs/drone-ci.md"}
-{"title": "东京五日游记", "create_time": "2020-06-11", "update_time": "2026-05-20", "url": "https://cdn.luohy15.com/blog/zhs/tokyo-2020.md"}
+{"title": "东京五日游记", "create_time": "2020-06-11", "update_time": "2026-05-20", "url": "https://cdn.luohy15.com/blog/zhs/tokyo-2020.md", "tags": ["travel", "2020-01-tokyo"]}
 {"title": "你好", "create_time": "2017-01-01", "update_time": "2026-01-19", "url": "https://cdn.luohy15.com/blog/zhs/about.md"}

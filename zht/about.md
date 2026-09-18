@@ -1,6 +1,6 @@
 # 你好
 
-<img src="https://cdn.luohy15.com/blog/images/avatar-3605-v9c.svg" alt="Full luohy15 avatar with signature" width="320" height="320">
+<img src="https://cdn.luohy15.com/blog/images/avatar-luohy15.svg" alt="Full luohy15 avatar with signature" width="320" height="320">
 
 ## 嗨，我是羅華一（Roy，常用 ID luohy15）
 

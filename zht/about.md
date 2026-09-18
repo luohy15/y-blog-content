@@ -1,5 +1,7 @@
 # 你好
 
+<img src="https://cdn.luohy15.com/blog/images/avatar-3605-v9c.svg" alt="Full luohy15 avatar with signature" width="320" height="320">
+
 ## 嗨，我是羅華一（Roy，常用 ID luohy15）
 
 寫程式的，喜歡折騰 AI 工具，什麼語言都想試試。

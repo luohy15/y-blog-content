@@ -1,5 +1,7 @@
 # Hello
 
+<img src="https://cdn.luohy15.com/blog/images/avatar-3605-v9c.svg" alt="Full luohy15 avatar with signature" width="320" height="320">
+
 ## Hi, I'm Roy (Huayi Luo, aka luohy15)
 
 Software engineer who likes building AI tools and tinkering with new tech across languages.

@@ -1,5 +1,7 @@
 # こんにちは
 
+<img src="https://cdn.luohy15.com/blog/images/avatar-3605-v9c.svg" alt="Full luohy15 avatar with signature" width="320" height="320">
+
 ## こんにちは、ロイです（羅華一、luohy15）
 
 AIツールを作ったり、いろんなプログラミング言語を触ったりするのが好きなソフトウェアエンジニアです。

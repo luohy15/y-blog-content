@@ -37,6 +37,10 @@ jobs:
       - name: Sync files to S3
         run: |
           aws s3 sync ./ s3://${{ env.S3_BUCKET_NAME }}/blog/ \
+            --exclude "*" \
+            --include "*.md" \
+            --include "*.jsonl" \
+            --include "*.json" \
             --exclude ".git/*" \
             --exclude ".git" \
             --exclude ".github/*" \
@@ -44,6 +48,13 @@ jobs:
             --exclude "logseq/*" \
             --exclude ".gitignore" \
             --exclude ".claude/*" \
+            --cache-control "public, max-age=0, must-revalidate" \
+            --delete
+
+          aws s3 sync ./ s3://${{ env.S3_BUCKET_NAME }}/blog/ \
+            --exclude "*" \
+            --include "images/*" \
+            --cache-control "public, max-age=3600" \
             --delete
 
       - name: Invalidate CloudFront cache

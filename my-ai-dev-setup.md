@@ -3,6 +3,8 @@ tags: [ai-agent]
 ---
 # My AI Dev Setup: One Entry Point, a Cloud Workspace
 
+![Architecture: desktop, tablet, and phone use Web or Telegram to reach one y-agent system; Claude Code runs tasks with side-connected EC2 files and RDS data; a self-hosted relay connects model access conceptually to Claude, GPT, and Grok, with provider-specific routes and terms.](https://cdn.luohy15.com/blog/images/my-ai-dev-setup.svg)
+
 I recently read ["My Agent Setup"](https://knowledge.you-find.me/articles/9c37a536-d589-4508-8f14-870f19b24735), which breaks the author's tools down into Client, Memory, Runtime, Gateway, and model sources. I liked that angle, so here's a look at my own setup through the same lens.
 
 First, the problem I want to solve: **when I have a task in mind, I don't want to open my laptop, find the project, and launch a terminal before I can start talking to an agent.** If I can explain what I need from my phone, it should be able to get started. Call me back when there's a decision to make or work to check.
@@ -24,8 +26,6 @@ My friend L jokingly called the system **waywork**, combining work and on the wa
 The name fits. It's not that a tablet can replace a computer for everything. It's that when I need to do some work away from my desk, I don't first have to get back to the laptop with the dev environment installed.
 
 ## The Setup at a Glance
-
-![Architecture: desktop, tablet, and phone use Web or Telegram to reach one y-agent system; Claude Code runs tasks with side-connected EC2 files and RDS data; a self-hosted relay connects model access conceptually to Claude, GPT, and Grok, with provider-specific routes and terms.](https://cdn.luohy15.com/blog/images/my-ai-dev-setup.svg)
 
 | What the layer handles | What I use |
 | --- | --- |

@@ -3,6 +3,8 @@ tags: [ai-agent]
 ---
 # 我的 AI 开发配置：统一入口，云端工作环境
 
+![架构图：桌面、平板和手机通过 Web 或 Telegram 接入同一个 y-agent；Claude Code 执行任务，侧边连接 EC2 文件和 RDS 数据库；自建 relay 与 Claude、GPT、Grok 模型来源是概念关联，各家接入方式和订阅限制需分别确认。](https://cdn.luohy15.com/blog/images/my-ai-dev-setup.svg)
+
 最近看到一篇[《我的 agent 配置方案》](https://knowledge.you-find.me/articles/9c37a536-d589-4508-8f14-870f19b24735)，把自己的工具按 Client、Memory、Runtime、Gateway 和模型来源拆开讲。我觉得这个视角挺好，也照着梳理一下我现在这套。
 
 先说我想解决的问题：**有个需求时，我不想先打开电脑、找到项目、启动 Terminal，再开始跟 agent 聊。** 手机上能把需求说清楚，它就应该能开始干。等轮到我做决定或验收时，再叫我。
@@ -24,8 +26,6 @@ tags: [ai-agent]
 这个名字还挺贴切。不是说平板能全面替代电脑，而是临时需要工作的时候，不用先找回那台装好了开发环境的 laptop。
 
 ## 先看配置
-
-![架构图：桌面、平板和手机通过 Web 或 Telegram 接入同一个 y-agent；Claude Code 执行任务，侧边连接 EC2 文件和 RDS 数据库；自建 relay 与 Claude、GPT、Grok 模型来源是概念关联，各家接入方式和订阅限制需分别确认。](https://cdn.luohy15.com/blog/images/my-ai-dev-setup.svg)
 
 | 这一层管什么 | 我现在用什么 |
 | --- | --- |

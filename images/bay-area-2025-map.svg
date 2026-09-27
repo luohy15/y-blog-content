@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:lang="zh-CN" width="1200" height="940" viewBox="0 0 1200 940" role="img" aria-labelledby="title desc">
+<title id="title">湾区六日</title><desc id="desc">湾区六日. 示意图 · 上北下南，不按比例 · 标地点，不描绘完整路线 · 隐去私人及未确认地点. Day 0 / 抵达；金门大桥 / 车窗被砸；报警; Day 1 / 打靶；斯坦福 / 见同学；In-N-Out; Day 2 / Cupertino → Big Sur / 一号公路；Monterey 晚餐; Day 3 / Daeho；半月湾 / 海边看日落; Day 4 / 旧金山领事馆；飞行体验 / 办好旅行证; Day 5 / Blue Bottle；回程 / 出发前的一杯咖啡. 仅标旅行日，不标日历日期。远足小图比例独立。</desc>
+<style>
+    svg { color-scheme:light dark; --paper:#fcfcfb; --ink:#0b0b0b; --muted:#52514e; --line:#e1e0d9; --water:#e6eff5; --park:#e9eddf; --accent:#2a78d6; --land:#f5f4ef; }
+    @media (prefers-color-scheme:dark) { svg { --paper:#1a1a19; --ink:#ffffff; --muted:#c3c2b7; --line:#383835; --water:#24323e; --park:#30382b; --accent:#3987e5; --land:#222220; } }
+    text { font-family:'DejaVu Sans','Noto Sans CJK SC',sans-serif; fill:var(--ink); }
+    .muted { fill:var(--muted); } .small { font-size:16px; } .label { font-size:20px; font-weight:600; }
+    .day { font-size:17px; font-weight:600; } .pin { fill:var(--accent); stroke:var(--paper); stroke-width:3; }
+    .leader { fill:none; stroke:var(--muted); stroke-width:1.2; } .rule { stroke:var(--line); stroke-width:1; }
+</style>
+<rect width="1200" height="940" rx="20" fill="var(--paper)"/>
+<text x="42" y="47" class="small muted">TRAVEL NOTES / BAY AREA</text>
+<text x="42" y="105" class="" font-size="44">湾区六日</text>
+<text x="42" y="140" class="muted" font-size="20">朋友、校园与太平洋海岸</text>
+<text x="945" y="64" class="day">Day 0 → Day 5</text>
+<text x="945" y="94" class="small muted">仅标旅行日</text>
+<path d="M42 165H1158" class="rule"/>
+<rect x="30" y="188" width="780" height="480" rx="16" fill="var(--land)"/>
+<path d="M30 188H257L267 254 299 303 304 358 337 407 354 470 399 533 426 592 482 668H30Z" fill="var(--water)"/>
+<path d="M329 188H660L638 259 603 310 625 351 650 404 664 460 637 498 605 480 560 429 514 393 469 362 428 314 402 261Z" fill="var(--water)"/>
+<path d="M257 251L400 244" stroke="var(--line)" stroke-width="7"/>
+<text x="80" y="453" class="small muted">太平洋</text>
+<text x="499" y="284" class="small muted">旧金山湾</text>
+<g><title>Day 0: 金门大桥. </title><path d="M313 249H278V221" class="leader"/><circle cx="323" cy="249" r="7" class="pin"/><text x="66" y="214" class="day">Day 0</text><text x="66" y="240" class="label">金门大桥</text></g>
+<g><title>Day 4: 旧金山 · 中国领事馆. </title><path d="M335 308H351V334" class="leader"/><circle cx="325" cy="308" r="7" class="pin"/><text x="364" y="327" class="day">Day 4</text><text x="364" y="353" class="label">旧金山 · 中国领事馆</text></g>
+<g><title>Day 1: 斯坦福. </title><path d="M522 480H530V440" class="leader"/><circle cx="512" cy="480" r="7" class="pin"/><text x="540" y="434" class="day">Day 1</text><text x="540" y="460" class="label">斯坦福</text></g>
+<g><title>Day 3: 半月湾. </title><path d="M361 467H294V537" class="leader"/><circle cx="371" cy="467" r="7" class="pin"/><text x="65" y="532" class="day">Day 3</text><text x="65" y="558" class="label">半月湾</text></g>
+<g><title>Day 2: Cupertino. 海岸行程起点</title><path d="M590 570H604V582" class="leader"/><circle cx="580" cy="570" r="7" class="pin"/><text x="592" y="596" class="day">Day 2</text><text x="592" y="622" class="label">Cupertino</text><text x="592" y="646" class="small muted">海岸行程起点</text></g>
+<rect x="30" y="690" width="780" height="177" rx="16" fill="var(--land)" stroke="var(--line)"/>
+<path d="M300 690H397Q390 735 454 756L491 867H300Z" fill="var(--water)"/>
+<text x="52" y="723" class="day">Day 2 · 一号公路</text>
+<text x="52" y="750" class="small muted">海岸独立小图</text>
+<text x="52" y="777" class="small muted">比例不同</text>
+<g><title>Day 2: Monterey. 晚餐</title><circle cx="449" cy="728" r="7" class="pin"/><text x="480" y="722" class="day">Day 2</text><text x="480" y="748" class="label">Monterey</text><text x="480" y="772" class="small muted">晚餐</text></g>
+<g><title>Day 2: Big Sur. 沿海风景</title><circle cx="481" cy="815" r="7" class="pin"/><text x="516" y="806" class="day">Day 2</text><text x="516" y="832" class="label">Big Sur</text><text x="516" y="856" class="small muted">沿海风景</text></g>
+<path d="M776 222V197M770 204L776 195 782 204" fill="none" stroke="var(--muted)" stroke-width="1.5"/>
+<text x="770" y="245" class="small muted">N</text>
+<path d="M835 195V863" class="rule"/>
+<text x="858" y="222" class="" font-size="22">每天去了哪里</text>
+<text x="858" y="267" class="day">Day 0</text>
+<text x="858" y="295" class="" font-size="16">抵达；金门大桥</text>
+<text x="858" y="319" class="small muted">车窗被砸；报警</text>
+<text x="858" y="358" class="day">Day 1</text>
+<text x="858" y="386" class="" font-size="16">打靶；斯坦福</text>
+<text x="858" y="410" class="small muted">见同学；In-N-Out</text>
+<text x="858" y="449" class="day">Day 2</text>
+<text x="858" y="477" class="" font-size="16">Cupertino → Big Sur</text>
+<text x="858" y="501" class="small muted">一号公路；Monterey 晚餐</text>
+<text x="858" y="540" class="day">Day 3</text>
+<text x="858" y="568" class="" font-size="16">Daeho；半月湾</text>
+<text x="858" y="592" class="small muted">海边看日落</text>
+<text x="858" y="631" class="day">Day 4</text>
+<text x="858" y="659" class="" font-size="16">旧金山领事馆；飞行体验</text>
+<text x="858" y="683" class="small muted">办好旅行证</text>
+<text x="858" y="722" class="day">Day 5</text>
+<text x="858" y="750" class="" font-size="16">Blue Bottle；回程</text>
+<text x="858" y="774" class="small muted">出发前的一杯咖啡</text>
+<text x="858" y="839" class="muted" font-size="14">未确认场所不落点。</text>
+<text x="42" y="908" class="muted" font-size="15">示意图 · 上北下南，不按比例 · 标地点，不描绘完整路线 · 隐去私人及未确认地点</text>
+</svg>

@@ -1,10 +1,12 @@
 ---
 created: 2026-05-20
-updated: 2026-09-10
+updated: 2026-09-27
 tags: [travel]
 ---
 
 # 湾区六日游记
+
+![湾区 Day 0–5 行程示意图，含一号公路海岸小图](https://cdn.luohy15.com/blog/images/bay-area-2025-map.svg)
 
 这是我第一次去美国，时间是 2025 年 6 月初
 

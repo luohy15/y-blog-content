@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:lang="en" width="1200" height="940" viewBox="0 0 1200 940" role="img" aria-labelledby="title desc">
+<title id="title">Five Days in Tokyo</title><desc id="desc">Five Days in Tokyo. Schematic · North up, not to scale · Places, not full routes · Private and unconfirmed venues omitted. Day 0 / Haneda → Roppongi / Arrive and settle in; Day 1 / Asakusa; Ueno; Roppongi / Temple, park, night view; Day 2 / Enoshima → Kamakura / Drama locations; seaside sunset; Day 3 / Yoyogi → Harajuku / Omotesando; Shibuya; Day 4 / Tokyo Station → Haneda / Souvenirs; fly home. Trip days only, not calendar dates. Excursion inset uses a different scale.</desc>
+<style>
+    svg { color-scheme:light dark; --paper:#fcfcfb; --ink:#0b0b0b; --muted:#52514e; --line:#e1e0d9; --water:#e6eff5; --park:#e9eddf; --accent:#2a78d6; --land:#f5f4ef; }
+    @media (prefers-color-scheme:dark) { svg { --paper:#1a1a19; --ink:#ffffff; --muted:#c3c2b7; --line:#383835; --water:#24323e; --park:#30382b; --accent:#3987e5; --land:#222220; } }
+    text { font-family:'DejaVu Sans','Noto Sans CJK SC',sans-serif; fill:var(--ink); }
+    .muted { fill:var(--muted); } .small { font-size:16px; } .label { font-size:20px; font-weight:600; }
+    .day { font-size:17px; font-weight:600; } .pin { fill:var(--accent); stroke:var(--paper); stroke-width:3; }
+    .leader { fill:none; stroke:var(--muted); stroke-width:1.2; } .rule { stroke:var(--line); stroke-width:1; }
+</style>
+<rect width="1200" height="940" rx="20" fill="var(--paper)"/>
+<text x="42" y="47" class="small muted">TRAVEL NOTES / TOKYO</text>
+<text x="42" y="105" class="" font-size="44">Five Days in Tokyo</text>
+<text x="42" y="140" class="muted" font-size="20">City walks, drama locations, and a day by the sea</text>
+<text x="945" y="64" class="day">Day 0 → Day 4</text>
+<text x="945" y="94" class="small muted">Trip days only</text>
+<path d="M42 165H1158" class="rule"/>
+<rect x="30" y="188" width="780" height="480" rx="16" fill="var(--land)"/>
+<path d="M590 188C553 251 565 305 577 356S586 424 623 473L641 464C603 415 609 384 596 354S579 253 610 188Z" fill="var(--water)"/>
+<path d="M624 462L687 444 719 472 810 457V668H500L517 617 550 584 549 535 585 515Z" fill="var(--water)"/>
+<path d="M153 350L206 348 218 375 184 405 144 385Z" fill="var(--park)"/>
+<text x="666" y="580" class="small muted">Tokyo Bay</text>
+<g><title>Day 1: Ueno · Ameyoko. </title><path d="M480 266H469V251" class="leader"/><circle cx="490" cy="266" r="7" class="pin"/><text x="336" y="219" class="day">Day 1</text><text x="336" y="245" class="label">Ueno · Ameyoko</text></g>
+<g><title>Day 1: Asakusa. Senso-ji</title><path d="M580 252H603V229" class="leader"/><circle cx="570" cy="252" r="7" class="pin"/><text x="615" y="219" class="day">Day 1</text><text x="615" y="245" class="label">Asakusa</text><text x="615" y="269" class="small muted">Senso-ji</text></g>
+<g><title>Day 3: Yoyogi Park. </title><path d="M170 369H146V346" class="leader"/><circle cx="180" cy="369" r="7" class="pin"/><text x="60" y="310" class="day">Day 3</text><text x="60" y="336" class="label">Yoyogi Park</text></g>
+<g><title>Day 3: Harajuku → Omotesando. </title><path d="M243 399H257V351" class="leader"/><circle cx="233" cy="399" r="7" class="pin"/><text x="266" y="345" class="day">Day 3</text><text x="266" y="371" class="label">Harajuku → Omotesando</text></g>
+<g><title>Day 3: Shibuya. </title><path d="M183 467H150V485" class="leader"/><circle cx="193" cy="467" r="7" class="pin"/><text x="64" y="511" class="day">Day 3</text><text x="64" y="537" class="label">Shibuya</text></g>
+<g><title>Day 0 / 1 / 3: Roppongi. Area stay; views; dinner</title><path d="M360 460V475" class="leader"/><circle cx="360" cy="450" r="7" class="pin"/><text x="285" y="498" class="day">Day 0 / 1 / 3</text><text x="285" y="524" class="label">Roppongi</text><text x="285" y="548" class="small muted">Area stay; views; dinner</text></g>
+<g><title>Day 4: Tokyo Station. </title><path d="M501 398H521" class="leader"/><circle cx="491" cy="398" r="7" class="pin"/><text x="530" y="391" class="day">Day 4</text><text x="530" y="417" class="label">Tokyo Station</text></g>
+<g><title>Day 0 / 4: Haneda Airport. </title><path d="M497 617H469" class="leader"/><circle cx="507" cy="617" r="7" class="pin"/><text x="270" y="600" class="day">Day 0 / 4</text><text x="270" y="626" class="label">Haneda Airport</text></g>
+<rect x="30" y="690" width="780" height="177" rx="16" fill="var(--land)" stroke="var(--line)"/>
+<text x="52" y="721" class="day">Day 2 · Enoshima / Kamakura</text>
+<text x="52" y="746" class="small muted">Separate inset · different scale</text>
+<path d="M30 820Q191 790 346 812T606 811L810 790V867H30Z" fill="var(--water)"/>
+<ellipse cx="181" cy="838" rx="24" ry="13" fill="var(--land)"/>
+<g><title>Day 2: Enoshima. </title><path d="M181 828V813" class="leader"/><circle cx="181" cy="838" r="7" class="pin"/><text x="65" y="778" class="day">Day 2</text><text x="65" y="804" class="label">Enoshima</text></g>
+<g><title>Day 2: Gokurakuji. </title><path d="M430 782V781" class="leader"/><circle cx="430" cy="792" r="7" class="pin"/><text x="357" y="747" class="day">Day 2</text><text x="357" y="773" class="label">Gokurakuji</text></g>
+<g><title>Day 2: Yuigahama. </title><circle cx="523" cy="811" r="7" class="pin"/><text x="488" y="834" class="day">Day 2</text><text x="488" y="860" class="label">Yuigahama</text></g>
+<g><title>Day 2: Kamakura. Komachi dinner</title><circle cx="690" cy="760" r="7" class="pin"/><text x="626" y="717" class="day">Day 2</text><text x="626" y="743" class="label">Kamakura</text><text x="626" y="767" class="small muted">Komachi dinner</text></g>
+<path d="M776 222V197M770 204L776 195 782 204" fill="none" stroke="var(--muted)" stroke-width="1.5"/>
+<text x="770" y="245" class="small muted">N</text>
+<path d="M835 195V863" class="rule"/>
+<text x="858" y="222" class="" font-size="22">The trip, day by day</text>
+<text x="858" y="267" class="day">Day 0</text>
+<text x="858" y="295" class="" font-size="16">Haneda → Roppongi</text>
+<text x="858" y="319" class="small muted">Arrive and settle in</text>
+<text x="858" y="374" class="day">Day 1</text>
+<text x="858" y="402" class="" font-size="16">Asakusa; Ueno; Roppongi</text>
+<text x="858" y="426" class="small muted">Temple, park, night view</text>
+<text x="858" y="481" class="day">Day 2</text>
+<text x="858" y="509" class="" font-size="16">Enoshima → Kamakura</text>
+<text x="858" y="533" class="small muted">Drama locations; seaside sunset</text>
+<text x="858" y="588" class="day">Day 3</text>
+<text x="858" y="616" class="" font-size="16">Yoyogi → Harajuku</text>
+<text x="858" y="640" class="small muted">Omotesando; Shibuya</text>
+<text x="858" y="695" class="day">Day 4</text>
+<text x="858" y="723" class="" font-size="16">Tokyo Station → Haneda</text>
+<text x="858" y="747" class="small muted">Souvenirs; fly home</text>
+<text x="858" y="839" class="muted" font-size="14">Unspecified venues stay unmapped.</text>
+<text x="42" y="908" class="muted" font-size="15">Schematic · North up, not to scale · Places, not full routes · Private and unconfirmed venues omitted</text>
+</svg>

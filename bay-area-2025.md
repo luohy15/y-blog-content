@@ -1,10 +1,12 @@
 ---
 created: 2026-05-20
-updated: 2026-05-25
+updated: 2026-09-27
 tags: [travel]
 ---
 
 # Bay Area: A Six-Day Trip
+
+![Bay Area Day 0–5 schematic trip map with a Highway 1 coastal inset](https://cdn.luohy15.com/blog/images/bay-area-2025-map-en.svg)
 
 This was my first trip to the US, in early June 2025.
 

@@ -1,10 +1,12 @@
 ---
 created: 2020-06-11
-updated: 2026-05-20
+updated: 2026-09-27
 tags: [travel]
 ---
 
 # 东京五日游记
+
+![东京 Day 0–4 行程示意图，含江之岛与镰仓小图](https://cdn.luohy15.com/blog/images/tokyo-2020-map.svg)
 
 作为小镇做题家，我直到大学毕业也没有出过国
 

@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:lang="en" width="1200" height="940" viewBox="0 0 1200 940" role="img" aria-labelledby="title desc">
+<title id="title">Six Days in the Bay Area</title><desc id="desc">Six Days in the Bay Area. Schematic · North up, not to scale · Places, not full routes · Private and unconfirmed venues omitted. Day 0 / Arrive; Golden Gate Bridge / Car break-in; police report; Day 1 / Shooting range; Stanford / Meet a friend; In-N-Out; Day 2 / Cupertino → Big Sur / Highway 1; Monterey dinner; Day 3 / Daeho; Half Moon Bay / Sunset on the coast; Day 4 / SF consulate; flying experience / Travel document issued; Day 5 / Blue Bottle; fly home / Coffee before departure. Trip days only, not calendar dates. Excursion inset uses a different scale.</desc>
+<style>
+    svg { color-scheme:light dark; --paper:#fcfcfb; --ink:#0b0b0b; --muted:#52514e; --line:#e1e0d9; --water:#e6eff5; --park:#e9eddf; --accent:#2a78d6; --land:#f5f4ef; }
+    @media (prefers-color-scheme:dark) { svg { --paper:#1a1a19; --ink:#ffffff; --muted:#c3c2b7; --line:#383835; --water:#24323e; --park:#30382b; --accent:#3987e5; --land:#222220; } }
+    text { font-family:'DejaVu Sans','Noto Sans CJK SC',sans-serif; fill:var(--ink); }
+    .muted { fill:var(--muted); } .small { font-size:16px; } .label { font-size:20px; font-weight:600; }
+    .day { font-size:17px; font-weight:600; } .pin { fill:var(--accent); stroke:var(--paper); stroke-width:3; }
+    .leader { fill:none; stroke:var(--muted); stroke-width:1.2; } .rule { stroke:var(--line); stroke-width:1; }
+</style>
+<rect width="1200" height="940" rx="20" fill="var(--paper)"/>
+<text x="42" y="47" class="small muted">TRAVEL NOTES / BAY AREA</text>
+<text x="42" y="105" class="" font-size="44">Six Days in the Bay Area</text>
+<text x="42" y="140" class="muted" font-size="20">Friends, campuses, and the Pacific coast</text>
+<text x="945" y="64" class="day">Day 0 → Day 5</text>
+<text x="945" y="94" class="small muted">Trip days only</text>
+<path d="M42 165H1158" class="rule"/>
+<rect x="30" y="188" width="780" height="480" rx="16" fill="var(--land)"/>
+<path d="M30 188H257L267 254 299 303 304 358 337 407 354 470 399 533 426 592 482 668H30Z" fill="var(--water)"/>
+<path d="M329 188H660L638 259 603 310 625 351 650 404 664 460 637 498 605 480 560 429 514 393 469 362 428 314 402 261Z" fill="var(--water)"/>
+<path d="M257 251L400 244" stroke="var(--line)" stroke-width="7"/>
+<text x="80" y="453" class="small muted">PACIFIC</text>
+<text x="499" y="284" class="small muted">San Francisco Bay</text>
+<g><title>Day 0: Golden Gate Bridge. </title><path d="M313 249H278V221" class="leader"/><circle cx="323" cy="249" r="7" class="pin"/><text x="66" y="214" class="day">Day 0</text><text x="66" y="240" class="label">Golden Gate Bridge</text></g>
+<g><title>Day 4: SF · Chinese consulate. </title><path d="M335 308H351V334" class="leader"/><circle cx="325" cy="308" r="7" class="pin"/><text x="364" y="327" class="day">Day 4</text><text x="364" y="353" class="label">SF · Chinese consulate</text></g>
+<g><title>Day 1: Stanford. </title><path d="M522 480H530V440" class="leader"/><circle cx="512" cy="480" r="7" class="pin"/><text x="540" y="434" class="day">Day 1</text><text x="540" y="460" class="label">Stanford</text></g>
+<g><title>Day 3: Half Moon Bay. </title><path d="M361 467H294V537" class="leader"/><circle cx="371" cy="467" r="7" class="pin"/><text x="65" y="532" class="day">Day 3</text><text x="65" y="558" class="label">Half Moon Bay</text></g>
+<g><title>Day 2: Cupertino. Coastal trip starts here</title><path d="M590 570H604V582" class="leader"/><circle cx="580" cy="570" r="7" class="pin"/><text x="592" y="596" class="day">Day 2</text><text x="592" y="622" class="label">Cupertino</text><text x="592" y="646" class="small muted">Coastal trip starts here</text></g>
+<rect x="30" y="690" width="780" height="177" rx="16" fill="var(--land)" stroke="var(--line)"/>
+<path d="M300 690H397Q390 735 454 756L491 867H300Z" fill="var(--water)"/>
+<text x="52" y="723" class="day">Day 2 · Highway 1</text>
+<text x="52" y="750" class="small muted">Separate coastal inset</text>
+<text x="52" y="777" class="small muted">Different scale</text>
+<g><title>Day 2: Monterey. Dinner stop</title><circle cx="449" cy="728" r="7" class="pin"/><text x="480" y="722" class="day">Day 2</text><text x="480" y="748" class="label">Monterey</text><text x="480" y="772" class="small muted">Dinner stop</text></g>
+<g><title>Day 2: Big Sur. Coastal scenery</title><circle cx="481" cy="815" r="7" class="pin"/><text x="516" y="806" class="day">Day 2</text><text x="516" y="832" class="label">Big Sur</text><text x="516" y="856" class="small muted">Coastal scenery</text></g>
+<path d="M776 222V197M770 204L776 195 782 204" fill="none" stroke="var(--muted)" stroke-width="1.5"/>
+<text x="770" y="245" class="small muted">N</text>
+<path d="M835 195V863" class="rule"/>
+<text x="858" y="222" class="" font-size="22">The trip, day by day</text>
+<text x="858" y="267" class="day">Day 0</text>
+<text x="858" y="295" class="" font-size="16">Arrive; Golden Gate Bridge</text>
+<text x="858" y="319" class="small muted">Car break-in; police report</text>
+<text x="858" y="358" class="day">Day 1</text>
+<text x="858" y="386" class="" font-size="16">Shooting range; Stanford</text>
+<text x="858" y="410" class="small muted">Meet a friend; In-N-Out</text>
+<text x="858" y="449" class="day">Day 2</text>
+<text x="858" y="477" class="" font-size="16">Cupertino → Big Sur</text>
+<text x="858" y="501" class="small muted">Highway 1; Monterey dinner</text>
+<text x="858" y="540" class="day">Day 3</text>
+<text x="858" y="568" class="" font-size="16">Daeho; Half Moon Bay</text>
+<text x="858" y="592" class="small muted">Sunset on the coast</text>
+<text x="858" y="631" class="day">Day 4</text>
+<text x="858" y="659" class="" font-size="16">SF consulate; flying experience</text>
+<text x="858" y="683" class="small muted">Travel document issued</text>
+<text x="858" y="722" class="day">Day 5</text>
+<text x="858" y="750" class="" font-size="16">Blue Bottle; fly home</text>
+<text x="858" y="774" class="small muted">Coffee before departure</text>
+<text x="858" y="839" class="muted" font-size="14">Unspecified venues stay unmapped.</text>
+<text x="42" y="908" class="muted" font-size="15">Schematic · North up, not to scale · Places, not full routes · Private and unconfirmed venues omitted</text>
+</svg>

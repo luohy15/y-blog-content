@@ -1,10 +1,12 @@
 ---
 created: 2020-06-11
-updated: 2026-04-27
+updated: 2026-09-27
 tags: [travel]
 ---
 
 # 東京五日間の旅行記
+
+![Tokyo Day 0–4 schematic trip map with an Enoshima and Kamakura inset](https://cdn.luohy15.com/blog/images/tokyo-2020-map-en.svg)
 
 田舎の進学校出身で勉強漬けだった私は、大学を卒業するまで一度も海外に出たことがありませんでした。
 

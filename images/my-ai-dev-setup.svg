@@ -14,8 +14,8 @@
   <path class="box" d="M 23 50 Q 125 47 230 51 L 232 192 Q 124 196 21 190 Z"/>
   <path class="line" opacity="0.22" d="M 26 53 L 227 48 L 235 185"/>
   <text class="name" x="127" y="88">y-agent</text>
-  <text class="label" x="127" y="132">Web / Safari</text>
-  <text class="label" x="127" y="166">Telegram</text>
+  <text class="label" x="127" y="132">Web/IM</text>
+  <text x="127" y="166" font-size="16">Safari/Telegram</text>
 
   <path class="line" d="M 245 123 Q 274 118 303 122 M 293 113 L 305 122 L 293 130"/>
   <path class="box" d="M 320 51 Q 417 47 518 50 L 520 191 Q 420 195 318 190 Z"/>

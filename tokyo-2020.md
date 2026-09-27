@@ -6,7 +6,7 @@ tags: [travel]
 
 # Tokyo Five-Day Travelogue
 
-![Tokyo Day 0–4 schematic trip map with an Enoshima and Kamakura inset](https://cdn.luohy15.com/blog/images/tokyo-2020-map-en.svg)
+![Tokyo Day 0–4 schematic trip map with an Enoshima and Kamakura inset](https://cdn.luohy15.com/blog/images/tokyo-2020-map-en.png)
 
 As a small-town student who focused on academics, I had never been abroad until I graduated from university.
 

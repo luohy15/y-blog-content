@@ -6,7 +6,7 @@ tags: [travel]
 
 # 波士顿九日游记
 
-![波士顿九日行程图：Day 0 抵达，Day 1 海港与市中心，Day 2 MIT，Day 3 瓦尔登湖与哈佛，Day 4 搬到 Back Bay，Day 5 Duck Tour，Day 6 工作与见同事，Day 7 Back Bay 散步，Day 8 返程。北朝上，不按比例。](https://cdn.luohy15.com/blog/images/boston-2026-map.svg)
+![波士顿九日行程图：Day 0 抵达，Day 1 海港与市中心，Day 2 MIT，Day 3 瓦尔登湖与哈佛，Day 4 搬到 Back Bay，Day 5 Duck Tour，Day 6 工作与见同事，Day 7 Back Bay 散步，Day 8 返程。北朝上，不按比例。](https://cdn.luohy15.com/blog/images/boston-2026-map.png)
 
 上一篇[湾区游记](https://luohy15.com/zhs/bay-area-2025)的最后一句话是「下次有机会想去东海岸看看，比如纽约和波士顿」
 

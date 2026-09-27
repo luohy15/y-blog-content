@@ -6,7 +6,7 @@ tags: [travel]
 
 # Boston: A Nine-Day Trip
 
-![Nine days in Boston: Day 0 arrival; Day 1 Seaport and downtown; Day 2 MIT; Day 3 Walden Pond and Harvard; Day 4 move to Back Bay; Day 5 Duck Tour; Day 6 work and colleagues; Day 7 Back Bay; Day 8 departure. North-up schematic, not to scale.](https://cdn.luohy15.com/blog/images/boston-2026-map-en.svg)
+![Nine days in Boston: Day 0 arrival; Day 1 Seaport and downtown; Day 2 MIT; Day 3 Walden Pond and Harvard; Day 4 move to Back Bay; Day 5 Duck Tour; Day 6 work and colleagues; Day 7 Back Bay; Day 8 departure. North-up schematic, not to scale.](https://cdn.luohy15.com/blog/images/boston-2026-map-en.png)
 
 The last line of my previous [Bay Area travel log](https://luohy15.com/bay-area-2025) was: "Hopefully next time I can explore the East Coast, places like New York and Boston."
 

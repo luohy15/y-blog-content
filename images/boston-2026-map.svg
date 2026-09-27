@@ -1,0 +1,117 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="940" viewBox="0 0 1200 940" role="img" aria-labelledby="title desc">
+  <title id="title">波士顿九日</title>
+  <desc id="desc">北朝上的波士顿行程示意图，不按比例，不表示实际交通路线。Day 0 抵达 Logan 机场；Day 1 Seaport、Boston Common、Freedom Trail 和 Quincy Market；Day 2 MIT 与 Charles River；Day 3 Concord、瓦尔登湖与 Harvard；Day 4 搬到 Back Bay；Day 5 Duck Tour、Museum of Science 旁入水及水族馆门口合影；Day 6 工作、见同事，具体地点未标；Day 7 Back Bay 与 Newbury Street；Day 8 从 Logan 机场返程。Concord 与瓦尔登湖在独立郊区插图中。图中只标行程日，不标日历日期。</desc>
+  <style>
+    svg { color-scheme: light dark; --paper:#fcfcfb; --ink:#0b0b0b; --muted:#52514e; --line:#e1e0d9; --water:#e6eff5; --park:#e9eddf; --accent:#2a78d6; --land:#f5f4ef; }
+    @media (prefers-color-scheme:dark) { svg { --paper:#1a1a19; --ink:#ffffff; --muted:#c3c2b7; --line:#383835; --water:#24323e; --park:#30382b; --accent:#3987e5; --land:#222220; } }
+    text { font-family:system-ui,-apple-system,'Segoe UI','Noto Sans CJK SC',sans-serif; fill:var(--ink); }
+    .muted { fill:var(--muted); } .small { font-size:16px; } .label { font-size:20px; font-weight:600; }
+    .date { font-size:17px; font-weight:600; } .region { font-size:17px; letter-spacing:3px; fill:var(--muted); }
+    .pin { fill:var(--accent); stroke:var(--paper); stroke-width:3; }
+    .leader { fill:none; stroke:var(--muted); stroke-width:1.2; }
+    .rule { stroke:var(--line); stroke-width:1; }
+    .label-bg { fill:var(--land); }
+  </style>
+  <rect width="1200" height="940" rx="20" fill="var(--paper)"/>
+  <text x="42" y="47" class="small muted" letter-spacing="3">TRAVEL NOTES / BOSTON</text>
+  <text x="42" y="105" font-size="44" font-weight="700">波士顿九日</text>
+  <text x="42" y="140" font-size="20" class="muted">见同事，逛校园，去湖边走一圈</text>
+  <text x="1158" y="64" text-anchor="end" font-size="22" font-weight="600">Day 0 → Day 8</text>
+  <text x="1158" y="94" text-anchor="end" class="small muted">按行程日，不标日历日期</text>
+  <path d="M42 165H1158" class="rule"/>
+
+  <!-- Simplified north-up geography; intentionally no route line or scale bar. -->
+  <rect x="30" y="188" width="780" height="501" rx="16" fill="var(--land)"/>
+  <path d="M625 188H810V689H720L700 631 727 600 688 570 706 541 658 515 674 487 632 462 627 414 589 390 570 352 576 312 607 285 614 240Z" fill="var(--water)"/>
+  <path d="M30 316C92 322 102 371 133 410S213 453 268 439 338 408 378 379 433 330 479 315 544 316 576 340L590 382C544 349 520 351 482 354S425 380 393 410 329 455 281 473 180 498 131 464 93 387 30 368Z" fill="var(--water)"/>
+  <path d="M669 240L735 213 790 242 795 315 766 354 713 333 685 298Z" fill="var(--land)"/>
+  <path d="M719 263L767 305M730 251L776 293" stroke="var(--line)" stroke-width="5"/>
+  <path d="M421 449L459 457 443 513 407 499Z" fill="var(--park)"/>
+  <path d="M151 280L182 270 198 298 166 316Z" fill="var(--park)"/>
+  <path d="M257 442L281 465M438 343L451 366M528 330L528 350" stroke="var(--paper)" stroke-width="7"/>
+  <text x="295" y="257" class="region">CAMBRIDGE</text>
+  <text x="499" y="617" class="region">BOSTON</text>
+  <text x="754" y="457" text-anchor="middle" class="small muted"><tspan x="754">Boston</tspan><tspan x="754" dy="23">Harbor</tspan></text>
+  <text x="181" y="455" transform="rotate(-8 181 455)" class="small muted">Charles River</text>
+  <path d="M774 214V190M768 197L774 188 780 197" fill="none" stroke="var(--muted)" stroke-width="1.5"/>
+  <text x="774" y="238" text-anchor="middle" class="small muted">N</text>
+
+  <g><title>Day 3：回程在 Harvard 与雕像合影</title>
+    <circle cx="173" cy="290" r="7" class="pin"/>
+    <path d="M173 280V251H79" class="leader"/>
+    <text x="66" y="218" class="date">Day 3</text><text x="66" y="244" class="label">Harvard · 哈佛</text>
+  </g>
+  <g><title>Day 2：MIT 校园、Great Dome、Infinite Corridor，之后沿 Charles River 散步</title>
+    <circle cx="292" cy="392" r="7" class="pin"/>
+    <path d="M292 382V331H253" class="leader"/>
+    <text x="224" y="301" class="date">Day 2</text><text x="224" y="327" class="label">MIT · 校园与河边</text>
+  </g>
+  <g><title>Day 5：Duck Tour 从 Museum of Science 旁的坡道进入 Charles River；标的是入水区域，不是完整游览路线</title>
+    <circle cx="517" cy="324" r="7" class="pin"/>
+    <path d="M517 314V251H473" class="leader"/>
+    <text x="450" y="218" class="date">Day 5 · Duck Tour 入水区域</text>
+    <text x="450" y="244" class="label">Museum of Science 旁</text>
+  </g>
+  <g><title>Day 0 晚上抵达，Day 8 早班机返程：Boston Logan International Airport</title>
+    <circle cx="739" cy="284" r="7" class="pin"/>
+    <path d="M739 294V368H692" class="leader"/>
+    <text x="680" y="392" class="date">Day 0 / Day 8</text>
+    <text x="680" y="418" class="label">Logan 机场</text>
+  </g>
+  <g><title>Day 1：Boston Common；也走了 Freedom Trail</title>
+    <circle cx="433" cy="480" r="7" class="pin"/>
+    <path d="M423 480H365V502" class="leader"/>
+    <text x="283" y="527" class="date">Day 1</text><text x="283" y="553" class="label">Boston Common</text>
+    <text x="283" y="578" class="small muted">也走了 Freedom Trail</text>
+  </g>
+  <g><title>Day 1：Quincy Market</title>
+    <circle cx="579" cy="410" r="7" class="pin"/>
+    <path d="M569 410H545V389" class="leader"/>
+    <rect x="384" y="352" width="153" height="51" rx="4" class="label-bg"/>
+    <text x="390" y="371" class="date">Day 1</text><text x="390" y="397" class="label">Quincy Market</text>
+  </g>
+  <g><title>Day 5：在 New England Aquarium 门口合影，不表示入馆参观</title>
+    <circle cx="617" cy="438" r="7" class="pin"/>
+    <path d="M607 438H528V466" class="leader"/>
+    <rect x="487" y="473" width="158" height="51" rx="4" class="label-bg"/>
+    <text x="493" y="492" class="date">Day 5</text><text x="493" y="518" class="label">水族馆门口合影</text>
+  </g>
+  <g><title>Day 1：Seaport 吃乌冬、Harborwalk 散步；Day 3 再次吃乌冬</title>
+    <circle cx="660" cy="583" r="7" class="pin"/>
+    <path d="M660 593V619" class="leader"/>
+    <text x="610" y="647" class="date">Day 1 / Day 3</text><text x="610" y="673" class="label">Seaport · 海港区</text>
+  </g>
+  <g><title>Day 4 搬到 Back Bay，Day 7 在这一带散步、买纪念品。标记为街区，不是酒店地址。</title>
+    <circle cx="234" cy="558" r="7" class="pin"/>
+    <path d="M234 568V608H98" class="leader"/>
+    <text x="64" y="637" class="date">Day 4 搬来 / Day 7 散步</text>
+    <text x="64" y="664" class="label">Back Bay · Newbury St.</text>
+  </g>
+
+  <!-- The excursion is an inset, not squeezed into the city map. -->
+  <rect x="30" y="709" width="780" height="158" rx="16" fill="var(--land)" stroke="var(--line)"/>
+  <text x="52" y="741" class="date">Day 3 · 西北郊一日</text>
+  <text x="52" y="768" class="small muted">独立插图，不与主图同比例</text>
+  <circle cx="335" cy="752" r="7" class="pin"/>
+  <text x="355" y="748" class="label">Concord</text><text x="355" y="773" class="small muted">火车下车，再步行到湖边</text>
+  <path d="M535 792C553 777 586 794 597 809S578 846 556 843 520 818 535 792Z" fill="var(--water)"/>
+  <circle cx="537" cy="812" r="7" class="pin"/>
+  <text x="389" y="827" class="label">瓦尔登湖</text>
+  <text x="620" y="811" class="label">Walden Pond</text><text x="620" y="838" class="small muted">绕湖约 1.5 小时</text>
+
+  <!-- A date ledger keeps chronology readable without inventing route geometry. -->
+  <path d="M835 195V863" class="rule"/>
+  <text x="862" y="222" font-size="22" font-weight="700">这九天，去了哪里</text>
+  <g font-size="18">
+    <text x="862" y="267" class="date">Day 0</text><text x="862" y="294" class="muted">落地波士顿 → Seaport</text>
+    <text x="862" y="339" class="date">Day 1</text><text x="862" y="366" class="muted">海港、市中心、Freedom Trail</text>
+    <text x="862" y="411" class="date">Day 2</text><text x="862" y="438" class="muted">MIT、Charles River、见朋友</text>
+    <text x="862" y="483" class="date">Day 3</text><text x="862" y="510" class="muted">Concord → 瓦尔登湖 → 哈佛</text>
+    <text x="862" y="555" class="date">Day 4</text><text x="862" y="582" class="muted">同事家吃饭，搬到 Back Bay</text>
+    <text x="862" y="627" class="date">Day 5</text><text x="862" y="654" class="muted">Duck Tour、水族馆门口合影</text>
+    <text x="862" y="699" class="date">Day 6</text><text x="862" y="726" class="muted">工作、见同事（地点未标）</text>
+    <text x="862" y="771" class="date">Day 7</text><text x="862" y="798" class="muted">工作、Back Bay 散步</text>
+    <text x="862" y="843" class="date">Day 8</text><text x="862" y="870" class="muted">早班机：BOS → SFO → PVG</text>
+  </g>
+  <text x="42" y="908" class="small muted">行程示意 · 北朝上，不按比例 · 标记为地点或街区，不代表完整路线 · 未标私人住址及未确认门店</text>
+</svg>

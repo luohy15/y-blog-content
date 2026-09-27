@@ -3,7 +3,7 @@ tags: [ai-agent]
 ---
 # 我的 AI 开发配置：统一入口，云端工作环境
 
-![架构图：桌面、平板和手机通过 Web 或 Telegram 接入同一个 y-agent；Claude Code 执行任务，侧边连接 EC2 文件和 RDS 数据库；自建 relay 与 Claude、GPT、Grok 模型来源是概念关联，各家接入方式和订阅限制需分别确认。](https://cdn.luohy15.com/blog/images/my-ai-dev-setup.svg)
+![架构图：桌面、平板和手机通过 Web 或 Telegram 接入同一个 y-agent；Claude Code 执行任务，侧边连接 EC2 文件和 RDS 数据库；自建 relay 与 Claude、GPT、Grok 模型来源是概念关联，各家接入方式和订阅限制需分别确认。](https://cdn.luohy15.com/blog/images/my-ai-dev-setup.png)
 
 最近看到一篇[《我的 agent 配置方案》](https://knowledge.you-find.me/articles/9c37a536-d589-4508-8f14-870f19b24735)，把自己的工具按 Client、Memory、Runtime、Gateway 和模型来源拆开讲。我觉得这个视角挺好，也照着梳理一下我现在这套。
 

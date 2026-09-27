@@ -3,7 +3,7 @@ tags: [ai-agent]
 ---
 # My AI Dev Setup: One Entry Point, a Cloud Workspace
 
-![Architecture: desktop, tablet, and phone use Web or Telegram to reach one y-agent system; Claude Code runs tasks with side-connected EC2 files and RDS data; a self-hosted relay connects model access conceptually to Claude, GPT, and Grok, with provider-specific routes and terms.](https://cdn.luohy15.com/blog/images/my-ai-dev-setup.svg)
+![Architecture: desktop, tablet, and phone use Web or Telegram to reach one y-agent system; Claude Code runs tasks with side-connected EC2 files and RDS data; a self-hosted relay connects model access conceptually to Claude, GPT, and Grok, with provider-specific routes and terms.](https://cdn.luohy15.com/blog/images/my-ai-dev-setup.png)
 
 I recently read ["My Agent Setup"](https://knowledge.you-find.me/articles/9c37a536-d589-4508-8f14-870f19b24735), which breaks the author's tools down into Client, Memory, Runtime, Gateway, and model sources. I liked that angle, so here's a look at my own setup through the same lens.
 

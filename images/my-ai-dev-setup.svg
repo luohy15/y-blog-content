@@ -1,85 +1,43 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="800" viewBox="0 0 1440 800" role="img" aria-labelledby="title description">
-  <title id="title">My AI dev setup: one entry point, a cloud workspace</title>
-  <desc id="description">A hand-drawn left-to-right diagram. Desktop, tablet, and phone use the same y-agent through Web/Safari or integrated Telegram conversation input. y-agent orchestrates Claude Code, which uses a self-hosted relay for model access. A dashed conceptual connection leads to Claude, GPT, and Grok subscriptions; routes and subscription compatibility must be checked separately. Persistent context branches below y-agent and Claude Code into separate EC2 files and an RDS database, not a model forwarding pipeline. Model inference is remote and context leaves the workspace.</desc>
-  <defs>
-    <style>
-      text { font-family: 'Comic Sans MS', 'Segoe Print', 'Bradley Hand', cursive, sans-serif; fill: #263238; }
-      .title { font-size: 36px; font-weight: 700; }
-      .name { font-size: 28px; font-weight: 700; }
-      .body { font-size: 22px; }
-      .note { font-size: 20px; fill: #49565c; }
-      .ink { fill: none; stroke: #49565c; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-      .card { fill: #edf4fb; stroke: #49565c; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-      .paper { fill: #fffdf7; stroke: #49565c; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-    </style>
-  </defs>
-  <rect width="1440" height="800" rx="14" fill="#fffdf7"/>
-  <text class="title" x="42" y="64">Same workspace, wherever I am.</text>
-  <path class="ink" d="M 43 78 Q 300 83 560 76"/>
-  <text class="body" x="42" y="120">Desktop · tablet · phone. One task, one set of records.</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="390" viewBox="0 0 1080 390" role="img" aria-labelledby="title description">
+  <title id="title">My AI development setup</title>
+  <desc id="description">Left to right: y-agent is the same entry point across devices, with Web/Safari and integrated Telegram input; Claude Code is the runtime; a self-hosted relay handles model access. Claude, GPT, and Grok are grouped as model sources beside the relay, without an asserted common transport. A side branch from y-agent and Claude Code connects separate files on EC2 and data on RDS. Memory is not a serial forwarding hop. Provider routes, subscription terms, and remote inference are explained in the article.</desc>
+  <style>
+    svg { color-scheme: light; --background: #ffffff; --foreground: #0a0a0a; --accent: #f5f5f5; --ink: #737373; }
+    text { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; fill: var(--foreground); text-anchor: middle; }
+    .name { font-size: 25px; font-weight: 600; }
+    .label { font-size: 20px; }
+    .box { fill: var(--accent); stroke: var(--ink); stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+    .line { fill: none; stroke: var(--ink); stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+  </style>
+  <rect width="1080" height="390" fill="#ffffff"/>
 
-  <path class="card" d="M 42 175 Q 183 171 326 177 L 329 439 Q 181 444 40 438 Z"/>
-  <path class="ink" opacity="0.28" d="M 47 178 L 324 173 L 332 434"/>
-  <text class="name" x="62" y="216">y-agent</text>
-  <text class="body" x="62" y="252">Universal entry point</text>
-  <path class="ink" d="M 62 269 Q 181 272 305 267"/>
-  <text class="body" x="62" y="304">Web / Safari UI</text>
-  <text class="body" x="62" y="339">Telegram</text>
-  <text class="note" x="62" y="367">integrated chat input</text>
-  <text class="note" x="62" y="410">Tasks + orchestration</text>
+  <path class="box" d="M 23 50 Q 125 47 230 51 L 232 192 Q 124 196 21 190 Z"/>
+  <path class="line" opacity="0.22" d="M 26 53 L 227 48 L 235 185"/>
+  <text class="name" x="127" y="88">y-agent</text>
+  <text class="label" x="127" y="132">Web / Safari</text>
+  <text class="label" x="127" y="166">Telegram</text>
 
-  <path class="ink" d="M 344 311 Q 378 306 411 310 M 400 301 L 413 310 L 400 318"/>
-  <text class="note" x="341" y="275">hand off</text>
-  <path class="card" d="M 429 177 Q 548 173 667 176 L 671 440 Q 548 443 427 437 Z"/>
-  <path class="ink" opacity="0.28" d="M 433 174 L 666 179 L 668 434"/>
-  <text class="name" x="449" y="216">Claude Code</text>
-  <text class="body" x="449" y="252">Runtime</text>
-  <text class="body" x="449" y="308">Read code</text>
-  <text class="body" x="449" y="346">Edit files</text>
-  <text class="body" x="449" y="384">Run commands</text>
+  <path class="line" d="M 245 123 Q 274 118 303 122 M 293 113 L 305 122 L 293 130"/>
+  <path class="box" d="M 320 51 Q 417 47 518 50 L 520 191 Q 420 195 318 190 Z"/>
+  <path class="line" opacity="0.22" d="M 323 48 L 517 54 L 522 187"/>
+  <text class="name" x="419" y="119">Claude Code</text>
 
-  <path class="ink" d="M 686 310 Q 727 315 769 308 M 757 300 L 771 308 L 759 317"/>
-  <text class="note" x="689" y="251">model</text>
-  <text class="note" x="689" y="277">access</text>
-  <path class="card" d="M 789 176 Q 909 172 1033 177 L 1031 439 Q 910 444 787 437 Z"/>
-  <path class="ink" opacity="0.28" d="M 793 172 L 1029 180 L 1035 433"/>
-  <text class="name" x="808" y="216">Relay</text>
-  <text class="note" x="808" y="252">Self-hosted gateway</text>
-  <text class="body" x="808" y="308">Own fork of</text>
-  <text class="note" x="808" y="346">claude-relay-service</text>
-  <text class="note" x="808" y="408">Request forwarding</text>
+  <path class="line" d="M 534 122 Q 562 127 590 121 M 580 113 L 593 121 L 581 130"/>
+  <path class="box" d="M 609 50 Q 699 47 788 52 L 790 191 Q 701 195 607 189 Z"/>
+  <path class="line" opacity="0.22" d="M 613 48 L 785 54 L 792 185"/>
+  <text class="name" x="699" y="106">Relay</text>
+  <text class="label" x="699" y="143">Self-hosted</text>
 
-  <path class="ink" stroke-dasharray="7 8" d="M 1049 311 Q 1083 306 1120 311"/>
-  <text class="note" x="1045" y="251">see</text>
-  <text class="note" x="1045" y="277">note *</text>
-  <path class="card" d="M 1139 177 Q 1267 172 1399 176 L 1396 438 Q 1267 443 1137 440 Z"/>
-  <path class="ink" opacity="0.28" d="M 1143 173 L 1395 180 L 1400 432"/>
-  <text class="name" x="1159" y="216">Model sources</text>
-  <text class="body" x="1159" y="252">Subscriptions</text>
-  <text class="name" x="1159" y="308">Claude</text>
-  <text class="name" x="1159" y="354">GPT</text>
-  <text class="name" x="1159" y="400">Grok</text>
+  <path class="line" stroke-dasharray="5 7" d="M 844 53 Q 948 49 1057 53 L 1055 191 Q 948 195 842 190 Z"/>
+  <text class="name" x="950" y="89">Claude</text>
+  <text class="name" x="950" y="126">GPT</text>
+  <text class="name" x="950" y="163">Grok</text>
 
-  <path class="ink" d="M 182 448 Q 178 472 183 494 Q 365 491 549 495 Q 552 473 549 448"/>
-  <path class="ink" d="M 367 495 Q 364 531 368 563 M 359 505 L 367 495 L 374 505 M 359 551 L 368 563 L 375 551"/>
-  <text class="note" x="386" y="534">read / write context</text>
-
-  <path class="paper" d="M 43 578 Q 180 574 323 579 L 326 708 Q 180 713 41 707 Z"/>
-  <text class="name" x="63" y="617">Files on EC2</text>
-  <text class="note" x="63" y="654">Code · plans · notes</text>
-  <text class="note" x="63" y="686">Project conventions</text>
-  <path class="paper" d="M 370 579 Q 518 575 668 578 L 670 709 Q 517 713 368 706 Z"/>
-  <text class="name" x="390" y="617">Database on RDS</text>
-  <text class="note" x="390" y="654">Tasks · chats · links</text>
-  <text class="note" x="390" y="686">Structured state</text>
-  <path class="ink" d="M 368 563 Q 278 566 182 565 L 182 575 M 368 563 Q 445 567 519 565 L 519 575"/>
-  <text class="note" x="43" y="749">Separate stores, not a model-request pipeline.</text>
-
-  <text class="body" x="788" y="521">* A conceptual link, not a transport map.</text>
-  <text class="note" x="788" y="559">Check each provider's routes, tool support,</text>
-  <text class="note" x="788" y="589">and subscription terms separately.</text>
-  <text class="note" x="788" y="633">No shared route or interchangeable API implied.</text>
-  <path class="ink" d="M 789 664 Q 1065 669 1352 663"/>
-  <text class="body" x="788" y="705">My records stay here. Inference is remote.</text>
-  <text class="note" x="788" y="742">Context sent to models leaves the workspace.</text>
+  <path class="line" d="M 127 204 Q 125 236 129 251 Q 273 248 419 252 Q 422 231 419 204"/>
+  <path class="line" d="M 274 252 Q 272 272 275 290 M 268 260 L 274 252 L 281 260 M 268 282 L 275 290 L 282 282"/>
+  <path class="line" d="M 275 290 Q 198 293 126 291 L 126 304 M 275 290 Q 347 293 419 290 L 419 304"/>
+  <path class="box" d="M 22 310 Q 126 307 231 312 L 230 367 Q 126 371 20 365 Z"/>
+  <text class="label" x="126" y="346">Files · EC2</text>
+  <path class="box" d="M 319 311 Q 419 308 520 310 L 518 367 Q 420 371 317 365 Z"/>
+  <text class="label" x="419" y="346">Data · RDS</text>
 </svg>

@@ -34,11 +34,33 @@ jobs:
             [ -n "$value" ] && echo "::add-mask::$value"
           done
 
+      - name: Generate Markdown navigation and redirect manifest
+        run: node .github/scripts/generate-nav.mjs
+
       - name: Sync files to S3
         run: |
+          mapfile -t stubs < <(jq -r '.[].key' "$RUNNER_TEMP/redirect-stubs.json")
+          exclusions=()
+          for key in "${stubs[@]}"; do
+            exclusions+=(--exclude "$key")
+          done
+
           aws s3 sync ./ s3://${{ env.S3_BUCKET_NAME }}/blog/ \
             --exclude "*" \
             --include "*.md" \
+            --exclude ".git/*" \
+            --exclude ".git" \
+            --exclude ".github/*" \
+            --exclude ".obsidian/*" \
+            --exclude "logseq/*" \
+            --exclude ".claude/*" \
+            "${exclusions[@]}" \
+            --content-type "text/markdown; charset=utf-8" \
+            --cache-control "public, max-age=0, must-revalidate" \
+            --delete
+
+          aws s3 sync ./ s3://${{ env.S3_BUCKET_NAME }}/blog/ \
+            --exclude "*" \
             --include "*.jsonl" \
             --include "*.json" \
             --exclude ".git/*" \
@@ -46,10 +68,27 @@ jobs:
             --exclude ".github/*" \
             --exclude ".obsidian/*" \
             --exclude "logseq/*" \
-            --exclude ".gitignore" \
             --exclude ".claude/*" \
             --cache-control "public, max-age=0, must-revalidate" \
             --delete
+
+          aws s3 sync ./ s3://${{ env.S3_BUCKET_NAME }}/blog/ \
+            --exclude "*" \
+            --include "llms.txt" \
+            --content-type "text/plain; charset=utf-8" \
+            --cache-control "public, max-age=0, must-revalidate" \
+            --delete
+
+          # The .md sync deletes dropped redirect keys; active stubs are excluded above.
+          while IFS=$'\t' read -r key location; do
+            aws s3api put-object \
+              --bucket "${{ env.S3_BUCKET_NAME }}" \
+              --key "blog/$key" \
+              --body /dev/null \
+              --website-redirect-location "$location" \
+              --content-type "text/markdown; charset=utf-8" \
+              --cache-control "public, max-age=0, must-revalidate"
+          done < <(jq -r '.[] | [.key, .location] | @tsv' "$RUNNER_TEMP/redirect-stubs.json")
 
           aws s3 sync ./ s3://${{ env.S3_BUCKET_NAME }}/blog/ \
             --exclude "*" \

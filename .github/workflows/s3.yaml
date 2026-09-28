@@ -80,11 +80,12 @@ jobs:
             --delete
 
           # The .md sync deletes dropped redirect keys; active stubs are excluded above.
+          : > "$RUNNER_TEMP/redirect-empty"
           while IFS=$'\t' read -r key location; do
             aws s3api put-object \
               --bucket "${{ env.S3_BUCKET_NAME }}" \
               --key "blog/$key" \
-              --body /dev/null \
+              --body "$RUNNER_TEMP/redirect-empty" \
               --website-redirect-location "$location" \
               --content-type "text/markdown; charset=utf-8" \
               --cache-control "public, max-age=0, must-revalidate"

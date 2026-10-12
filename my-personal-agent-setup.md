@@ -1,15 +1,17 @@
 ---
 tags: [ai-agent]
 ---
-# My AI Dev Setup: One Entry Point, a Cloud Workspace
+# My Personal Agent Setup: One Entry Point, Everything Connected
 
-![Architecture: desktop, tablet, and phone use Web or Telegram to reach one y-agent system; Claude Code runs tasks with side-connected EC2 files and RDS data; a self-hosted relay connects model access conceptually to Claude, GPT, and Grok, with provider-specific routes and terms.](https://cdn.luohy15.com/blog/images/my-ai-dev-setup.png)
+![Architecture: desktop, tablet, and phone use Web or Telegram to reach one y-agent system; Claude Code runs tasks with side-connected EC2 files and RDS data; a self-hosted relay connects model access conceptually to Claude, GPT, and Grok, with provider-specific routes and terms.](https://cdn.luohy15.com/blog/images/my-ai-dev-setup.svg)
 
 I recently read ["My Agent Setup"](https://knowledge.you-find.me/articles/9c37a536-d589-4508-8f14-870f19b24735), which breaks the author's tools down into Client, Memory, Runtime, Gateway, and model sources. I liked that angle, so here's a look at my own setup through the same lens.
 
 First, the problem I want to solve: **when I have a task in mind, I don't want to open my laptop, find the project, and launch a terminal before I can start talking to an agent.** If I can explain what I need from my phone, it should be able to get started. Call me back when there's a decision to make or work to check.
 
 So I keep the workspace on EC2 and use y-agent as one entry point, whether I'm on desktop or mobile. Telegram plugs into it as a better chat input interface. Code, notes, and task records stay in my own system, rather than belonging to a particular chat window.
+
+I call it a personal agent rather than a dev setup because the tasks aren't only code. The same system holds my todos, notes, calendar, and finance records, and the same entry point handles things like preparing for a trip or thinking through a decision. Development is still where I use it most, so most of the examples below are about code. The structure is the same either way.
 
 ## Trying It in Boston: Could I Work with Just a Tablet?
 
@@ -18,6 +20,8 @@ On my [trip to Boston](https://luohy15.com/2026/09/08/boston-2026), I left the l
 > Partly as an experiment, to see whether a tablet alone is enough to get work done.
 
 The answer was yes. This setup actually supported my work during the trip, not just sending a message from my phone and checking progress.
+
+The trip prep went through the same system too. The packing list was a note there, checked against the itinerary before I left.
 
 Of course, it wasn't as efficient as working on a laptop or a large screen. But the difference was mainly in the display and interaction on my end. Nothing changed about how the agent did its work. It still read code, edited files, and ran commands in the same cloud environment. Switching to an iPad didn't take any tools away from it.
 
@@ -30,7 +34,7 @@ The name fits. It's not that a tablet can replace a computer for everything. It'
 | What the layer handles | What I use |
 | --- | --- |
 | Sending requests and reading results | y-agent as one entry point on desktop and mobile, with Telegram integrated as a chat input interface |
-| Storing project context and task state | Files on EC2 + a database on RDS |
+| Storing context, personal records, and task state | Files on EC2 + a database on RDS |
 | Reading code, editing files, running commands | Claude Code |
 | Connecting to models | A self-hosted relay service, maintained as my own fork |
 | Model sources | Claude / GPT / Grok subscriptions |
@@ -55,7 +59,7 @@ Remote chat alone isn't the point. If I just move a terminal onto my phone, I'm 
 
 When a new session takes over, the hard part isn't getting it to write code. It's getting it to understand what's already been decided.
 
-My approach is fairly plain. Code, project conventions, plans, and review conclusions go in files. Task state, chat records, and the links between them go in the database. The files live on EC2; the database runs on RDS.
+My approach is fairly plain. Code, project conventions, plans, review conclusions, and personal notes go in files. Task state, chat records, and the links between them go in the database. The files live on EC2; the database runs on RDS.
 
 Files are good for keeping the full story. Why a design was chosen, which alternatives were rejected, where to pick up next: a note is easier to find than fragments scattered across dozens of chat turns.
 
@@ -65,6 +69,8 @@ If a different session takes over halfway through a task, it reads the todo firs
 
 So by memory, I don't mean "put every chat back into the prompt." **Saving something and finding it when you need it are two different things.** I use task IDs to connect records from the same piece of work, then tags to find related topics. I covered this in [an earlier post](https://luohy15.com/trace-and-tag).
 
+The same goes for personal data. Something starts as a record: a note, a todo, a calendar event. It gets linked to the task it belongs to, and found again when a later task needs it. When a way of handling something keeps repeating, I first describe it in prose, and once it settles I codify it into a skill or a CLI command. The development steps in this post are skills like that, and so is the checklist I use for thinking through a decision.
+
 ## Execution: Claude Code Does the Work, Orchestration Lives Outside
 
 Claude Code is what actually reads code, edits files, and runs commands. I haven't written another coding agent execution loop myself.
@@ -73,7 +79,7 @@ But deciding how to split a task, which session to assign it to, and how to hand
 
 For something simple, one session can finish the job. A more involved development task usually goes through planning, implementation, and review. Each step can use a fresh session that reads the material attached to the same task, rather than squeezing every stage into an ever-longer conversation.
 
-These sessions aren't a fixed set of "employees" sitting around, either. Each loads the skill it needs for the work at hand, and splits off more work if the task calls for it. A skill holds the instructions for how that step should be done.
+These sessions aren't a fixed set of "employees" sitting around, either. Each loads the skill it needs for the work at hand, and splits off more work if the task calls for it. A skill holds the instructions for how that step should be done: how to plan a code change, say, or how to walk through a personal decision with a checklist.
 
 One practical reason I keep orchestration outside is that **I want to manage the sub-task chat records too.** I can see their inputs and outputs, and step in to correct course when needed, instead of only getting the main session's account of what happened.
 
@@ -120,6 +126,6 @@ Keeping my own task records also means being responsible for backups, permission
 
 If I only wanted AI to help change a few lines of code now and then, an off-the-shelf tool would be much simpler. I'm willing to maintain this setup because I don't just want a better chat box. I want it to fit into how I handle things every day.
 
-Looking back at the table, the models are the part most likely to change. Project context, task records, and the way work gets handed over are the parts worth keeping.
+Looking back at the table, the models are the part most likely to change. Project context, personal records, task records, and the way work gets handed over are the parts worth keeping.
 
 **That's the working habit I want to preserve: hand over a task whenever I need to, have somewhere to check what happened, and come back when it's my turn.**

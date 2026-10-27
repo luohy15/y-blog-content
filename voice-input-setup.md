@@ -1,6 +1,6 @@
 ---
 created: 2025-11-23
-updated: 2026-04-27
+updated: 2026-10-27
 tags: [ai-agent]
 ---
 
@@ -34,7 +34,8 @@ Voice-to-text setup using Typeless (or alternatively Spokenly with ElevenLabs tr
 - **External microphone** - Only needed for macOS clamshell mode (closed lid)
 - macOS privacy feature disables built-in mic when lid is closed
 - Built-in microphone works fine if using Mac with lid open or on iOS devices
-- Wired earphones work great - tiny mic you can position anywhere on desk
+- **DJI Mic Mini** - My current main mic. It's wireless: the transmitter clips on, the receiver plugs into the Mac. No need to lean toward a fixed spot, and my hands stay on the keyboard.
+- Wired earphones still work great - tiny mic you can position anywhere on desk, handy when you're out or just need a quick line
 
 ## Workflow
 
@@ -42,22 +43,3 @@ Voice-to-text setup using Typeless (or alternatively Spokenly with ElevenLabs tr
 2. Works in any text input field - for me, most commonly used in Claude Code input area
 3. Local storage: Original audio files and transcribed text with timestamps saved locally
    - Fun to write scripts analyzing your own voice patterns and word usage
-
-### Use Cases by Frequency
-
-**1. Most frequent - Default setup**
-- Wired earphones mic positioned at comfortable spot on desktop
-- Tiny, convenient, always ready
-- Primary workflow
-
-**2. Second - Night time**
-- Hold microphone with hand
-- Allows speaking quietly while keeping clarity
-- When need to minimize noise
-
-**3. Least frequent - Hand fatigue backup**
-- Use bottle or other objects as mic stand
-- Only when hands uncomfortable from holding
-- Should rarely occur
-
-![Voice input setup](https://cdn.luohy15.com/voice-input-setup.png)

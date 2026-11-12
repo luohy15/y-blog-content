@@ -1,5 +1,5 @@
 ---
-tags: [ai-agent]
+tags: [personal-application]
 ---
 # Personal Application 01: Todo, Chat, and Note, the Foundation
 

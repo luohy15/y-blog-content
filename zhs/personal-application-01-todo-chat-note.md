@@ -1,5 +1,5 @@
 ---
-tags: [ai-agent]
+tags: [personal-application]
 ---
 # Personal Application 01：Todo、Chat、Note，基础三件套
 

@@ -3,13 +3,13 @@ tags: [ai-agent]
 ---
 # My Personal Agent Setup: One Entry Point, Everything Connected
 
-![Architecture: desktop, tablet, and phone use Web or Telegram to reach one y-agent system; Claude Code runs tasks with side-connected EC2 files and RDS data; a self-hosted relay connects model access conceptually to Claude, GPT, and Grok, with provider-specific routes and terms.](https://cdn.luohy15.com/blog/images/my-ai-dev-setup.svg)
+![Architecture: desktop, tablet, and phone use Web or Telegram to reach one y-agent system; an agent CLI (Claude Code, Codex, or Pi) runs the task on the selected execution node, with files on that node and task records on RDS; a self-hosted relay connects model access conceptually to Claude, GPT, and Grok, with provider-specific routes and terms.](https://cdn.luohy15.com/blog/images/my-ai-dev-setup.svg)
 
 I recently read ["My Agent Setup"](https://knowledge.you-find.me/articles/9c37a536-d589-4508-8f14-870f19b24735), which breaks the author's tools down into Client, Memory, Runtime, Gateway, and model sources. I liked that angle, so here's a look at my own setup through the same lens.
 
 First, the problem I want to solve: **when I have a task in mind, I don't want to open my laptop, find the project, and launch a terminal before I can start talking to an agent.** If I can explain what I need from my phone, it should be able to get started. Call me back when there's a decision to make or work to check.
 
-So I keep the workspace on EC2 and use y-agent as one entry point, whether I'm on desktop or mobile. Telegram plugs into it as a better chat input interface. Code, notes, and task records stay in my own system, rather than belonging to a particular chat window.
+So I keep the default workspace on EC2 and use y-agent as one entry point, whether I'm on desktop or mobile. Telegram plugs into it as a better chat input interface. Code, notes, and task records stay in my own system, rather than belonging to a particular chat window.
 
 I call it a personal agent rather than a dev setup because the tasks aren't only code. The same system holds my todos, notes, calendar, and finance records, and the same entry point handles things like preparing for a trip or thinking through a decision. Development is still where I use it most, so most of the examples below are about code. The structure is the same either way.
 
@@ -34,12 +34,13 @@ The name fits. It's not that a tablet can replace a computer for everything. It'
 | What the layer handles | What I use |
 | --- | --- |
 | Sending requests and reading results | y-agent as one entry point on desktop and mobile, with Telegram integrated as a chat input interface |
-| Storing context, personal records, and task state | Files on EC2 + a database on RDS |
-| Reading code, editing files, running commands | Claude Code |
+| Storing context, personal records, and task state | Files on the execution node + a database on RDS |
+| Reading code, editing files, running commands | Claude Code, Codex, or Pi, one backend per chat |
+| Choosing the machine | An execution node: the default EC2 box, or another machine I register |
 | Connecting to models | A self-hosted relay service, maintained as my own fork |
-| Model sources | Claude / GPT / Grok subscriptions |
+| Model sources | Claude / GPT / Grok subscriptions, plus other models behind the relay |
 
-These aren't five services in a linear pipeline. Files and the database hold material that's read and written as needed during work; they aren't a stop every model request has to pass through. And the model source isn't the runtime: using Claude Code to execute a task and choosing which model to use are two separate questions.
+These aren't six services in a linear pipeline. Files and the database hold material that's read and written as needed during work; they aren't a stop every model request has to pass through. And the model source isn't the execution method: which CLI runs the task, which machine it runs on, and which model answers are three separate questions.
 
 Here's how a task moves through the setup.
 
@@ -55,11 +56,11 @@ Say I want to change a feature. I start by explaining what I want. Work that nee
 
 Remote chat alone isn't the point. If I just move a terminal onto my phone, I'm still watching it work. What I want is: **I send out a task, and what comes back is something that needs my attention.**
 
-## Memory: Files on EC2, Structured Data on RDS
+## Memory: Files on the Node, Structured Data on RDS
 
 When a new session takes over, the hard part isn't getting it to write code. It's getting it to understand what's already been decided.
 
-My approach is fairly plain. Code, project conventions, plans, review conclusions, and personal notes go in files. Task state, chat records, and the links between them go in the database. The files live on EC2; the database runs on RDS.
+My approach is fairly plain. Code, project conventions, plans, review conclusions, and personal notes go in files. Task state, chat records, and the links between them go in the database. The files live on the execution node, which is the central EC2 machine by default. The database runs on RDS, in one place.
 
 Files are good for keeping the full story. Why a design was chosen, which alternatives were rejected, where to pick up next: a note is easier to find than fragments scattered across dozens of chat turns.
 
@@ -71,9 +72,17 @@ So by memory, I don't mean "put every chat back into the prompt." **Saving somet
 
 The same goes for personal data. Something starts as a record: a note, a todo, a calendar event. It gets linked to the task it belongs to, and found again when a later task needs it. When a way of handling something keeps repeating, I first describe it in prose, and once it settles I codify it into a skill or a CLI command. The development steps in this post are skills like that, and so is the checklist I use for thinking through a decision.
 
-## Execution: Claude Code Does the Work, Orchestration Lives Outside
+## Execution: One Agent CLI per Chat, Orchestration Outside
 
-Claude Code is what actually reads code, edits files, and runs commands. I haven't written another coding agent execution loop myself.
+The agent CLI is what actually reads code, edits files, and runs commands. Claude Code is still the one I use most, and for a few months it was the only one. Codex and Pi are running again now. All three are external CLIs; I haven't written a coding agent loop myself.
+
+An execution backend is the coding CLI that owns the tool loop and its own session. The model is what answers inside it. y-agent picks a backend for a chat, and the model comes from that chat's bot configuration. I used to let "Claude Code" stand for both, which made this kind of change harder to describe.
+
+The same task structure works across all three. Dispatch, skills, todos, and the sub-chat records don't belong to a particular CLI. The backend is only the process doing the work.
+
+Each chat pins its backend when it starts. I can move the chat to another bot, but only one with a connection on the same backend. Going from a Codex chat to a bot that only has Claude Code is refused instead of quietly opening a new session. Each CLI resumes a session in its own format, and the transcript I read is y-agent's, not the CLI's. A new chat is how I change harnesses.
+
+I've run several backends before and cut them. At the end of July I removed Codex, Pi, and the rest and kept only Claude Code, because every backend was a separate integration to maintain. In November Codex came back, then Pi, on one shared contract for launch, output streaming, session resume, and mid-run steering. That contract is what changed. Adding the second and third CLI no longer means rebuilding the session lifecycle each time.
 
 But deciding how to split a task, which session to assign it to, and how to hand results over lives in y-agent.
 
@@ -85,16 +94,29 @@ One practical reason I keep orchestration outside is that **I want to manage the
 
 Splitting things up doesn't automatically make them better. If the requirements are unclear, several sessions can get them wrong together. A review doesn't replace my own acceptance check, either. Orchestration organizes the work; it doesn't decide what I actually want to build.
 
+## Where It Runs: EC2 by Default, My Mac on Request
+
+The other choice is the machine. By default a chat runs on the central EC2 box, which also dispatches work and holds the task records. I can register another machine as an execution node and start a chat on it with `y chat --on <name>`. My MacBook is one of those nodes. It runs the same chat interface, with the process and working directory local to that machine.
+
+A chat keeps the node it started on. The node holds that chat's process and files. Task state, chat records, and dispatch stay in the central system. If the machine is asleep or unreachable, the chat fails instead of moving to EC2.
+
+The point isn't speed. Some work needs to happen on a particular machine, with its local tools, files, or network. The cost is that every node needs the CLI, the login, and the workspace ready, and I have to keep it that way.
+
+The default node launches with the bot's relay credentials. A node can be configured to use its own Claude login instead. That choice belongs to the node, not to the chat.
+
 ## Model Access: A Self-Hosted Relay, Separate from the Workspace
 
-For model access, I self-host [claude-relay-service](https://github.com/luohy15/claude-relay-service) and maintain my own fork. My model subscriptions are Claude, GPT, and Grok.
+For model access, I self-host [claude-relay-service](https://github.com/luohy15/claude-relay-service) and maintain my own fork. My subscriptions are Claude, GPT, and Grok. The relay also serves other models I use, including DeepSeek, Kimi, Qwen, and GLM.
 
 I deliberately keep a few things separate:
 
 - y-agent handles how I hand over tasks and find context again.
-- Claude Code handles how a session uses tools to carry out the work.
+- Claude Code, Codex, or Pi handles how a session uses tools to carry out the work.
+- The execution node handles which machine the process and workspace sit on.
 - The relay handles model request access and forwarding.
-- Subscriptions provide model capabilities; they aren't where project state lives.
+- Subscriptions and provider accounts provide model capabilities; they aren't where project state lives.
+
+A bot configuration now carries an ordered list of connection entries. Each entry pairs a backend with a protocol endpoint and a model name, and the first entry is the default. The Kimi bot, for example, lists Claude Code first and Pi second, both pointing at the same model through the relay. The relay exposes Codex on a different protocol endpoint than Claude Code and Pi, so the endpoint travels with the backend instead of being guessed.
 
 I don't want switching models to mean switching my work interface and task records too. At the very least, where the code lives, where the plan is, and what's still unfinished shouldn't depend on which model provider I chose this time.
 
@@ -108,7 +130,7 @@ For an ordinary feature request, this is how I want things to go:
 
 1. I explain what I need through Telegram or the web and leave a trackable task.
 2. The agent reads the project and existing material, making a plan first if needed.
-3. An execution session edits code and runs checks in the working directory, then a review session examines the changes.
+3. An execution session on the chosen backend and node edits code and runs checks in the working directory, then a review session examines the changes.
 4. The plan, review conclusions, and progress are attached to the task, not left only in separate chats.
 5. When a decision, publication approval, or acceptance check needs me, the task comes back.
 
@@ -122,10 +144,12 @@ I've [written about this separately](https://luohy15.com/async-collaboration-awa
 
 This isn't something I install and forget. EC2, the database, the relay, the client, and keeping state consistent between them all become my maintenance work. When something breaks, I can't just blame the model.
 
+Each backend is another CLI to install, authenticate, and upgrade. Each node is another machine that has to be online with the right workspace. The shared contract made adding a backend cheaper; it did nothing for the machines.
+
 Keeping my own task records also means being responsible for backups, permissions, and data boundaries. Being able to switch models doesn't make the whole system free of migration costs.
 
 If I only wanted AI to help change a few lines of code now and then, an off-the-shelf tool would be much simpler. I'm willing to maintain this setup because I don't just want a better chat box. I want it to fit into how I handle things every day.
 
-Looking back at the table, the models are the part most likely to change. Project context, personal records, task records, and the way work gets handed over are the parts worth keeping.
+Looking back at the table, the models, the CLIs, and the machines are the parts most likely to change. Project context, personal records, task records, and the way work gets handed over are the parts worth keeping.
 
 **That's the working habit I want to preserve: hand over a task whenever I need to, have somewhere to check what happened, and come back when it's my turn.**

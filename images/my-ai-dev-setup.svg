@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1080" height="390" viewBox="0 0 1080 390" role="img" aria-labelledby="title description">
-  <title id="title">My AI development setup</title>
-  <desc id="description">Left to right: y-agent is the same entry point across devices, with Web/Safari and integrated Telegram input; Claude Code is the runtime; a self-hosted relay handles model access. Claude, GPT, and Grok are grouped as model sources beside the relay, without an asserted common transport. A side branch from y-agent and Claude Code connects separate files on EC2 and data on RDS. Memory is not a serial forwarding hop. Provider routes, subscription terms, and remote inference are explained in the article.</desc>
+  <title id="title">My personal agent setup</title>
+  <desc id="description">Left to right: y-agent is the same entry point across devices, with Web/Safari and integrated Telegram input; an agent CLI (Claude Code, Codex, or Pi) runs the chat on the selected execution node; a self-hosted relay handles model access. Claude, GPT, and Grok are grouped as model sources beside the relay, without an asserted common transport. A branch from y-agent connects data on RDS; a branch from the agent CLI connects files on the execution node. Memory is not a serial forwarding hop. Provider routes, subscription terms, remote inference, and per-chat backend pinning are explained in the article.</desc>
   <style>
     svg { color-scheme: light; --background: #ffffff; --foreground: #0a0a0a; --accent: #f5f5f5; --ink: #737373; }
     text { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; fill: var(--foreground); text-anchor: middle; }
@@ -20,7 +20,10 @@
   <path class="line" d="M 245 123 Q 274 118 303 122 M 293 113 L 305 122 L 293 130"/>
   <path class="box" d="M 320 51 Q 417 47 518 50 L 520 191 Q 420 195 318 190 Z"/>
   <path class="line" opacity="0.22" d="M 323 48 L 517 54 L 522 187"/>
-  <text class="name" x="419" y="119">Claude Code</text>
+  <text class="name" x="419" y="86">Agent CLI</text>
+  <text x="419" y="116" font-size="18">Claude Code</text>
+  <text x="419" y="144" font-size="18">Codex</text>
+  <text x="419" y="172" font-size="18">Pi</text>
 
   <path class="line" d="M 534 122 Q 562 127 590 121 M 580 113 L 593 121 L 581 130"/>
   <path class="box" d="M 609 50 Q 699 47 788 52 L 790 191 Q 701 195 607 189 Z"/>
@@ -33,11 +36,10 @@
   <text class="name" x="950" y="126">GPT</text>
   <text class="name" x="950" y="163">Grok</text>
 
-  <path class="line" d="M 127 204 Q 125 236 129 251 Q 273 248 419 252 Q 422 231 419 204"/>
-  <path class="line" d="M 274 252 Q 272 272 275 290 M 268 260 L 274 252 L 281 260 M 268 282 L 275 290 L 282 282"/>
-  <path class="line" d="M 275 290 Q 198 293 126 291 L 126 304 M 275 290 Q 347 293 419 290 L 419 304"/>
+  <path class="line" d="M 127 204 Q 126 240 127 272 L 127 300 M 120 292 L 127 300 L 134 292"/>
+  <path class="line" d="M 419 204 Q 420 240 419 272 L 419 300 M 412 292 L 419 300 L 426 292"/>
   <path class="box" d="M 22 310 Q 126 307 231 312 L 230 367 Q 126 371 20 365 Z"/>
-  <text class="label" x="126" y="346">Files · EC2</text>
+  <text class="label" x="126" y="346">Data · RDS</text>
   <path class="box" d="M 319 311 Q 419 308 520 310 L 518 367 Q 420 371 317 365 Z"/>
-  <text class="label" x="419" y="346">Data · RDS</text>
+  <text class="label" x="419" y="346">Files · node</text>
 </svg>
